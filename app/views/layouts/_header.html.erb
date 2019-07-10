@@ -1,0 +1,36 @@
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-sm-1">
+        <div>
+          <%= link_to "BOOKSTORE", '#', id: "logo" %>
+        </div>
+      </div>
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Về trang chủ <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User đã đăng nhập
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Thông tin</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Sách đang bán</a>
+            </div>
+          </li>
+        </ul>
+        <div>
+          <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên sách" aria-label="Search" >
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+        </div>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+  </div>
+</nav>
