@@ -1,0 +1,13 @@
+<% @books.each do |book| %>
+  <div class="col-md-6">
+    <div class="col-md-12 custom-book-col">
+      <div class="col-sm-3"><img src="" alt="Img" class="custom-book-cover"></div>
+      <div class="col-sm-9">
+        <div class="row"><b class="custom-highlight-name"><%= book.name %></b></div>
+        <div class="row"><p>Tác giả: </p></div>
+        <div class="row"><p>Số lượng: <%= book.quantity %></p></div>
+        <div class="row"><p>Giá bán: <%= book.price %> VND</p></div>
+      </div>
+    </div>
+  </div>
+<% end %>
