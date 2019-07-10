@@ -1,8 +1,7 @@
-99.times do |n|
-  name  = Faker::Name.name
-  price = 50
-  quantity = 50
-  Book.create!(name:  name,
-               price: price,
-               quantity: quantity)
+99.times do
+  Book.create!(
+    name: Faker::Name.name,
+    price: Random.rand(1..99),
+    quantity: Random.rand(1..99)
+  )
 end
