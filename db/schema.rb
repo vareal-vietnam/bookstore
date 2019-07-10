@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2019_07_09_091418) do
     t.string "name"
     t.text "description"
     t.text "comment"
-    t.integer "price"
-    t.integer "quantity"
+    t.integer "price", default: 0
+    t.integer "quantity", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

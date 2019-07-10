@@ -4,8 +4,8 @@ class CreateBooks < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.text :comment
-      t.integer :price
-      t.integer :quantity
+      t.integer :price, default: 0
+      t.integer :quantity, default: 0
 
       t.timestamps
     end
