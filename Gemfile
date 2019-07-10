@@ -4,6 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+
+gem 'kaminari'
+gem 'ransack'
+gem 'bootstrap-kaminari-views'
+
+gem 'faker',          '1.7.3'
+
 gem 'rails', '~> 5.2.3'
 
 gem 'bootstrap-sass', '~> 3.4.1'
