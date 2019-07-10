@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'homepage#new'
-  resources :books
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+  root to: 'books#index'
+  resources :books, concerns: :paginatable
 end

@@ -1,0 +1,14 @@
+vi:
+  hello: "Hello world"
+  views:
+    pagination:
+      first: "« Trang đầu"
+      last: "Trang cuối »"
+      previous: "‹ Trang trước"
+      next: "Trang sau ›"
+      truncate: ". . ."
+  books:
+    index:
+      seller_name: "Người bán: "
+      quantity: "Số lượng: %{quantity}"
+      price: "Giá bán: %{price}"
