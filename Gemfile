@@ -7,7 +7,6 @@ ruby '2.6.3'
 
 gem 'kaminari'
 gem 'ransack'
-gem 'bootstrap-kaminari-views'
 
 gem 'faker',          '1.7.3'
 
