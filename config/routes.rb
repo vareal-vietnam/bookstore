@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   post '/login', to: 'session#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  root to: 'homepage#new'
   post '/signup',  to: 'users#create'
 
-  resources :books
   resources :users
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+  root to: 'books#index'
+  resources :books, concerns: :paginatable
 end

@@ -1,0 +1,14 @@
+language: ruby
+cache: bundler
+services:
+  - mysql
+
+before_install:
+  - cp config/database.yml.sample config/database.yml
+  - mysql -e 'CREATE DATABASE bookstore_test;'
+  - gem update --system
+  - gem install bundler
+script:
+  - bundle exec rails db:migrate RAILS_ENV=test
+  - bundle exec rspec
+  - bundle exec rubocop
