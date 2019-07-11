@@ -12,3 +12,7 @@ vi:
       seller_name: "Người bán: "
       quantity: "Số lượng: %{quantity}"
       price: "Giá bán: %{price}"
+    show:
+      seller_name: "Người bán: "
+      quantity: "Số lượng: %{quantity}"
+      price: "Giá bán: %{price}"

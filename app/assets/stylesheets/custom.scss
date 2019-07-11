@@ -23,6 +23,7 @@ small {
 }
 
 a {
+  color: #000000;
   font-size: 1.1em;
   line-height: 1.7em;
 }
@@ -59,10 +60,16 @@ footer {
 }
 
 .custom-book-cover {
-  width:99px;
-  height:132px;
-  margin-top: 13px;
-  margin-left: -10px;
+  width:120px;
+  height:160px;
+  margin-top: 5px;
+  margin-left: -20px;
+}
+
+.custom-book-image {
+  width:450px;
+  height:600px;
+  margin-bottom: 30px;
 }
 
 .custom-book-col {
@@ -78,4 +85,9 @@ footer {
 
 .custom-body-html {
   margin-top: 75px;
+}
+
+.custom-navigation-button {
+  height: 395px;
+  width: 5%;
 }
