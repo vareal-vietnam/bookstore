@@ -77,3 +77,26 @@ footer {
   font-size: 1.5em;
   line-height: 2.5em;
 }
+
+
+
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 20px;
+
+}
+
+input {
+  height: auto !important;
+}
+
+.avatar{
+  width:90px;
+  height:90px;
+  margin-top: 13px;
+  margin-left: -10px;
+}
