@@ -67,8 +67,8 @@ footer {
 }
 
 .custom-book-image {
-  width:450px;
-  height:600px;
+  width:600px;
+  height:800px;
   margin-bottom: 30px;
 }
 
@@ -90,4 +90,28 @@ footer {
 .custom-navigation-button {
   height: 395px;
   width: 5%;
+}
+
+.custom-horizontal-border {
+  border-top: 1px solid #B0C4DE;
+  border-bottom: 1px solid #B0C4DE;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.custom-left-border {
+  border-left: 1px solid #B0C4DE;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-left: 30px;
+}
+
+.custom-text-big-size {
+  font-size: 165%;
+  line-height: 255%;
+}
+
+.custom-user-avatar {
+  width:250px;
+  margin-bottom: 10px;
 }
