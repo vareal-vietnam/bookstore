@@ -16,3 +16,4 @@ vi:
       seller_name: "Người bán: "
       quantity: "Số lượng: %{quantity}"
       price: "Giá bán: %{price}"
+  not_found: "Không thể hiển thị trang yêu cầu"
