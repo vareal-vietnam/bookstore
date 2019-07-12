@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find_by(id: book_path.match(/\d+\z/).to_s.to_i)
-    @book_image = Image.where(book_id: @book.id)
+    @book = Book.find_by(id: params[:id])
+    @book_images = @book.images
   end
 end

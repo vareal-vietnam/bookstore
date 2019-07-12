@@ -2,7 +2,7 @@
   <div class="col-sm-3">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <% @book_image.each_with_index do |book_image, index| %>
+        <% @book_images.each_with_index do |book_image, index| %>
           <div class="item <%= "active" if index == 0 %> ">
             <img src="<%= book_image.url %>" class="custom-book-image">
           </div>
