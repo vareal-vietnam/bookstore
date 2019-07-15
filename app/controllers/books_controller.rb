@@ -5,11 +5,9 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by(id: params[:id])
-    if @book
-      @book_images = @book.images
-    else
-      flash[:danger] = t('not_found')
-      redirect_to books_url
-    end
+    return if @book.present?
+
+    flash[:danger] = t('not_found')
+    redirect_to books_url
   end
 end
