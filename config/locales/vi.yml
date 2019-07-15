@@ -40,6 +40,11 @@ vi:
               taken: "Số điện thoại đã được sử dụng"
             name:
               blank: "Bạn chưa nhập tên"
+            password:
+              blank: "Bạn chưa nhập mật khẩu"
+              too_short: "Mật khẩu chưa đủ 6 kí tự"
+            address:
+              blank: "Bạn chưa nhập địa chỉ"
 
   sessions:
     new:
@@ -59,3 +64,8 @@ vi:
       password: "Nhập mật khẩu"
       password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
+
+  shared:
+    error_messages:
+      errors: "lỗi"
+      the_form_contains: "Form đăng kí có "
