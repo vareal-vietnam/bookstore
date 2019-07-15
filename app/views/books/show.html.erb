@@ -4,7 +4,7 @@
       <div class="carousel-inner">
         <% @book_images.each_with_index do |book_image, index| %>
           <div class="item <%= "active" if index == 0 %> ">
-            <img src="<%= book_image.url %>" class="custom-book-image">
+            <img src="<%= book_image&.url %>" class="book-image">
           </div>
         <% end %>
       </div>
@@ -18,18 +18,18 @@
       </a>
     </div>
   </div>
-  <div class="col-sm-5 custom-text-big-size">
+  <div class="col-sm-5 text-big-size">
     <div class="row"><b><%= @book.name %></b></div>
     <div class="row"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
     <div class="row"><p><%= t('books.price', price: @book.price) %></p></div>
   </div>
-  <div class="col-sm-3 text-center custom-text-big-size custom-left-border">
+  <div class="col-sm-3 text-center text-big-size left-border">
     <div class="row"><b><%= t('books.seller_name') %></b></div>
-    <div class="row"> <img src="https://images-na.ssl-images-amazon.com/images/I/71vntClRfjL._SX425_.jpg" class="custom-user-avatar"> </div>
+    <div class="row"> <img src="https://images-na.ssl-images-amazon.com/images/I/71vntClRfjL._SX425_.jpg" class="user-avatar"> </div>
     <div class="row"><p><%= "Thong tin cua nguoi ban neu user dang nhap" %></p></div>
   </div>
 </div>
-<div class="row custom-horizontal-border"><b class="custom-text-big-size">Noi dung chinh</b></div>
+<div class="row horizontal-border"><b class="text-big-size">Noi dung chinh</b></div>
 <div class="row container">
   <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
   <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
@@ -37,7 +37,7 @@
   <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
   <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
 </div>
-<div class="row custom-horizontal-border"><b class="custom-text-big-size">Nhan xet cua nguoi ban</b></div>
+<div class="row horizontal-border"><b class="text-big-size">Nhan xet cua nguoi ban</b></div>
 <div class="row container">
   <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
   <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
