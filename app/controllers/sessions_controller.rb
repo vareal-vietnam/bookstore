@@ -3,12 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.find_by(name: params[:session][:name])
-    if user && user.authenticate(params[:session][:password])
-      # Log the user in and redirect to the user's show page.
+    user = User.find_by(phone: params[:session][:phone])
+    if user &.authenticate(params[:session][:password])
+      log_in user
+      flash[:success] = 'Dang nhap thanh cong!'
+      redirect_to user
     else
-      # Create an error message.
-      flash[:danger] = 'Invalid name/password combination'
+      flash[:warning] = 'Ban da nhap sai So dien thoai/password'
       render 'new'
     end
   end

@@ -3,21 +3,22 @@
     <h1>Sign up</h1>
     <%= form_for(@user) do |f| %>
 
+      <%= render 'kaminari/error_messages' %>
+
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :phone %>
-      <%= f.phone_field :phone %>
+      <%= f.phone_field :phone, class: 'form-control' %>
 
       <%= f.label :address %>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, class: 'form-control' %>
 
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: 'form-control' %>
 
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation %>
-
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
