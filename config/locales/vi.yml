@@ -1,5 +1,5 @@
 vi:
-  hello: "Hello world"
+  not_found: "Không thể hiển thị trang yêu cầu"
   views:
     pagination:
       first: "« Trang đầu"
@@ -8,12 +8,6 @@ vi:
       next: "Trang sau ›"
       truncate: ". . ."
   books:
-    index:
-      seller_name: "Người bán: "
-      quantity: "Số lượng: %{quantity}"
-      price: "Giá bán: %{price}"
-    show:
-      seller_name: "Người bán: "
-      quantity: "Số lượng: %{quantity}"
-      price: "Giá bán: %{price}"
-  not_found: "Không thể hiển thị trang yêu cầu"
+    seller_name: "Người bán: "
+    quantity: "Số lượng: %{quantity}"
+    price: "Giá bán: %{price}"

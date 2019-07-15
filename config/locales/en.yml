@@ -1,5 +1,5 @@
 en:
-  hello: "Hello world"
+  not_found: "Page not found"
   views:
     pagination:
       first: "« First page"
@@ -8,7 +8,6 @@ en:
       next: "Next ›"
       truncate: ". . ."
   books:
-    index:
-      seller_name: "Seller"
-      quantity: "Quantity: %{quantity}"
-      price: "Price: %{price}"
+    seller_name: "Seller"
+    quantity: "Quantity: %{quantity}"
+    price: "Price: %{price}"

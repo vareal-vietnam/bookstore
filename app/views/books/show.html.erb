@@ -20,11 +20,11 @@
   </div>
   <div class="col-sm-5 custom-text-big-size">
     <div class="row"><b><%= @book.name %></b></div>
-    <div class="row"><p><%= t('.quantity', quantity: @book.quantity) %></p></div>
-    <div class="row"><p><%= t('.price', price: @book.price) %></p></div>
+    <div class="row"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
+    <div class="row"><p><%= t('books.price', price: @book.price) %></p></div>
   </div>
   <div class="col-sm-3 text-center custom-text-big-size custom-left-border">
-    <div class="row"><b><%= t('.seller_name') %></b></div>
+    <div class="row"><b><%= t('books.seller_name') %></b></div>
     <div class="row"> <img src="https://images-na.ssl-images-amazon.com/images/I/71vntClRfjL._SX425_.jpg" class="custom-user-avatar"> </div>
     <div class="row"><p><%= "Thong tin cua nguoi ban neu user dang nhap" %></p></div>
   </div>
