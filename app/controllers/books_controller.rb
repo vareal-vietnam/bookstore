@@ -5,7 +5,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by(id: params[:id])
-    if @book.nil
+    if @book
       @book_images = @book.images
     else
       flash[:danger] = t('not_found')
