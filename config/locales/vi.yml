@@ -19,31 +19,7 @@ vi:
           attributes:
             phone:
               invalid: "Co cai sdt nhap cung ko xong"
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
               blank: "Bạn chưa nhập số điện thoại"
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
+              taken: "Số điện thoại đã được sử dụng"
             name:
               blank: "Bạn chưa nhập tên"
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
-              taken: "Số điện thoại đã được sử dụng"
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            password:
-              blank: "Bạn chưa nhập password"

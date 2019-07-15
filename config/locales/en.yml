@@ -12,3 +12,16 @@ en:
       seller_name: "Seller"
       quantity: "Quantity: %{quantity}"
       price: "Price: %{price}"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              invalid: "Co cai sdt nhap cung ko xong"
+              blank: "Bạn chưa nhập số điện thoại"
+              taken: "Số điện thoại đã được sử dụng"
+            name:
+              blank: "Bạn chưa nhập tên"
+
+
