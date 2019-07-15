@@ -11,6 +11,9 @@ en:
     seller_name: "Seller"
     quantity: "Quantity: %{quantity}"
     price: "Price: %{price}"
+    show:
+      book_content: "Nội dung chính"
+      seller_comment: "Ý kiến của người bán"
   layouts:
     footer:
       contact: "Contact"
