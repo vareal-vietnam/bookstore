@@ -4,12 +4,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(phone: params[:session][:phone])
-    if user &.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       log_in user
-      flash[:success] = 'Dang nhap thanh cong!'
+      flash[:success] = 'Đăng nhập thành công'
       redirect_to user
     else
-      flash[:warning] = 'Ban da nhap sai So dien thoai/password'
+      flash[:warning] = 'Nhập sai Số điện thoại/password'
       render 'new'
     end
   end

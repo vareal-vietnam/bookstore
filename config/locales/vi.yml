@@ -18,7 +18,7 @@ vi:
         user:
           attributes:
             phone:
-              invalid: "Co cai sdt nhap cung ko xong"
+              invalid: "Bạn nhập sai số điện thoại"
               blank: "Bạn chưa nhập số điện thoại"
               taken: "Số điện thoại đã được sử dụng"
             name:

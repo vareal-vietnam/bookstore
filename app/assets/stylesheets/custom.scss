@@ -76,13 +76,15 @@ footer {
   line-height: 2.5em;
 }
 
-/* forms */
-
-input, textarea, select, .uneditable-input {
+.form-control{
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
 
+.align-width{
+  width: 100%;
+  margin-bottom: 15px;
 }
 
 input {

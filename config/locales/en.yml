@@ -18,10 +18,10 @@ en:
         user:
           attributes:
             phone:
-              invalid: "Co cai sdt nhap cung ko xong"
-              blank: "Bạn chưa nhập số điện thoại"
-              taken: "Số điện thoại đã được sử dụng"
+              invalid: "Phone number is invalid"
+              blank: "Phone number is blank"
+              taken: "Phone number is already used"
             name:
-              blank: "Bạn chưa nhập tên"
+              blank: "Please input name"
 
 
