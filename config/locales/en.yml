@@ -53,6 +53,9 @@ en:
             address:
               blank: "address is blank"
   sessions:
+    controllers:
+      success_login: "Suscess LogIn "
+      wrong_password: "Wrong user/password"
     new:
       sign_up_now: "Sign up now"
       phone: "Nhập số điện thoại"
@@ -62,6 +65,8 @@ en:
       sign_in_now: "Sign In "
 
   users:
+    show:
+      user_not_exist: "User is not existed"
     new:
       sign_up: "Sign Up"
       name: "Name "

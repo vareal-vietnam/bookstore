@@ -7,8 +7,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     return if @user.present?
 
-    flash[:danger] = 'Tài khoản không tồn tài. Mời bạn đăng nhập'
-    redirect_to login_url
+    flash[:danger] = t('.user_not_exist')
+    redirect_to new_user_path
   end
 
   def new

@@ -54,6 +54,10 @@ vi:
               blank: "Bạn chưa nhập địa chỉ"
 
   sessions:
+    controllers:
+      success_login: "Đăng nhập thành công"
+      wrong_password: "Nhập sai mật khẩu"
+
     new:
       sign_up_now: "Xin mời đăng kí"
       phone: "Nhập số điện thoại"
@@ -63,6 +67,8 @@ vi:
       sign_in_now: "Đăng nhập"
 
   users:
+    show:
+      user_not_exist: "Tài khoản không tồn tại"
     new:
       sign_up: "Đăng kí "
       name: "Nhập tên "
@@ -75,3 +81,8 @@ vi:
   shared:
     error_messages:
       errors_notification: "Form đăng kí có %{errors_count} lỗi"
+
+
+
+
+

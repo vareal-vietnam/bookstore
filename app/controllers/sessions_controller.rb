@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(phone: params[:session][:phone])
     if user&.authenticate(params[:session][:password])
       log_in user
-      flash[:success] = 'Đăng nhập thành công'
+      flash[:success] = t('.success_login')
       redirect_to user
     else
-      flash[:warning] = 'Nhập sai Số điện thoại/password'
+      flash[:warning] = t('.wrong_password')
       render 'new'
     end
   end
