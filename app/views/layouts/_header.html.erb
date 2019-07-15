@@ -11,15 +11,15 @@
       <div class="col-sm-6">
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item active">
-            <a class="nav-link" href="http://localhost:3000/">Về trang chủ <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href= <%= root_url %>> <%= t('.home') %> <span class="sr-only"></span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User đã đăng nhập
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=t('.logged_in_user') %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Thông tin</a>
+              <a class="dropdown-item" href="#"><%= t('.profile') %></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Sách đang bán</a>
+              <a class="dropdown-item" href="#"><%= t('.books') %></a>
             </div>
           </li>
         </ul>

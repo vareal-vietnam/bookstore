@@ -28,6 +28,11 @@ vi:
       regulations: "Quy định"
       intro: "Giới thiệu"
       blog: "Diễn đàn"
+    header:
+      home: "Về trang chủ"
+      logged_in_user: "User đã đăng nhập"
+      profile: "Thông tin"
+      books: "Sách đã bán"
 
   activerecord:
     errors:
@@ -67,5 +72,4 @@ vi:
 
   shared:
     error_messages:
-      errors: "lỗi"
-      the_form_contains: "Form đăng kí có "
+      errors_notification: "Form đăng kí có %{errors_count} lỗi"

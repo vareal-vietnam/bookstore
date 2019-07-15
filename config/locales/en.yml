@@ -28,6 +28,11 @@ en:
       regulations: "Regulations"
       intro: "Intro"
       blog: "Blog"
+    header:
+      home: "Home"
+      logged_in_user: "User Logged in"
+      profile: "Profile"
+      books: "Books"
 
   activerecord:
     errors:
@@ -66,5 +71,4 @@ en:
 
   shared:
     error_messages:
-      errors: "errors"
-      the_form_contains: "The form contains"
+      errors_notification: "Form dang ky co %{errors_count} loi"
