@@ -27,19 +27,13 @@
     <div class="row"><p><%= "Thong tin cua nguoi ban neu user dang nhap" %></p></div>
   </div>
 </div>
-<div class="row horizontal-border"><b class="text-big-size">Noi dung chinh</b></div>
+<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
 <div class="row container">
-  <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
-  <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
-  <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
-  <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
-  <p>Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung Tom tat noi dung</p>
+  <p><%= @book.description %></p>
 </div>
-<div class="row horizontal-border"><b class="text-big-size">Nhan xet cua nguoi ban</b></div>
-<div class="row container">
-  <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
-  <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
-  <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
-  <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
-  <p>Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them Nguoi ban ghi chu them</p>
-</div>
+<% if @book.comment.present? %>
+  <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
+  <div class="row container">
+    <p><%= @book.comment %></p>
+  </div>
+<% end %>
