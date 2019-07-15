@@ -40,3 +40,22 @@ vi:
               taken: "Số điện thoại đã được sử dụng"
             name:
               blank: "Bạn chưa nhập tên"
+
+  sessions:
+    new:
+      sign_up_now: "Xin mời đăng kí"
+      phone: "Nhập số điện thoại"
+      new_user: "Chưa có tài khoản?"
+      login: "Mời bạn đăng nhập"
+      password: "Nhập mật khẩu"
+      sign_in_now: "Đăng nhập"
+
+  users:
+    new:
+      sign_up: "Đăng kí "
+      name: "Nhập tên "
+      phone: "Nhập số điện thoại"
+      address: "Nhập địa chỉ"
+      password: "Nhập mật khẩu"
+      password_confirmation : "Nhập lại mật khẩu"
+      create_my_account: " Tạo tài khoản"

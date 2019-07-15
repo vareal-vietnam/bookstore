@@ -40,3 +40,21 @@ en:
               taken: "Phone number is already used"
             name:
               blank: "Please input name"
+  sessions:
+    new:
+      sign_up_now: "Sign up now"
+      phone: "Nhập số điện thoại"
+      new_user: "New user?"
+      login: "Log In "
+      password_prompt: "Password"
+      sign_in_now: "Sign In "
+
+  users:
+    new:
+      sign_up: "Sign Up"
+      name: "Name "
+      phone: "phone"
+      address: "address"
+      password: "password"
+      password_confirmation : "Password Confirmation"
+      create_my_account: "Create my account"
