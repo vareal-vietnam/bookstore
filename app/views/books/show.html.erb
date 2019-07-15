@@ -27,13 +27,13 @@
     <div class="row"><p><%= "Thong tin cua nguoi ban neu user dang nhap" %></p></div>
   </div>
 </div>
-<div class="row horizontal-border"><b class="text-big-size"> <%= t('.book_content') %> </b></div>
+<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
 <div class="row container">
-  <p> <%= @book.description %>
+  <p><%= @book.description %></p>
 </div>
-<% if @book.comment %>
-  <div class="row horizontal-border"><b class="text-big-size"> <%= t('.seller_comment') %> </b></div>
+<% if @book.comment.present? %>
+  <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
   <div class="row container">
-    <p> <%= @book.comment %>
+    <p><%= @book.comment %></p>
   </div>
 <% end %>
