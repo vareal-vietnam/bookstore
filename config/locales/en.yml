@@ -16,7 +16,9 @@ en:
     seller_name: "Seller"
     quantity: "Quantity: %{quantity}"
     price: "Price: %{price}"
-
+    show:
+      book_content: "Book content"
+      seller_comment: "Seller's comment"
   layouts:
     footer:
       contact: "Contact"

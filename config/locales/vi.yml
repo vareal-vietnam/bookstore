@@ -16,7 +16,9 @@ vi:
     seller_name: "Người bán: "
     quantity: "Số lượng: %{quantity}"
     price: "Giá bán: %{price}"
-
+    show:
+      book_content: "Nội dung chính"
+      seller_comment: "Ý kiến của người bán"
   layouts:
     footer:
       contact: "Liên hệ"
