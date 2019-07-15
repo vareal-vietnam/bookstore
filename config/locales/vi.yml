@@ -77,6 +77,8 @@ vi:
       password: "Nhập mật khẩu"
       password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
+      input_guide_phone: "Nhập định dạng 09xx......"
+      input_guide_password: "Nhập ít nhất 6 ký tự"
 
   shared:
     error_messages:

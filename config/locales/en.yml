@@ -75,6 +75,8 @@ en:
       password: "password"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
+      input_guide_phone: "Format 09xx......"
+      input_guide_password: "atlease 6 characters"
 
   shared:
     error_messages:

@@ -10,7 +10,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label t('.phone') %> <p><i>(10 chữ số định dạng 09xxx.....)</i></p>
+        <%= f.label t('.phone') %> <p><i><%= t('.input_guide_phone') %></i></p>
         <%= f.phone_field :phone, class: 'form-control' %>
       </div>
 
@@ -20,7 +20,7 @@
       </div>
 
       <div class="form-group">
-        <%= f.label t('.password') %> <p><i>(nhập ít nhất 6 ký tự)</i></p>
+        <%= f.label t('.password') %> <p><i><%= t('.input_guide_password') %></i></p>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
