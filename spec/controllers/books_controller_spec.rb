@@ -7,7 +7,7 @@ RSpec.describe BooksController, type: :controller do
 
   describe '#index' do
     context 'empty book' do
-      it "assigns empty to books" do
+      it 'assigns empty to books' do
         expect(assigns(:books)).to be_empty
       end
     end
@@ -17,7 +17,7 @@ RSpec.describe BooksController, type: :controller do
         @book = create(:book)
       end
 
-      it "assigns empty to books" do
+      it 'assigns empty to books' do
         expect(assigns(:books).count).to equal(1)
         expect(assigns(:books).first.id).to equal(@book.id)
       end
@@ -32,7 +32,7 @@ RSpec.describe BooksController, type: :controller do
         end
       end
 
-      it "assigns empty to books" do
+      it 'assigns empty to books' do
         expect(assigns(:books).count).to equal(@book_ids.count)
         expect(assigns(:books).pluck(:id)).to match_array(@book_ids)
       end
