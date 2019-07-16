@@ -1,15 +1,13 @@
 class SessionsController < ApplicationController
-  before_action :find_user, only: [:create]
-
   def new
     redirect_to root_url if current_user
   end
 
   def create
-    if @user&.authenticate(params[:session][:password])
-      log_in @user
+    if logging_user&.authenticate(params[:session][:password])
+      log_in logging_user
       flash[:success] = t('.success_login')
-      redirect_to @user
+      redirect_to logging_user
     else
       flash[:warning] = t('.wrong_password')
       render 'new'
@@ -28,7 +26,7 @@ class SessionsController < ApplicationController
 
   private
 
-  def find_user
-    @user ||= User.find_by(phone: params[:session][:phone])
+  def logging_user
+    @logging_user ||= User.find_by(phone: params[:session][:phone])
   end
 end
