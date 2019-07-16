@@ -17,10 +17,15 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rubocop', '~> 0.72.0', require: false
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-rails"
   gem 'rspec-rails', '~> 3.8'
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development do
