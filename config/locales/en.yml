@@ -58,11 +58,13 @@ en:
       wrong_password: "Wrong user/password"
     new:
       sign_up_now: "Sign up now"
-      phone: "Nhập số điện thoại"
+      phone: "Enter phone number"
       new_user: "New user?"
       login: "Log In "
       password_prompt: "Password"
       sign_in_now: "Sign In "
+    create:
+      success_login: "Success Logged In"
 
   users:
     show:

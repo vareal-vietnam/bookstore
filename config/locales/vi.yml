@@ -65,6 +65,8 @@ vi:
       login: "Mời bạn đăng nhập"
       password: "Nhập mật khẩu"
       sign_in_now: "Đăng nhập"
+    create:
+      success_login: "Đăng nhập thành công"
 
   users:
     show:
