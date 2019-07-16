@@ -1,12 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-  before do
-    get :index
-  end
 
   describe '#index' do
-    context 'empty book' do
+
+    before {get :index}
+    context 'has no book' do
       it 'assigns empty to books' do
         expect(assigns(:books)).to be_empty
       end
@@ -16,8 +15,7 @@ RSpec.describe BooksController, type: :controller do
       before do
         @book = create(:book)
       end
-
-      it 'assigns empty to books' do
+      it 'assigns a book to books' do
         expect(assigns(:books).count).to equal(1)
         expect(assigns(:books).first.id).to equal(@book.id)
       end
@@ -32,9 +30,35 @@ RSpec.describe BooksController, type: :controller do
         end
       end
 
-      it 'assigns empty to books' do
+      it 'assigns many book to books' do
         expect(assigns(:books).count).to equal(@book_ids.count)
         expect(assigns(:books).pluck(:id)).to match_array(@book_ids)
+      end
+    end
+  end
+
+  describe '#show' do
+
+    before do
+      @book = create(:book)
+      3.times do
+        create(:image, book_id: @book.id)
+      end
+    end
+    context 'find result' do
+      it 'book found' do
+        get :show, params: {id: @book.id}
+        expect(assigns(:book).id).to equal(@book.id)
+        expect(assigns(:book).quantity).to equal(@book.quantity)
+        expect(assigns(:book).price).to equal(@book.price)
+        expect(assigns(:book).description).to equal(@book.description)
+        expect(assigns(:book).images).to match_array(@book.images)
+        expect(assigns(:book).comment).to equal(@book.comment)
+      end
+      it 'book not found' do
+        allow(Book).to receive(:find_by).with(anything()).and_return(nil)
+        get :show, params: {id: @book.id}
+        expect(assigns(:book)).to equal(nil)
       end
     end
   end
