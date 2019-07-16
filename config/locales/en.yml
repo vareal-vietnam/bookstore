@@ -8,6 +8,11 @@ en:
       next: "Next ›"
       truncate: ". . ."
   books:
+    index:
+      seller_name: "Seller"
+      quantity: "Quantity: %{quantity}"
+      price: "Price: %{price}"
+
     seller_name: "Seller"
     quantity: "Quantity: %{quantity}"
     price: "Price: %{price}"
@@ -25,3 +30,59 @@ en:
       regulations: "Regulations"
       intro: "Intro"
       blog: "Blog"
+    header:
+      home: "Home"
+      logged_in_user: "User Logged in"
+      profile: "Profile"
+      books: "Books"
+      logout: "Logout"
+      login: "Login"
+      booklist: "Booklist"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              invalid: "Phone number is invalid"
+              blank: "Phone number is blank"
+              taken: "Phone number is already used"
+            name:
+              blank: "Please input name"
+            password:
+              blank: "password is blank"
+              too_short: "password is too short"
+            address:
+              blank: "address is blank"
+  sessions:
+    controllers:
+      success_login: "Suscess LogIn "
+      wrong_password: "Wrong user/password"
+    new:
+      sign_up_now: "Sign up now"
+      phone: "Enter phone number"
+      new_user: "New user?"
+      login: "Log In "
+      password_prompt: "Password"
+      sign_in_now: "Sign In "
+    create:
+      success_login: "Success Logged In"
+
+  users:
+    show:
+      user_not_exist: "User is not existed"
+    new:
+      sign_up: "Sign Up"
+      name: "Name "
+      phone: "phone"
+      address: "address"
+      password: "password"
+      password_confirmation : "Password Confirmation"
+      create_my_account: "Create my account"
+      input_guide_phone: "Format 09xx......"
+      input_guide_password: "atlease 6 characters"
+
+  shared:
+    error_messages:
+      errors_notification: "Form dang ky co %{errors_count} loi"
