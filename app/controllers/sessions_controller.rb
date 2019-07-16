@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   before_action :find_user, only: [:create]
 
   def new
+    redirect_to root_url if current_user
   end
 
   def create
@@ -16,15 +17,18 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 
   def log_out
     session.delete(:user_id)
     @current_user = nil
   end
-end
 
-private
-def find_user
-  @user = User.find_by(phone: params[:session][:phone])
+  private
+
+  def find_user
+    @user = User.find_by(phone: params[:session][:phone])
+  end
 end

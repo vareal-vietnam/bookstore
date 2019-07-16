@@ -35,6 +35,9 @@ en:
       logged_in_user: "User Logged in"
       profile: "Profile"
       books: "Books"
+      logout: "Logout"
+      login: "Login"
+      booklist: "Booklist"
 
   activerecord:
     errors:
