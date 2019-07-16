@@ -29,6 +29,6 @@ class SessionsController < ApplicationController
   private
 
   def find_user
-    @user = User.find_by(phone: params[:session][:phone])
+    @user ||= User.find_by(phone: params[:session][:phone])
   end
 end
