@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe BooksController, type: :controller do
-
   describe '#index' do
-
-    before {get :index}
+    before { get :index }
     context 'has no book' do
       it 'assigns empty to books' do
         expect(assigns(:books)).to be_empty
@@ -38,7 +36,6 @@ RSpec.describe BooksController, type: :controller do
   end
 
   describe '#show' do
-
     before do
       @book = create(:book)
       3.times do
@@ -47,7 +44,7 @@ RSpec.describe BooksController, type: :controller do
     end
     context 'find result' do
       it 'book found' do
-        get :show, params: {id: @book.id}
+        get :show, params: { id: @book.id }
         expect(assigns(:book).id).to equal(@book.id)
         expect(assigns(:book).quantity).to equal(@book.quantity)
         expect(assigns(:book).price).to equal(@book.price)
@@ -56,10 +53,9 @@ RSpec.describe BooksController, type: :controller do
         expect(assigns(:book).comment).to equal(@book.comment)
       end
       it 'book not found' do
-        allow(Book).to receive(:find_by).with(anything()).and_return(nil)
-        get :show, params: {id: @book.id}
+        allow(Book).to receive(:find_by).with(anything).and_return(nil)
+        get :show, params: { id: @book.id }
         expect(assigns(:book)).to equal(nil)
-        binding.pry
         expect(flash[:danger]).to eql(I18n.t('not_found'))
         expect(subject).to redirect_to(root_url)
       end
