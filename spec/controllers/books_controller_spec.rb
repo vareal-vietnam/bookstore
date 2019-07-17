@@ -21,9 +21,10 @@ RSpec.describe BooksController, type: :controller do
 
     context 'has many books' do
       before do
+        user = create(:user)
         @book_ids = []
         5.times do
-          book = create(:book)
+          book = create(:book, user_id: user.id)
           @book_ids << book.id
         end
       end
@@ -45,12 +46,11 @@ RSpec.describe BooksController, type: :controller do
     context 'find result' do
       it 'book found' do
         get :show, params: { id: @book.id }
-        expect(assigns(:book).id).to equal(@book.id)
-        expect(assigns(:book).quantity).to equal(@book.quantity)
-        expect(assigns(:book).price).to equal(@book.price)
-        expect(assigns(:book).description).to eql(@book.description)
-        expect(assigns(:book).images).to match_array(@book.images)
-        expect(assigns(:book).comment).to eql(@book.comment)
+        binding.pry
+        expect(assigns(:book).attributes).to eql(@book.attributes)
+        expect(assigns(:book).user.attributes).to eql(@book.user.attributes)
+        expect(assigns(:book).images).to eql(@book.images)
+
       end
       it 'book not found' do
         allow(Book).to receive(:find_by).with(anything).and_return(nil)
