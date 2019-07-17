@@ -48,9 +48,9 @@ RSpec.describe BooksController, type: :controller do
         expect(assigns(:book).id).to equal(@book.id)
         expect(assigns(:book).quantity).to equal(@book.quantity)
         expect(assigns(:book).price).to equal(@book.price)
-        expect(assigns(:book).description).to equal(@book.description)
+        expect(assigns(:book).description).to eql(@book.description)
         expect(assigns(:book).images).to match_array(@book.images)
-        expect(assigns(:book).comment).to equal(@book.comment)
+        expect(assigns(:book).comment).to eql(@book.comment)
       end
       it 'book not found' do
         allow(Book).to receive(:find_by).with(anything).and_return(nil)
