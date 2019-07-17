@@ -59,6 +59,9 @@ RSpec.describe BooksController, type: :controller do
         allow(Book).to receive(:find_by).with(anything()).and_return(nil)
         get :show, params: {id: @book.id}
         expect(assigns(:book)).to equal(nil)
+        binding.pry
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+        expect(subject).to redirect_to(root_url)
       end
     end
   end

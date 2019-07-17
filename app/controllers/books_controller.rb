@@ -8,6 +8,6 @@ class BooksController < ApplicationController
     return if @book.present?
 
     flash[:danger] = t('not_found')
-    redirect_to books_url
+    redirect_to root_url
   end
 end

@@ -1,0 +1,175 @@
+=> [32m#<RSpec::Expectations::ExpectationTarget:0x000055ebdc75ea68[0m
+ @target[32m=[0m
+  [32m#<ActionDispatch::TestResponse:0x000055ebdb994ab8[0m
+   @cache_control[32m=[0m{},
+   @committed[32m=[0m[1;36mtrue[0m,
+   @cv[32m=[0m[32m#<MonitorMixin::ConditionVariable:0x000055ebdb9949a0[0m @cond[32m=[0m[32m#<Thread::ConditionVariable:0x000055ebdb994978[0m[32m>[0m, @monitor[32m=[0m[32m#<ActionDispatch::TestResponse:0x000055ebdb994ab8[0m ...[32m>[0m[32m>[0m,
+   @header[32m=[0m
+    {[31m[1;31m"[0m[31mX-Frame-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSAMEORIGIN[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mX-XSS-Protection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1; mode=block[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mX-Content-Type-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnosniff[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mX-Download-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnoopen[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mX-Permitted-Cross-Domain-Policies[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnone[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mReferrer-Policy[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mstrict-origin-when-cross-origin[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mLocation[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp://test.host/books[1;31m"[0m[31m[0m,
+     [31m[1;31m"[0m[31mContent-Type[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtext/html; charset=utf-8[1;31m"[0m[31m[0m},
+   @mon_count[32m=[0m[1;34m0[0m,
+   @mon_mutex[32m=[0m[32m#<Thread::Mutex:0x000055ebdb994a40[0m[32m>[0m,
+   @mon_mutex_owner_object_id[32m=[0m[1;34m47235744965980[0m,
+   @mon_owner[32m=[0m[1;36mnil[0m,
+   @request[32m=[0m
+    [32m#<ActionController::TestRequest:0x000055ebdb994c20[0m
+     @controller_class[32m=[0m[1;34;4mBooksController[0m,
+     @custom_param_parsers[32m=[0m{[33m:xml[0m=>[32m#<Proc:0x000055ebdb994b80@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_controller/test_case.rb:61 (lambda)>[0m},
+     @env[32m=[0m
+      {[31m[1;31m"[0m[31mrack.version[1;31m"[0m[31m[0m=>[[1;34m1[0m, [1;34m3[0m],
+       [31m[1;31m"[0m[31mrack.input[1;31m"[0m[31m[0m=>[32m#<StringIO:0x000055ebdb994c98[0m[32m>[0m,
+       [31m[1;31m"[0m[31mrack.errors[1;31m"[0m[31m[0m=>[32m#<StringIO:0x000055ebdbd45838[0m[32m>[0m,
+       [31m[1;31m"[0m[31mrack.multithread[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+       [31m[1;31m"[0m[31mrack.multiprocess[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+       [31m[1;31m"[0m[31mrack.run_once[1;31m"[0m[31m[0m=>[1;36mfalse[0m,
+       [31m[1;31m"[0m[31mREQUEST_METHOD[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mGET[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mSERVER_NAME[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mexample.org[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mSERVER_PORT[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m80[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mQUERY_STRING[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mrack.url_scheme[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mHTTPS[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31moff[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mSCRIPT_NAME[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mHTTP_HOST[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtest.host[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mREMOTE_ADDR[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m0.0.0.0[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mHTTP_USER_AGENT[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mRails Testing[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.parameter_filter[1;31m"[0m[31m[0m=>[[33m:password[0m],
+       [31m[1;31m"[0m[31maction_dispatch.redirect_filter[1;31m"[0m[31m[0m=>[],
+       [31m[1;31m"[0m[31maction_dispatch.secret_token[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.secret_key_base[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mf7fcf7304743f1c8d594a246695aa346613fd2f77bb51638e563e320330cf849e79bee9be6857aee7d9617ea5f7a29acc34f44e0629c0e5a857d022eabf51c87[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.show_exceptions[1;31m"[0m[31m[0m=>[1;36mfalse[0m,
+       [31m[1;31m"[0m[31maction_dispatch.show_detailed_exceptions[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+       [31m[1;31m"[0m[31maction_dispatch.logger[1;31m"[0m[31m[0m=>
+        [32m#<ActiveSupport::Logger:0x000055ebd9ccd038[0m
+         @default_formatter[32m=[0m[32m#<Logger::Formatter:0x000055ebd9ccc5c0[0m @datetime_format[32m=[0m[1;36mnil[0m[32m>[0m,
+         @formatter[32m=[0m[32m#<ActiveSupport::Logger::SimpleFormatter:0x000055ebdb227488[0m @datetime_format[32m=[0m[1;36mnil[0m, @thread_key[32m=[0m[31m[1;31m"[0m[31mactivesupport_tagged_logging_tags:47235741071940[1;31m"[0m[31m[0m[32m>[0m,
+         @level[32m=[0m[1;34m0[0m,
+         @local_levels[32m=[0m[32m#<Concurrent::Map:0x000055ebd9ce7bb8 entries=0 default_proc=nil>[0m,
+         @logdev[32m=[0m
+          [32m#<Logger::LogDevice:0x000055ebd9ccc430[0m
+           @dev[32m=[0m[32m#<File:/home/canhdinh/WorkSpace/BookStore/bookstore/log/test.log>[0m,
+           @filename[32m=[0m[1;36mnil[0m,
+           @mon_count[32m=[0m[1;34m0[0m,
+           @mon_mutex[32m=[0m[32m#<Thread::Mutex:0x000055ebd9ccc110[0m[32m>[0m,
+           @mon_mutex_owner_object_id[32m=[0m[1;34m47235729875480[0m,
+           @mon_owner[32m=[0m[1;36mnil[0m,
+           @shift_age[32m=[0m[1;36mnil[0m,
+           @shift_period_suffix[32m=[0m[1;36mnil[0m,
+           @shift_size[32m=[0m[1;36mnil[0m[32m>[0m,
+         @progname[32m=[0m[1;36mnil[0m[32m>[0m,
+       [31m[1;31m"[0m[31maction_dispatch.backtrace_cleaner[1;31m"[0m[31m[0m=>
+        [32m#<Rails::BacktraceCleaner:0x000055ebdc190618[0m
+         @filters[32m=[0m
+          [[32m#<Proc:0x000055ebdc1904d8@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/backtrace_cleaner.rb:16>[0m,
+           [32m#<Proc:0x000055ebdc1904b0@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/backtrace_cleaner.rb:17>[0m,
+           [32m#<Proc:0x000055ebdc190488@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/backtrace_cleaner.rb:18>[0m,
+           [32m#<Proc:0x000055ebdc1900c8@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/backtrace_cleaner.rb:31>[0m],
+         @root[32m=[0m[31m[1;31m"[0m[31m/home/canhdinh/WorkSpace/BookStore/bookstore/[1;31m"[0m[31m[0m,
+         @silencers[32m=[0m[[32m#<Proc:0x000055ebdc1900a0@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/railties-5.2.3/lib/rails/backtrace_cleaner.rb:21>[0m][32m>[0m,
+       [31m[1;31m"[0m[31maction_dispatch.key_generator[1;31m"[0m[31m[0m=>
+        [32m#<ActiveSupport::CachingKeyGenerator:0x000055ebdb833340[0m
+         @cache_keys[32m=[0m[32m#<Concurrent::Map:0x000055ebdb833318 entries=2 default_proc=nil>[0m,
+         @key_generator[32m=[0m
+          [32m#<ActiveSupport::KeyGenerator:0x000055ebdb833368[0m
+           @iterations[32m=[0m[1;34m1000[0m,
+           @secret[32m=[0m[31m[1;31m"[0m[31mf7fcf7304743f1c8d594a246695aa346613fd2f77bb51638e563e320330cf849e79bee9be6857aee7d9617ea5f7a29acc34f44e0629c0e5a857d022eabf51c87[1;31m"[0m[31m[0m[32m>[0m[32m>[0m,
+       [31m[1;31m"[0m[31maction_dispatch.http_auth_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mhttp authentication[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.signed_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31msigned cookie[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.encrypted_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mencrypted cookie[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.encrypted_signed_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31msigned encrypted cookie[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.authenticated_encrypted_cookie_salt[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mauthenticated encrypted cookie[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.use_authenticated_cookie_encryption[1;31m"[0m[31m[0m=>[1;36mtrue[0m,
+       [31m[1;31m"[0m[31maction_dispatch.encrypted_cookie_cipher[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.signed_cookie_digest[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.cookies_serializer[1;31m"[0m[31m[0m=>[33m:json[0m,
+       [31m[1;31m"[0m[31maction_dispatch.cookies_digest[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.cookies_rotations[1;31m"[0m[31m[0m=>[32m#<ActiveSupport::Messages::RotationConfiguration:0x000055ebd932ce20[0m @encrypted[32m=[0m[], @signed[32m=[0m[][32m>[0m,
+       [31m[1;31m"[0m[31maction_dispatch.content_security_policy[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.content_security_policy_report_only[1;31m"[0m[31m[0m=>[1;36mfalse[0m,
+       [31m[1;31m"[0m[31maction_dispatch.content_security_policy_nonce_generator[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31mrack.session[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mflash[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mdiscard[1;31m"[0m[31m[0m=>[], [31m[1;31m"[0m[31mflashes[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mdanger[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mKhông thể hiển thị trang yêu cầu[1;31m"[0m[31m[0m}}},
+       [31m[1;31m"[0m[31mrack.session.options[1;31m"[0m[31m[0m=>
+        {[33m:key[0m=>[31m[1;31m"[0m[31mrack.session[1;31m"[0m[31m[0m,
+         [33m:path[0m=>[31m[1;31m"[0m[31m/[1;31m"[0m[31m[0m,
+         [33m:domain[0m=>[1;36mnil[0m,
+         [33m:expire_after[0m=>[1;36mnil[0m,
+         [33m:secure[0m=>[1;36mfalse[0m,
+         [33m:httponly[0m=>[1;36mtrue[0m,
+         [33m:defer[0m=>[1;36mfalse[0m,
+         [33m:renew[0m=>[1;36mfalse[0m,
+         [33m:sidbits[0m=>[1;34m128[0m,
+         [33m:cookie_only[0m=>[1;36mtrue[0m,
+         [33m:secure_random[0m=>[1;34;4mSecureRandom[0m},
+       [31m[1;31m"[0m[31mHTTP_COOKIE[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mPATH_INFO[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m/books/20[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31maction_dispatch.request.path_parameters[1;31m"[0m[31m[0m=>{[33m:id[0m=>[31m[1;31m"[0m[31m20[1;31m"[0m[31m[0m, [33m:controller[0m=>[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [33m:action[0m=>[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m},
+       [31m[1;31m"[0m[31maction_dispatch.request.flash_hash[1;31m"[0m[31m[0m=>[32m#<ActionDispatch::Flash::FlashHash:0x000055ebdb9dfab8[0m @discard[32m=[0m[32m#<Set: {[0m}>, @flashes[32m=[0m{[31m[1;31m"[0m[31mdanger[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mKhông thể hiển thị trang yêu cầu[1;31m"[0m[31m[0m}, @now[32m=[0m[1;36mnil[0m[32m>[0m,
+       [31m[1;31m"[0m[31maction_controller.instance[1;31m"[0m[31m[0m=>
+        [32m#<BooksController:0x000055ebdc193250[0m
+         @_action_has_layout[32m=[0m[1;36mtrue[0m,
+         @_action_name[32m=[0m[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m,
+         @_config[32m=[0m{},
+         @_lookup_context[32m=[0m
+          [32m#<ActionView::LookupContext:0x000055ebdb9945e0[0m
+           @cache[32m=[0m[1;36mtrue[0m,
+           @details[32m=[0m{[33m:locale[0m=>[[33m:vi[0m], [33m:formats[0m=>[[33m:html[0m], [33m:variants[0m=>[], [33m:handlers[0m=>[[33m:raw[0m, [33m:erb[0m, [33m:html[0m, [33m:builder[0m, [33m:ruby[0m, [33m:coffee[0m, [33m:jbuilder[0m]},
+           @details_key[32m=[0m[1;36mnil[0m,
+           @prefixes[32m=[0m[[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mapplication[1;31m"[0m[31m[0m],
+           @rendered_format[32m=[0m[1;36mnil[0m,
+           @view_paths[32m=[0m
+            [32m#<ActionView::PathSet:0x000055ebdb994400[0m
+             @paths[32m=[0m
+              [[32m#<RSpec::Rails::ViewRendering::EmptyTemplateResolver::ResolverDecorator:0x000055ebdc1b24e8[0m
+                @resolver[32m=[0m
+                 [32m#<ActionView::OptimizedFileSystemResolver:0x000055ebda4c2298[0m
+                  @cache[32m=[0m[32m#<ActionView::Resolver::Cache:0x55ebda4c2270 keys=0 queries=0>[0m,
+                  @path[32m=[0m[31m[1;31m"[0m[31m/home/canhdinh/WorkSpace/BookStore/bookstore/app/views[1;31m"[0m[31m[0m,
+                  @pattern[32m=[0m[31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m[32m>[0m,
+               [32m#<RSpec::Rails::ViewRendering::EmptyTemplateResolver::ResolverDecorator:0x000055ebdc1b24c0[0m
+                @resolver[32m=[0m
+                 [32m#<ActionView::OptimizedFileSystemResolver:0x000055ebda4c26a8[0m
+                  @cache[32m=[0m[32m#<ActionView::Resolver::Cache:0x55ebda4c2680 keys=0 queries=0>[0m,
+                  @path[32m=[0m[31m[1;31m"[0m[31m/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/kaminari-core-1.1.1/app/views[1;31m"[0m[31m[0m,
+                  @pattern[32m=[0m[31m[1;31m"[0m[31m:prefix/:action{.:locale,}{.:formats,}{+:variants,}{.:handlers,}[1;31m"[0m[31m[0m[32m>[0m[32m>[0m][32m>[0m[32m>[0m,
+         @_params[32m=[0m<[1;34;4mActionController[0m::[1;34;4mParameters[0m {[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m20[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m} [35mpermitted[0m: [1;36mfalse[0m>,
+         @_request[32m=[0m[32m#<ActionController::TestRequest:0x000055ebdb994c20[0m ...[32m>[0m,
+         @_response[32m=[0m[32m#<ActionDispatch::TestResponse:0x000055ebdb994ab8[0m ...[32m>[0m,
+         @_response_body[32m=[0m[[31m[1;31m"[0m[31m<html><body>You are being <a href=[1;35m\"[0m[31mhttp://test.host/books[1;35m\"[0m[31m>redirected</a>.</body></html>[1;31m"[0m[31m[0m],
+         @_routes[32m=[0m[1;36mnil[0m,
+         @_url_options[32m=[0m{[33m:host[0m=>[31m[1;31m"[0m[31mtest.host[1;31m"[0m[31m[0m, [33m:port[0m=>[1;36mnil[0m, [33m:protocol[0m=>[31m[1;31m"[0m[31mhttp://[1;31m"[0m[31m[0m, [33m:_recall[0m=>{[33m:id[0m=>[31m[1;31m"[0m[31m20[1;31m"[0m[31m[0m, [33m:controller[0m=>[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [33m:action[0m=>[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m}},
+         @book[32m=[0m[1;36mnil[0m,
+         @marked_for_same_origin_verification[32m=[0m[1;36mtrue[0m[32m>[0m,
+       [31m[1;31m"[0m[31maction_dispatch.request.content_type[1;31m"[0m[31m[0m=>[1;36mnil[0m,
+       [31m[1;31m"[0m[31maction_dispatch.request.request_parameters[1;31m"[0m[31m[0m=>{},
+       [31m[1;31m"[0m[31mrack.request.query_string[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+       [31m[1;31m"[0m[31mrack.request.query_hash[1;31m"[0m[31m[0m=>{},
+       [31m[1;31m"[0m[31maction_dispatch.request.query_parameters[1;31m"[0m[31m[0m=>{},
+       [31m[1;31m"[0m[31maction_dispatch.request.parameters[1;31m"[0m[31m[0m=>{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m20[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m},
+       [31m[1;31m"[0m[31maction_dispatch.request.formats[1;31m"[0m[31m[0m=>[[32m#<Mime::Type:0x000055ebd92ae660[0m @hash[32m=[0m[1;34m1584241688601211024[0m, @string[32m=[0m[31m[1;31m"[0m[31mtext/html[1;31m"[0m[31m[0m, @symbol[32m=[0m[33m:html[0m, @synonyms[32m=[0m[[31m[1;31m"[0m[31mapplication/xhtml+xml[1;31m"[0m[31m[0m][32m>[0m]},
+     @filtered_env[32m=[0m[1;36mnil[0m,
+     @filtered_parameters[32m=[0m{[31m[1;31m"[0m[31mid[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m20[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31mcontroller[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mbooks[1;31m"[0m[31m[0m, [31m[1;31m"[0m[31maction[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mshow[1;31m"[0m[31m[0m},
+     @filtered_path[32m=[0m[1;36mnil[0m,
+     @fullpath[32m=[0m[31m[1;31m"[0m[31m/books/20[1;31m"[0m[31m[0m,
+     @headers[32m=[0m[32m#<ActionDispatch::Http::Headers:0x000055ebdb9ac668[0m @req[32m=[0m[32m#<ActionController::TestRequest:0x000055ebdb994c20[0m ...[32m>[0m[32m>[0m,
+     @ip[32m=[0m[1;36mnil[0m,
+     @method[32m=[0m[1;36mnil[0m,
+     @original_fullpath[32m=[0m[1;36mnil[0m,
+     @port[32m=[0m[1;34m80[0m,
+     @protocol[32m=[0m[31m[1;31m"[0m[31mhttp://[1;31m"[0m[31m[0m,
+     @remote_ip[32m=[0m[1;36mnil[0m,
+     @request_method[32m=[0m[31m[1;31m"[0m[31mGET[1;31m"[0m[31m[0m[32m>[0m,
+   @response_parser[32m=[0m[32m#<Proc:0x000055ebdb994810@/home/canhdinh/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.2.3/lib/action_dispatch/testing/request_encoder.rb:9 (lambda)>[0m,
+   @sending[32m=[0m[1;36mfalse[0m,
+   @sent[32m=[0m[1;36mtrue[0m,
+   @status[32m=[0m[1;34m302[0m,
+   @stream[32m=[0m
+    [32m#<ActionDispatch::Response::Buffer:0x000055ebdb99c5d8[0m
+     @buf[32m=[0m[[31m[1;31m"[0m[31m<html><body>You are being <a href=[1;35m\"[0m[31mhttp://test.host/books[1;35m\"[0m[31m>redirected</a>.</body></html>[1;31m"[0m[31m[0m],
+     @closed[32m=[0m[1;36mfalse[0m,
+     @response[32m=[0m[32m#<ActionDispatch::TestResponse:0x000055ebdb994ab8[0m ...[32m>[0m,
+     @str_body[32m=[0m[1;36mnil[0m[32m>[0m[32m>[0m[32m>[0m
