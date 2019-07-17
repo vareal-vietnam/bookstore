@@ -8,6 +8,11 @@ vi:
       next: "Trang sau ›"
       truncate: ". . ."
   books:
+    index:
+      seller_name: "Người bán: "
+      quantity: "Số lượng: %{quantity}"
+      price: "Giá bán: %{price}"
+
     seller_name: "Người bán: "
     quantity: "Số lượng: %{quantity}"
     price: "Giá bán: %{price}"
@@ -25,3 +30,66 @@ vi:
       regulations: "Quy định"
       intro: "Giới thiệu"
       blog: "Diễn đàn"
+    header:
+      home: "Về trang chủ"
+      logged_in_user: "User đã đăng nhập"
+      profile: "Thông tin"
+      books: "Sách đã bán"
+      logout: "Đăng xuất"
+      login: "Đăng nhập"
+      booklist: "Sách đang bán"
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              invalid: "Bạn nhập sai số điện thoại"
+              blank: "Bạn chưa nhập số điện thoại"
+              taken: "Số điện thoại đã được sử dụng"
+            name:
+              blank: "Bạn chưa nhập tên"
+            password:
+              blank: "Bạn chưa nhập mật khẩu"
+              too_short: "Mật khẩu chưa đủ 6 kí tự"
+            address:
+              blank: "Bạn chưa nhập địa chỉ"
+
+  sessions:
+    controllers:
+      success_login: "Đăng nhập thành công"
+      wrong_password: "Nhập sai mật khẩu"
+
+    new:
+      sign_up_now: "Xin mời đăng kí"
+      phone: "Nhập số điện thoại"
+      new_user: "Chưa có tài khoản?"
+      login: "Mời bạn đăng nhập"
+      password: "Nhập mật khẩu"
+      sign_in_now: "Đăng nhập"
+    create:
+      success_login: "Đăng nhập thành công"
+
+  users:
+    show:
+      user_not_exist: "Tài khoản không tồn tại"
+    new:
+      sign_up: "Đăng kí "
+      name: "Nhập tên "
+      phone: "Nhập số điện thoại"
+      address: "Nhập địa chỉ"
+      password: "Nhập mật khẩu"
+      password_confirmation : "Nhập lại mật khẩu"
+      create_my_account: " Tạo tài khoản"
+      input_guide_phone: "Nhập định dạng 09xx......"
+      input_guide_password: "Nhập ít nhất 6 ký tự"
+
+  shared:
+    error_messages:
+      errors_notification: "Form đăng kí có %{errors_count} lỗi"
+
+
+
+
+

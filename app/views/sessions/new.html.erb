@@ -1,0 +1,24 @@
+<div class="row">
+  <h1><%=t('.login')%></h1>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(:session, url: sessions_path, html: {class: 'form-group'} ) do |f| %>
+
+    <div class="form-group">
+      <%= f.label t('.phone') %>
+      <%= f.phone_field :phone, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t('.password') %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="form-check">
+      <%= f.submit t('.sign_in_now'), class: "btn btn-primary" %>
+    </div>
+
+    <% end %>
+
+    <%=t('.new_user')%> <%= link_to t('.sign_up_now'), new_user_path %>
+  </div>
+</div>
