@@ -19,7 +19,7 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'assigns many book to books' do
-        binding.pry
+        expect(assigns(:books).count).to equal(Book.count)
         expect(assigns(:books).pluck(:id)).to match_array(Book.all.pluck(:id))
       end
     end
