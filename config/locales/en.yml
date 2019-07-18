@@ -55,6 +55,10 @@ en:
               too_short: "password is too short"
             address:
               blank: "address is blank"
+            password_confirmation:
+              confirmation: "Wrong passwordaa cornfirmation"
+
+
   sessions:
     controllers:
       success_login: "Suscess LogIn "
@@ -68,10 +72,12 @@ en:
       sign_in_now: "Sign In "
     create:
       success_login: "Success Logged In"
-
+      wrong_password: "Wrong password"
   users:
     show:
       user_not_exist: "User is not existed"
+      cap_nhat: "Update Infor"
+      user_not_found: "User not found"
     new:
       sign_up: "Sign Up"
       name: "Name "
@@ -82,7 +88,6 @@ en:
       create_my_account: "Create my account"
       input_guide_phone: "Format 09xx......"
       input_guide_password: "atlease 6 characters"
-
   shared:
     error_messages:
       errors_notification: "Form dang ky co %{errors_count} loi"
