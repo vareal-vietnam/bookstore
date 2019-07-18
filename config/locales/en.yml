@@ -13,12 +13,17 @@ en:
       quantity: "Quantity: %{quantity}"
       price: "Price: %{price}"
 
-    seller_name: "Seller"
+    seller_name: "Seller: %{seller_name}"
     quantity: "Quantity: %{quantity}"
     price: "Price: %{price}"
     show:
       book_content: "Book content"
       seller_comment: "Seller's comment"
+    user:
+      name: "Seller: %{name}"
+      phone: "Phone: %{phone}"
+      address: "Address: %{address}"
+      login_required: "Login to see seller's info"
   layouts:
     footer:
       contact: "Contact"

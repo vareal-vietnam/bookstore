@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 RSpec.describe BooksController, type: :controller do
   describe '#index' do
     before { get :index }
@@ -46,12 +45,11 @@ RSpec.describe BooksController, type: :controller do
     context 'find result' do
       it 'book found' do
         get :show, params: { id: @book.id }
-        binding.pry
         expect(assigns(:book).attributes).to eql(@book.attributes)
         expect(assigns(:book).user.attributes).to eql(@book.user.attributes)
-        expect(assigns(:book).images).to eql(@book.images)
-
+        expect(assigns(:book).images.to_json).to eql(@book.images.to_json)
       end
+
       it 'book not found' do
         allow(Book).to receive(:find_by).with(anything).and_return(nil)
         get :show, params: { id: @book.id }
