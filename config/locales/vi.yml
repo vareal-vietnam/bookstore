@@ -19,11 +19,11 @@ vi:
     show:
       book_content: "Nội dung chính"
       seller_comment: "Ý kiến của người bán"
-    user:
-      name: "Người bán: %{name}"
-      phone: "SĐT: %{phone}"
-      address: "Địa chỉ: %{address}"
-      login_required: "Đăng nhập để thấy thông tin người bán"
+  user:
+    name: "Người bán: %{name}"
+    phone: "SĐT: %{phone}"
+    address: "Địa chỉ: %{address}"
+    login_required: "Đăng nhập để thấy thông tin người bán"
   layouts:
     footer:
       contact: "Liên hệ"

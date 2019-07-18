@@ -22,13 +22,13 @@
     <div class="row"><p><%= t('books.price', price: @book.price) %></p></div>
   </div>
   <div class="col-sm-3 text-center left-border">
-    <div class="row text-big-size"><b><%= t('books.user.name', name: @book.user.name) %></b></div>
-    <div class="row"> <img src="<%= @book.user.avatar %>" class="user-avatar"> </div>
+    <div class="row text-big-size"><b><%= t('user.name', name: @book.seller_name) %></b></div>
+    <div class="row"> <img src="<%= @book.seller_avatar %>" class="user-avatar"> </div>
     <% if current_user %>
-      <div class="row"><p><%= t('books.user.phone', phone: @book.user.phone) %></p></div>
-      <div class="row"><p><%= t('books.user.address', address: @book.user.address) %></p></div>
+      <div class="row"><p><%= t('user.phone', phone: @book.user.phone) %></p></div>
+      <div class="row"><p><%= t('user.address', address: @book.user.address) %></p></div>
     <% else %>
-      <div class="row"><p><%= t('books.user.login_required') %></p></div>
+      <div class="row"><p><%= t('user.login_required') %></p></div>
     <% end %>
   </div>
 </div>
