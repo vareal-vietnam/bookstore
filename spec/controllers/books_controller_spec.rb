@@ -10,6 +10,7 @@ RSpec.describe BooksController, type: :controller do
 
     context 'has one book' do
       before do
+        # binding.pry
         @book = create(:book)
       end
       it 'assigns a book to books' do
