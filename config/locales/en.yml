@@ -95,4 +95,4 @@ en:
 
   shared:
     error_messages:
-      errors_notification: "Form dang ky co %{errors_count} loi"
+      errors_notification: "Have %{errors_count} errors in the form"
