@@ -37,7 +37,7 @@ vi:
       books: "Sách đã bán"
       logout: "Đăng xuất"
       login: "Đăng nhập"
-      booklist: "Sách đang bán"
+      booklist: "Đăng bán sách"
 
   activerecord:
     errors:
@@ -64,10 +64,10 @@ vi:
       wrong_password: "Nhập sai mật khẩu"
 
     new:
-      sign_up_now: "Xin mời đăng kí"
-      phone: "Nhập số điện thoại"
+      sign_up_now: "Đăng kí"
+      phone: "Nhập số điện thoại "
       new_user: "Chưa có tài khoản?"
-      login: "Mời bạn đăng nhập"
+      login: "Đăng nhập"
       password: "Nhập mật khẩu"
       sign_in_now: "Đăng nhập"
     create:
@@ -77,18 +77,20 @@ vi:
   users:
     show:
       user_not_exist: "Tài khoản không tồn tại"
-      cap_nhat: "Cập nhật thông tin"
+      update: "Cập nhật thông tin"
       user_not_found: "Không tìm thấy người bán"
+      join: "Tham gia từ"
     new:
       sign_up: "Đăng kí"
       name: "Nhập tên "
       phone: "Nhập số điện thoại"
       address: "Nhập địa chỉ"
-      password: "Nhập mật khẩu"
+      password: "Nhập mật khẩu (ít nhất 6 ký tự)"
       password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
-      input_guide_phone: "Nhập định dạng 09xx......"
-      input_guide_password: "Nhập ít nhất 6 ký tự"
+      input_guide_phone: "định dạng 0xxx...."
+      input_guide_password: "Ít nhất 6 ký tự"
+      avatar: "Hình đại diện"
 
   shared:
     error_messages:

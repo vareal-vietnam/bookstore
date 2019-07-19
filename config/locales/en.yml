@@ -37,7 +37,7 @@ en:
       books: "Books"
       logout: "Logout"
       login: "Login"
-      booklist: "Booklist"
+      booklist: "Post new book"
 
   activerecord:
     errors:
@@ -56,7 +56,7 @@ en:
             address:
               blank: "address is blank"
             password_confirmation:
-              confirmation: "Wrong passwordaa cornfirmation"
+              confirmation: "Wrong password confirmation"
 
 
   sessions:
@@ -64,11 +64,11 @@ en:
       success_login: "Suscess LogIn "
       wrong_password: "Wrong user/password"
     new:
-      sign_up_now: "Sign up now"
+      sign_up_now: "Sign up"
       phone: "Enter phone number"
       new_user: "New user?"
       login: "Log In "
-      password_prompt: "Password"
+      password_prompt: "Password (atleast 6 characters)"
       sign_in_now: "Sign In "
     create:
       success_login: "Success Logged In"
@@ -76,18 +76,20 @@ en:
   users:
     show:
       user_not_exist: "User is not existed"
-      cap_nhat: "Update Infor"
+      update: "Update Infor"
       user_not_found: "User not found"
+      join_at: "Joined"
     new:
       sign_up: "Sign Up"
-      name: "Name "
-      phone: "phone"
+      name: "Name"
+      phone: "Phone (format 0xxx...)"
       address: "address"
-      password: "password"
+      password: "password (atleast 6 characters)"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
       input_guide_phone: "Format 09xx......"
-      input_guide_password: "atlease 6 characters"
+      input_guide_password: "atleast 6 characters"
+      avatar: "Avatar"
   shared:
     error_messages:
-      errors_notification: "Form dang ky co %{errors_count} loi"
+      errors_notification: "Sign Up form has %{errors_count} errors"
