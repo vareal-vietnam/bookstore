@@ -1,4 +1,4 @@
-user = User.create!(
+User.create!(
     name: 'Admin',
     password: "123456",
     password_confirmation: "123456",

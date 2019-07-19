@@ -1,6 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html, body {
+  height: 90%;
+}
+.wrapper {
+  min-height: 104%;
+}
+
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -44,8 +51,7 @@ a {
 }
 
 footer {
-  margin-top: 30px;
-  padding-top: 15px;
+  padding-top: 5px;
   border-top: 0px solid #B0C4DE;
   color: #000000;
   text-align: center;

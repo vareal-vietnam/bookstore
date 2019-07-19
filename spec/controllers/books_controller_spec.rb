@@ -11,10 +11,7 @@ RSpec.describe BooksController, type: :controller do
     context 'has many books' do
       before do
         3.times do
-          user = create(:user)
-          3.times do
-            create(:book, user_id: user.id)
-          end
+          create(:book)
         end
       end
 
@@ -28,9 +25,6 @@ RSpec.describe BooksController, type: :controller do
   describe '#show' do
     before do
       @book = create(:book)
-      3.times do
-        create(:image, book_id: @book.id)
-      end
     end
     context 'find result' do
       it 'book found' do

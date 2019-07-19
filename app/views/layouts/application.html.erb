@@ -8,9 +8,9 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <div class="container body-html">
-      <% flash.each do |message_type, message| %>
+  <%= render 'layouts/header' %>
+  <div class="wrapper container body-html">
+    <% flash.each do |message_type, message| %>
       <div class="row flash-message">
         <div class="col-sm-2"></div>
         <div class="col-sm-8 alert alert-<%= message_type %>" role="alert">
@@ -18,9 +18,11 @@
         </div>
         <div class="col-sm-2"></div>
       </div>
-    <% end %>
-      <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
-  </body>
+      <% end %>
+    <%= yield %>
+  </div>
+    <div class="push"></div>
+  </div>
+  <footer class="footer"><%= render 'layouts/footer' %></footer>
+</body>
 </html>

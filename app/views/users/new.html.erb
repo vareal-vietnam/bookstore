@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-3">
-    <h1><%=t('.sign_up')%></h1>
+    <h1><%= t('.sign_up') %></h1>
     <%= form_for(@user, html: {class: 'form-group'} ) do |f| %>
 
       <%= render 'shared/error_messages' %>
       <div class="form-group">
-        <%= f.label t('.name') %>
+        <%= f.label t('users.name') %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
@@ -15,12 +15,12 @@
       </div>
 
       <div class="form-group">
-        <%= f.label t('.address') %>
+        <%= f.label t('users.address') %>
         <%= f.text_field :address, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <%= f.label t('.password') %> <p><i><%= t('.input_guide_password') %></i></p>
+        <%= f.label t('users.password') %> <p><i><%= t('.input_guide_password') %></i></p>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
 
