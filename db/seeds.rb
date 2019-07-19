@@ -1,13 +1,9 @@
-default_password = "123456".freeze
+DEFAULT_PASSWORD = 'Aa123456'.freeze
+DEFAULT_PHONE_NUMBER = '0123456789'.freeze
 
-def generate_image_url
-  id = rand(1..900)
-  "https://picsum.photos/id/#{id}/600/900"
-end
-
-def generate_avatar_url
-  id = rand(1..900)
-  "https://picsum.photos/id/#{id}/600/600"
+def generate_image_url(width,height)
+  image_id = rand(1..900)
+  "https://picsum.photos/id/#{image_id}/#{width}/#{height}"
 end
 
 def generate_phone_number
@@ -16,21 +12,21 @@ end
 
 User.create!(
     name: 'Admin',
-    password: "default_password",
-    password_confirmation: "default_password",
+    password: DEFAULT_PASSWORD,
+    password_confirmation: DEFAULT_PASSWORD,
     address: Faker::Address.city,
-    phone: '0123456789',
-    avatar: generate_avatar_url
+    phone: DEFAULT_PHONE_NUMBER,
+    avatar: generate_image_url(600,600)
   )
 
 10.times do
   user = User.create!(
     name: Faker::Name.first_name,
-    password: "default_password",
-    password_confirmation: "default_password",
+    password: DEFAULT_PASSWORD,
+    password_confirmation: DEFAULT_PASSWORD,
     address: Faker::Address.city,
     phone: generate_phone_number,
-    avatar: generate_avatar_url
+    avatar: generate_image_url(600,600)
   )
   5.times do
     book = Book.create!(
@@ -41,9 +37,8 @@ User.create!(
       user_id: user.id
     )
     3.times do
-
       Image.create!(
-        url: generate_image_url,
+        url: generate_image_url(600,900),
         book_id: book.id
       )
     end
