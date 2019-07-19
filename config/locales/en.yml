@@ -68,7 +68,7 @@ en:
       phone: "Enter phone number"
       new_user: "New user?"
       login: "Log In "
-      password_prompt: "Password (atleast 6 characters)"
+      password: "Password"
       sign_in_now: "Sign In "
     create:
       success_login: "Success Logged In"
@@ -79,16 +79,18 @@ en:
       update: "Update Infor"
       user_not_found: "User not found"
       join_at: "Joined"
+      ago: "ago"
+      day: "days"
     new:
       sign_up: "Sign Up"
       name: "Name"
-      phone: "Phone (format 0xxx...)"
+      phone: "Phone Number"
       address: "address"
-      password: "password (atleast 6 characters)"
+      password: "password"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
-      input_guide_phone: "Format 09xx......"
-      input_guide_password: "atleast 6 characters"
+      input_guide_phone: "(format 0xxx...)"
+      input_guide_password: "(atleast 6 characters)"
       avatar: "Avatar"
   shared:
     error_messages:

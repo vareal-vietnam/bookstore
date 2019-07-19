@@ -80,6 +80,9 @@ vi:
       update: "Cập nhật thông tin"
       user_not_found: "Không tìm thấy người bán"
       join: "Tham gia từ"
+      ago: " ngày trước"
+      day: "%{time_ago_in_words(@user.created_at)} ngày trước"
+
     new:
       sign_up: "Đăng kí"
       name: "Nhập tên "

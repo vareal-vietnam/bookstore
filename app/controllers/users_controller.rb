@@ -4,16 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user
-      @user = User.find_by(id: params[:id])
-      return if @user.present?
-
-      @user = User.find_by(id: current_user.id)
-      flash[:warning] = t('.user_not_found')
-    else
-      flash[:danger] = t('not_found')
-      redirect_to root_path
-    end
+    @user = User.find_by(id: current_user.id)
+    return if @user.present?
   end
 
   def new
