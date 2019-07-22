@@ -3,29 +3,25 @@
   <div class="col-sm-4">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-      <img src="<%= @user.avatar&.url %>" class="user-avatar">
+      <img src="<%= current_user.avatar&.url %>" class="picture">
     </div>
     <div class="col-sm-2"></div>
   </div>
   <div class="col-sm-7">
     <div class="row first-row">
-      <p><b><%= @user.name %></b></p>
+      <p><b><%= current_user.name %></b></p>
     </div>
     <div class="row first-row">
-      <%= @user.address %>
+      <%= current_user.address %>
     </div>
     <div class="row first-row">
-      <%= @user.phone %>
+      <%= current_user.phone %>
     </div>
     <div class="row first-row">
-      <%= t('.join') %><span> <%= time_ago_in_words(@user.created_at) %> <%= t('.ago') %></span>
+      <%= t('.join') %><span> <%= time_ago_in_words(current_user.created_at) %> <%= t('.ago') %></span>
     </div>
       <div class="row">
         <a href="#" class="btn btn-primary"><%= t('.update') %></a>
       </div>
   </div>
 </div>
-
-
-
-

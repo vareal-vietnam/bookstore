@@ -38,6 +38,7 @@ en:
       logout: "Logout"
       login: "Login"
       booklist: "Post new book"
+      logout_confirm: "Are you sure to Logout?"
 
   activerecord:
     errors:

@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
-  def index
-    redirect_to root_path
-  end
-
   def show
-    @user = User.find_by(id: current_user.id)
-    return if @user.present?
   end
 
   def new
