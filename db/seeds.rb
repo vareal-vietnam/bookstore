@@ -16,7 +16,7 @@ User.create!(
     password_confirmation: DEFAULT_PASSWORD,
     address: Faker::Address.city,
     phone: DEFAULT_PHONE_NUMBER,
-    avatar: generate_image_url 600,600
+    avatar: generate_image_url(600, 600)
   )
 
 10.times do
@@ -26,7 +26,7 @@ User.create!(
     password_confirmation: DEFAULT_PASSWORD,
     address: Faker::Address.city,
     phone: generate_phone_number,
-    avatar: generate_image_url 600,600
+    avatar: generate_image_url(600, 600)
   )
   5.times do
     book = Book.create!(
@@ -37,10 +37,7 @@ User.create!(
       user_id: user.id
     )
     3.times do
-      Image.create!(
-        url: generate_image_url 600,900,
-        book_id: book.id
-      )
+      book.images.create!(url: generate_image_url(600, 900))
     end
   end
 end
