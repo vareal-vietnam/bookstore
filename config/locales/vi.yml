@@ -1,5 +1,26 @@
 vi:
+  layouts:
+    footer:
+      contact: "Liên hệ"
+      customer_supporter: "Hỗ trợ khách hàng"
+      book_store_info: "Thông tin về BookStore"
+      company_info: "CÔNG TY Vareal Việt Nam - Địa chỉ: Phòng 824, Tầng 8, Detech 2 Tower, 107 Nguyễn Phong Sắc, TP Hà Nội"
+      company_contact: "Email: cuongdinh@vareal.vn - Đường dây nóng: 0969.969.969"
+      support_center: "Trung tâm trợ giúp"
+      regulations: "Quy định"
+      intro: "Giới thiệu"
+      blog: "Diễn đàn"
+    header:
+      home: "Về trang chủ"
+      logged_in_user: "User đã đăng nhập"
+      profile: "Thông tin"
+      books: "Sách đã bán"
+      logout: "Đăng xuất"
+      login: "Đăng nhập"
+      booklist: "Sách đang bán"
+
   not_found: "Không thể hiển thị trang yêu cầu"
+
   views:
     pagination:
       first: "« Trang đầu"
@@ -24,42 +45,6 @@ vi:
     phone: "SĐT: %{phone}"
     address: "Địa chỉ: %{address}"
     login_required: "Đăng nhập để thấy thông tin người bán"
-  layouts:
-    footer:
-      contact: "Liên hệ"
-      customer_supporter: "Hỗ trợ khách hàng"
-      book_store_info: "Thông tin về BookStore"
-      company_info: "CÔNG TY Vareal Việt Nam - Địa chỉ: Phòng 824, Tầng 8, Detech 2 Tower, 107 Nguyễn Phong Sắc, TP Hà Nội"
-      company_contact: "Email: cuongdinh@vareal.vn - Đường dây nóng: 0969.969.969"
-      support_center: "Trung tâm trợ giúp"
-      regulations: "Quy định"
-      intro: "Giới thiệu"
-      blog: "Diễn đàn"
-    header:
-      home: "Về trang chủ"
-      logged_in_user: "User đã đăng nhập"
-      profile: "Thông tin"
-      books: "Sách đã bán"
-      logout: "Đăng xuất"
-      login: "Đăng nhập"
-      booklist: "Sách đang bán"
-
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
-              invalid: "Bạn nhập sai số điện thoại"
-              blank: "Bạn chưa nhập số điện thoại"
-              taken: "Số điện thoại đã được sử dụng"
-            name:
-              blank: "Bạn chưa nhập tên"
-            password:
-              blank: "Bạn chưa nhập mật khẩu"
-              too_short: "Mật khẩu chưa đủ 6 kí tự"
-            address:
-              blank: "Bạn chưa nhập địa chỉ"
 
   sessions:
     controllers:
@@ -81,14 +66,16 @@ vi:
       user_not_exist: "Tài khoản không tồn tại"
     new:
       sign_up: "Đăng kí "
-      name: "Nhập tên "
       phone: "Nhập số điện thoại"
-      address: "Nhập địa chỉ"
-      password: "Nhập mật khẩu"
       password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
       input_guide_phone: "Nhập định dạng 09xx......"
       input_guide_password: "Nhập ít nhất 6 ký tự"
+    edit:
+      enter_password: "Nhập mật khẩu để xác nhận:"
+    name: "Nhập tên"
+    address: "Nhập địa chỉ"
+    password: "Nhập mật khẩu"
 
   shared:
     error_messages:

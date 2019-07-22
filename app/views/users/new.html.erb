@@ -3,7 +3,7 @@
     <h1><%= t('.sign_up') %></h1>
     <%= form_for(@user, html: {class: 'form-group'} ) do |f| %>
 
-      <%= render 'shared/error_messages' %>
+      <%= render partial: 'shared/error_messages', locals: {object: @user} %>
       <div class="form-group">
         <%= f.label t('users.name') %>
         <%= f.text_field :name, class: 'form-control' %>

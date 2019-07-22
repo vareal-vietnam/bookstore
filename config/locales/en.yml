@@ -1,29 +1,4 @@
 en:
-  not_found: "Page not found"
-  views:
-    pagination:
-      first: "« First page"
-      last: "Last page »"
-      previous: "‹ Previous"
-      next: "Next ›"
-      truncate: ". . ."
-  books:
-    index:
-      seller_name: "Seller"
-      quantity: "Quantity: %{quantity}"
-      price: "Price: %{price}"
-
-    seller_name: "Seller: %{seller_name}"
-    quantity: "Quantity: %{quantity}"
-    price: "Price: %{price}"
-    show:
-      book_content: "Book content"
-      seller_comment: "Seller's comment"
-  user:
-    name: "Seller: %{name}"
-    phone: "Phone: %{phone}"
-    address: "Address: %{address}"
-    login_required: "Login to see seller's info"
   layouts:
     footer:
       contact: "Contact"
@@ -44,22 +19,36 @@ en:
       login: "Login"
       booklist: "Booklist"
 
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
-              invalid: "Phone number is invalid"
-              blank: "Phone number is blank"
-              taken: "Phone number is already used"
-            name:
-              blank: "Please input name"
-            password:
-              blank: "password is blank"
-              too_short: "password is too short"
-            address:
-              blank: "address is blank"
+  not_found: "Page not found"
+
+  views:
+    pagination:
+      first: "« First page"
+      last: "Last page »"
+      previous: "‹ Previous"
+      next: "Next ›"
+      truncate: ". . ."
+
+  books:
+    index:
+      seller_name: "Seller"
+      quantity: "Quantity: %{quantity}"
+      price: "Price: %{price}"
+
+    seller_name: "Seller: %{seller_name}"
+    quantity: "Quantity: %{quantity}"
+    price: "Price: %{price}"
+    show:
+      book_content: "Book content"
+      seller_comment: "Seller's comment"
+
+  user:
+    name: "Seller: %{name}"
+    phone: "Phone: %{phone}"
+    address: "Address: %{address}"
+    login_required: "Login to see seller's info"
+
+
   sessions:
     controllers:
       success_login: "Suscess LogIn "
@@ -74,6 +63,7 @@ en:
       password: "Password"
     create:
       success_login: "Success Logged In"
+      wrong_password: "Password is incorect"
 
   users:
     show:
@@ -88,10 +78,10 @@ en:
     edit:
       title: "Update user's info"
       update_info: "Update"
+      enter_password: "Enter password for confirmation"
     name: "Name"
     address: "Address"
     password: "Password"
-
 
   shared:
     error_messages:
