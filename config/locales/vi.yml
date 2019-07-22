@@ -1,24 +1,4 @@
 vi:
-  not_found: "Không thể hiển thị trang yêu cầu"
-  views:
-    pagination:
-      first: "« Trang đầu"
-      last: "Trang cuối »"
-      previous: "‹ Trang trước"
-      next: "Trang sau ›"
-      truncate: ". . ."
-  books:
-    index:
-      seller_name: "Người bán: "
-      quantity: "Số lượng: %{quantity}"
-      price: "Giá bán: %{price}"
-
-    seller_name: "Người bán: "
-    quantity: "Số lượng: %{quantity}"
-    price: "Giá bán: %{price}"
-    show:
-      book_content: "Nội dung chính"
-      seller_comment: "Ý kiến của người bán"
   layouts:
     footer:
       contact: "Liên hệ"
@@ -39,22 +19,32 @@ vi:
       login: "Đăng nhập"
       booklist: "Sách đang bán"
 
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
-              invalid: "Bạn nhập sai số điện thoại"
-              blank: "Bạn chưa nhập số điện thoại"
-              taken: "Số điện thoại đã được sử dụng"
-            name:
-              blank: "Bạn chưa nhập tên"
-            password:
-              blank: "Bạn chưa nhập mật khẩu"
-              too_short: "Mật khẩu chưa đủ 6 kí tự"
-            address:
-              blank: "Bạn chưa nhập địa chỉ"
+  not_found: "Không thể hiển thị trang yêu cầu"
+
+  views:
+    pagination:
+      first: "« Trang đầu"
+      last: "Trang cuối »"
+      previous: "‹ Trang trước"
+      next: "Trang sau ›"
+      truncate: ". . ."
+  books:
+    index:
+      seller_name: "Người bán: "
+      quantity: "Số lượng: %{quantity}"
+      price: "Giá bán: %{price}"
+
+    seller_name: "Người bán: %{seller_name}"
+    quantity: "Số lượng: %{quantity}"
+    price: "Giá bán: %{price}"
+    show:
+      book_content: "Nội dung chính"
+      seller_comment: "Ý kiến của người bán"
+  user:
+    name: "Người bán: %{name}"
+    phone: "SĐT: %{phone}"
+    address: "Địa chỉ: %{address}"
+    login_required: "Đăng nhập để thấy thông tin người bán"
 
   sessions:
     controllers:
@@ -76,14 +66,16 @@ vi:
       user_not_exist: "Tài khoản không tồn tại"
     new:
       sign_up: "Đăng kí "
-      name: "Nhập tên "
       phone: "Nhập số điện thoại"
-      address: "Nhập địa chỉ"
-      password: "Nhập mật khẩu"
       password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
       input_guide_phone: "Nhập định dạng 09xx......"
       input_guide_password: "Nhập ít nhất 6 ký tự"
+    edit:
+      enter_password: "Nhập mật khẩu để xác nhận:"
+    name: "Nhập tên"
+    address: "Nhập địa chỉ"
+    password: "Nhập mật khẩu"
 
   shared:
     error_messages:

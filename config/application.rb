@@ -29,5 +29,6 @@ module Bookstore
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
   end
 end

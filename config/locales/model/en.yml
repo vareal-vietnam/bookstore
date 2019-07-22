@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            phone:
+              invalid: "Phone number is invalid"
+              blank: "Phone number is blank"
+              taken: "Phone number is already used"
+            name:
+              blank: "Please input name"
+            password:
+              blank: "Aassword is blank"
+              too_short: "Password is too short"
+            address:
+              blank: "Address is blank"
