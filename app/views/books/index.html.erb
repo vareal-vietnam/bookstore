@@ -7,8 +7,8 @@
             <img src= "<%= book.images.first&.url %>" alt= "Book's cover" class="book-cover">
           </div>
           <div class="col-sm-9">
-            <div class="row"><b class="highlight-name"><%= book.name %></b></div>
-            <div class="row"><p><%= t('books.seller_name') %></p></div>
+            <div class="row"><b class="text-big-size"><%= book.name %></b></div>
+            <div class="row"><p><%= t('books.seller_name', seller_name: book.seller_name) %></p></div>
             <div class="row"><p><%= t('books.quantity', quantity: book.quantity) %></p></div>
             <div class="row"><p><%= t('books.price', price: book.price) %></p></div>
           </div>

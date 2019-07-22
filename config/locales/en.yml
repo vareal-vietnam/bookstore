@@ -1,24 +1,4 @@
 en:
-  not_found: "Page not found"
-  views:
-    pagination:
-      first: "« First page"
-      last: "Last page »"
-      previous: "‹ Previous"
-      next: "Next ›"
-      truncate: ". . ."
-  books:
-    index:
-      seller_name: "Seller"
-      quantity: "Quantity: %{quantity}"
-      price: "Price: %{price}"
-
-    seller_name: "Seller"
-    quantity: "Quantity: %{quantity}"
-    price: "Price: %{price}"
-    show:
-      book_content: "Book content"
-      seller_comment: "Seller's comment"
   layouts:
     footer:
       contact: "Contact"
@@ -40,25 +20,34 @@ en:
       booklist: "Post new book"
       logout_confirm: "Are you sure to Logout?"
 
-  activerecord:
-    errors:
-      models:
-        user:
-          attributes:
-            phone:
-              invalid: "Phone number is invalid"
-              blank: "Phone number is blank"
-              taken: "Phone number is already used"
-            name:
-              blank: "Please input name"
-            password:
-              blank: "password is blank"
-              too_short: "password is too short"
-            address:
-              blank: "address is blank"
-            password_confirmation:
-              confirmation: "Wrong password confirmation"
+  not_found: "Page not found"
 
+  views:
+    pagination:
+      first: "« First page"
+      last: "Last page »"
+      previous: "‹ Previous"
+      next: "Next ›"
+      truncate: ". . ."
+
+  books:
+    index:
+      seller_name: "Seller"
+      quantity: "Quantity: %{quantity}"
+      price: "Price: %{price}"
+
+    seller_name: "Seller: %{seller_name}"
+    quantity: "Quantity: %{quantity}"
+    price: "Price: %{price}"
+    show:
+      book_content: "Book content"
+      seller_comment: "Seller's comment"
+
+  user:
+    name: "Seller: %{name}"
+    phone: "Phone: %{phone}"
+    address: "Address: %{address}"
+    login_required: "Login to see seller's info"
 
   sessions:
     controllers:
@@ -74,6 +63,7 @@ en:
     create:
       success_login: "Success Logged In"
       wrong_password: "Wrong password"
+
   users:
     show:
       user_not_exist: "User is not existed"
@@ -84,15 +74,20 @@ en:
       day: "days"
     new:
       sign_up: "Sign Up"
-      name: "Name"
-      phone: "Phone Number"
-      address: "address"
-      password: "password"
+      phone: "Phone"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
-      input_guide_phone: "(format 0xxx...)"
-      input_guide_password: "(atleast 6 characters)"
+      input_guide_phone: "Format 09xx......"
+      input_guide_password: "atleast 6 characters"
       avatar: "Avatar"
+    edit:
+      title: "Update user's info"
+      update_info: "Update"
+      enter_password: "Enter password for confirmation"
+    name: "Name"
+    address: "Address"
+    password: "Password"
+
   shared:
     error_messages:
-      errors_notification: "Sign Up form has %{errors_count} errors"
+      errors_notification: "Have %{errors_count} errors in the form"

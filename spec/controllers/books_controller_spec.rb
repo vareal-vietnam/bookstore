@@ -1,40 +1,43 @@
 require 'rails_helper'
-
 RSpec.describe BooksController, type: :controller do
-  before do
-    get :index
-  end
-
   describe '#index' do
-    context 'empty book' do
+    before { get :index }
+    context 'has no book' do
       it 'assigns empty to books' do
         expect(assigns(:books)).to be_empty
       end
     end
 
-    context 'has one book' do
-      before do
-        @book = create(:book)
-      end
-
-      it 'assigns empty to books' do
-        expect(assigns(:books).count).to equal(1)
-        expect(assigns(:books).first.id).to equal(@book.id)
-      end
-    end
-
     context 'has many books' do
       before do
-        @book_ids = []
-        5.times do
-          book = create(:book)
-          @book_ids << book.id
+        3.times do
+          create(:book)
         end
       end
 
-      it 'assigns empty to books' do
-        expect(assigns(:books).count).to equal(@book_ids.count)
-        expect(assigns(:books).pluck(:id)).to match_array(@book_ids)
+      it 'assigns many book to books' do
+        expect(assigns(:books).count).to equal(Book.count)
+        expect(assigns(:books).pluck(:id)).to match_array(Book.all.pluck(:id))
+      end
+    end
+  end
+
+  describe '#show' do
+    before do
+      @book = create(:book)
+    end
+    context 'find result' do
+      it 'book found' do
+        get :show, params: { id: @book.id }
+        expect(assigns(:book).attributes).to eql(@book.attributes)
+      end
+
+      it 'book not found' do
+        allow(Book).to receive(:find_by).with(anything).and_return(nil)
+        get :show, params: { id: @book.id }
+        expect(assigns(:book)).to equal(nil)
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+        expect(subject).to redirect_to(root_url)
       end
     end
   end
