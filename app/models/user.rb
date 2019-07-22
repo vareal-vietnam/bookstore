@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :phone, presence: true,
                     format: { with: VALID_PHONE_REGEX },
                     uniqueness: { case_sensitive: false }
+  mount_uploader :avatar, AvatarUploader
 end

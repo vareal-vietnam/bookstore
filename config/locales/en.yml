@@ -17,7 +17,8 @@ en:
       books: "Books"
       logout: "Logout"
       login: "Login"
-      booklist: "Booklist"
+      booklist: "Post new book"
+      logout_confirm: "Are you sure to Logout?"
 
   not_found: "Page not found"
 
@@ -48,33 +49,37 @@ en:
     address: "Address: %{address}"
     login_required: "Login to see seller's info"
 
-
   sessions:
     controllers:
       success_login: "Suscess LogIn "
       wrong_password: "Wrong user/password"
     new:
-      sign_up_now: "Sign up now"
+      sign_up_now: "Sign up"
       phone: "Enter phone number"
       new_user: "New user?"
       login: "Log In "
-      password_prompt: "Password"
-      sign_in_now: "Sign In"
       password: "Password"
+      sign_in_now: "Sign In "
     create:
       success_login: "Success Logged In"
-      wrong_password: "Password is incorect"
+      wrong_password: "Wrong password"
 
   users:
     show:
       user_not_exist: "User is not existed"
+      update: "Update Infor"
+      user_not_found: "User not found"
+      join_at: "Joined"
+      ago: "ago"
+      day: "days"
     new:
       sign_up: "Sign Up"
       phone: "Phone"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
       input_guide_phone: "Format 09xx......"
-      input_guide_password: "atlease 6 characters"
+      input_guide_password: "atleast 6 characters"
+      avatar: "Avatar"
     edit:
       title: "Update user's info"
       update_info: "Update"

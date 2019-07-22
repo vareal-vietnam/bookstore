@@ -7,8 +7,8 @@
           <%= link_to "BOOKSTORE",root_path, id: "logo" %>
         </div>
       </div>
-      <div class="col-sm-3"></div>
-      <div class="col-sm-6">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-7">
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
           <li class="dropdown">
@@ -19,11 +19,12 @@
               <li><%= link_to t('.profile'), current_user %></li>
               <li><%= link_to t('.booklist'), '#' %></li>
               <li class="divider"></li>
-              <li><%= link_to t('.logout'), logout_path, method: :delete   %></li>
+              <li><%= link_to t('.logout'), logout_path, method: :delete, data: { confirm: t('.logout_confirm')} %></li>
             </ul>
           </li>
           <% else %>
           <li><%= link_to t('.login'), new_session_path %></li>
+          <li><%= link_to t('.sign_up'), new_user_path %></li>
           <% end %>
         </ul>
       </div>
