@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :validate_user, only: %i[show edit]
+
   def show
   end
 
@@ -7,10 +9,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    return if params[:id].to_i == current_user.id
-
-    flash[:danger] = t('not_found')
-    redirect_to root_url
   end
 
   def create
@@ -38,5 +36,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name, :phone, :address, :password, :password_confirmation, :avatar
     )
+  end
+
+  def validate_user
+    return if params[:id].to_i == current_user&.id
+
+    flash[:danger] = t('not_found')
+    redirect_to root_url
   end
 end
