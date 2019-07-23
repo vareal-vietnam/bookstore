@@ -71,6 +71,7 @@ vi:
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
       selling_book_list: "Sách đang bán"
+      remove_book: "Xoá"
 
     new:
       sign_up: "Đăng kí "

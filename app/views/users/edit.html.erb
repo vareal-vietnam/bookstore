@@ -1,18 +1,15 @@
 <div class="row col-sm-4 col-sm-offset-4">
     <h1><%= t('.title') %> </h1>
     <%= form_for(current_user, html: {class: 'form-group'} ) do |f| %>
-
       <%= render partial: 'shared/error_messages', locals: {object: current_user} %>
       <div class="form-group">
         <%= f.label t('users.name') %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
-
       <div class="form-group">
         <%= f.label t('users.address') %>
         <%= f.text_field :address, class: 'form-control' %>
       </div>
-
       <div class="form-group">
         <%= f.label t('.enter_password') %>
         <%= f.password_field :password, class: 'form-control' %>

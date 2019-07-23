@@ -73,6 +73,7 @@ en:
       ago: "ago"
       day: "days"
       selling_book_list: "Selling Book List"
+      remove_book: "Remove"
     new:
       sign_up: "Sign Up"
       phone: "Phone"
