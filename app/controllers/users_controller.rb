@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-  def show
-    return if current_user
+  before_action :vailidate_user, only: %i[show edit]
 
-    flash[:danger] = t('not_found')
-    redirect_to root_url
+  def show
   end
 
   def new
@@ -11,10 +9,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    return if params[:id].to_i == current_user&.id
-
-    flash[:danger] = t('not_found')
-    redirect_to root_url
   end
 
   def create
@@ -42,5 +36,12 @@ class UsersController < ApplicationController
     params.require(:user).permit(
       :name, :phone, :address, :password, :password_confirmation, :avatar
     )
+  end
+
+  def vailidate_user
+    return if params[:id].to_i == current_user&.id
+
+    flash[:danger] = t('not_found')
+    redirect_to root_url
   end
 end
