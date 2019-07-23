@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :vailidate_user, only: %i[show edit]
+  before_action :validate_user, only: %i[show edit]
 
   def show
   end
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     )
   end
 
-  def vailidate_user
+  def validate_user
     return if params[:id].to_i == current_user&.id
 
     flash[:danger] = t('not_found')

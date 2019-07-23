@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'expect has no flash message' do
-        expect(flash[:danger]).to equal(nil)
+        expect(flash.count).to equal(0)
       end
     end
 
