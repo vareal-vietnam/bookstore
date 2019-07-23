@@ -21,6 +21,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'gets danger flash message' do
+        expect(flash.count).to equal(1)
         expect(flash[:danger]).to eql(I18n.t('not_found'))
       end
 
@@ -54,6 +55,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'gets success flash message' do
+        expect(flash.count).to equal(1)
         expect(flash[:success]).to eql(I18n.t('users.update.update_success'))
       end
 
