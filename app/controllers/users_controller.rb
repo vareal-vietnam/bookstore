@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def show
+    @books = current_user.books.includes(
+      :images,
+      :user
+    ).page(params[:page]).per(4)
   end
 
   def new

@@ -70,6 +70,7 @@ vi:
       join: "Tham gia từ"
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
+      selling_book_list: "Sách đang bán"
 
     new:
       sign_up: "Đăng kí "

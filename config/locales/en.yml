@@ -72,6 +72,7 @@ en:
       join_at: "Joined"
       ago: "ago"
       day: "days"
+      selling_book_list: "Selling Book List"
     new:
       sign_up: "Sign Up"
       phone: "Phone"
