@@ -1,1 +1,1 @@
-setTimeout("$('.flash-message').fadeOut('fast')", 2500);
+setTimeout("$('.flash-message').fadeOut('fast')", 5000);

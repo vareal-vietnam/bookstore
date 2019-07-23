@@ -3,7 +3,7 @@
   <div class="col-sm-4">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-      <img src="<%= current_user.avatar&.url %>" class="picture">
+      <img src="<%= current_user.avatar&.url %>" class="user-avatar">
     </div>
     <div class="col-sm-2"></div>
   </div>
@@ -21,7 +21,7 @@
       <%= t('.join') %><span> <%= time_ago_in_words(current_user.created_at) %> <%= t('.ago') %></span>
     </div>
       <div class="row">
-        <a href="#" class="btn btn-primary"><%= t('.update') %></a>
+        <a href="<%= edit_user_url %> " class="btn btn-primary"><%= t('.update') %></a>
       </div>
   </div>
 </div>
