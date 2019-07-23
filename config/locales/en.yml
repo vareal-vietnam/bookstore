@@ -10,6 +10,7 @@ en:
       regulations: "Regulations"
       intro: "Intro"
       blog: "Blog"
+
     header:
       home: "Home"
       logged_in_user: "User Logged in"
@@ -53,6 +54,7 @@ en:
     controllers:
       success_login: "Suscess LogIn "
       wrong_password: "Wrong user/password"
+
     new:
       sign_up_now: "Sign up"
       phone: "Enter phone number"
@@ -60,6 +62,7 @@ en:
       login: "Log In "
       password: "Password"
       sign_in_now: "Sign In "
+
     create:
       success_login: "Success Logged In"
       wrong_password: "Wrong password"
@@ -67,11 +70,15 @@ en:
   users:
     show:
       user_not_exist: "User is not existed"
-      update: "Update Infor"
+      update: "Update Info"
       user_not_found: "User not found"
       join_at: "Joined"
       ago: "ago"
       day: "days"
+
+    update:
+      update_success: "Data have updated"
+
     new:
       sign_up: "Sign Up"
       phone: "Phone"
@@ -80,10 +87,12 @@ en:
       input_guide_phone: "Format 09xx......"
       input_guide_password: "atleast 6 characters"
       avatar: "Avatar"
+
     edit:
       title: "Update user's info"
       update_info: "Update"
       enter_password: "Enter password for confirmation"
+
     name: "Name"
     address: "Address"
     password: "Password"

@@ -10,6 +10,7 @@ vi:
       regulations: "Quy định"
       intro: "Giới thiệu"
       blog: "Diễn đàn"
+
     header:
       home: "Về trang chủ"
       logged_in_user: "User đã đăng nhập"
@@ -28,6 +29,7 @@ vi:
       previous: "‹ Trang trước"
       next: "Trang sau ›"
       truncate: ". . ."
+
   books:
     index:
       seller_name: "Người bán: "
@@ -58,6 +60,7 @@ vi:
       login: "Đăng nhập"
       password: "Nhập mật khẩu"
       sign_in_now: "Đăng nhập"
+
     create:
       success_login: "Đăng nhập thành công"
       wrong_password: "Nhập sai password"
@@ -71,6 +74,9 @@ vi:
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
 
+    update:
+      update_success: "Cập nhật thông tin thành công."
+
     new:
       sign_up: "Đăng kí "
       phone: "Nhập số điện thoại"
@@ -79,8 +85,10 @@ vi:
       input_guide_phone: "Nhập định dạng 09xx......"
       input_guide_password: "Nhập ít nhất 6 ký tự"
       avatar: "Hình đại diện"
+
     edit:
       enter_password: "Nhập mật khẩu để xác nhận:"
+
     name: "Nhập tên"
     address: "Nhập địa chỉ"
     password: "Nhập mật khẩu"
