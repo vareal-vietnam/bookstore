@@ -1,4 +1,4 @@
-RSpec.shared_context 'login user' do
+RSpec.shared_context 'logged in' do
   let(:current_user) { create(:user) }
 
   before do
