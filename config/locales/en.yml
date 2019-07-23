@@ -70,7 +70,7 @@ en:
   users:
     show:
       user_not_exist: "User is not existed"
-      update: "Update Infor"
+      update: "Update Info"
       user_not_found: "User not found"
       join_at: "Joined"
       ago: "ago"

@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def edit
     return if params[:id].to_i == current_user.id
+
     flash[:danger] = t('not_found')
     redirect_to root_url
   end
