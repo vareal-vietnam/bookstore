@@ -6,6 +6,5 @@ FactoryBot.define do
     password { password_temple }
     password_confirmation { password_temple }
     phone { '0' + Random.rand(100_000_000..999_999_999).to_s }
-    avatar { 'https://i.pravatar.cc/1000' }
   end
 end

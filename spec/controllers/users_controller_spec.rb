@@ -4,23 +4,23 @@ RSpec.describe UsersController, type: :controller do
   include_context 'logged in'
 
   describe '#edit' do
-    context 'with current_user.id' do
+    context 'with same user' do
       before do
         get 'edit', params: { id: current_user.id }
       end
 
-      it 'flash[:danger] is nil' do
+      it 'expect has no flash message' do
         expect(flash[:danger]).to equal(nil)
       end
     end
 
-    context 'with different current_user.id' do
+    context 'with different user' do
       before do
-        guest = create(:user)
-        get 'edit', params: { id: guest.id }
+        other_user = create(:user)
+        get 'edit', params: { id: other_user.id }
       end
 
-      it 'flash[:danger] should be "Page not found"' do
+      it 'gets danger flash message' do
         expect(flash[:danger]).to eql(I18n.t('not_found'))
       end
 
@@ -31,22 +31,29 @@ RSpec.describe UsersController, type: :controller do
   end
 
   describe '#update' do
-    context 'with validate user_params' do
+    context 'with valid params' do
       before do
-        validate_user = create(:user)
+        @user = build(:user)
         put 'update', params: {
           id: current_user.id,
           user: {
-            name: validate_user.name,
-            address: validate_user.address,
-            password: validate_user.password,
-            password_confirmation: validate_user.password_confirmation,
-            avatar: validate_user.avatar
+            name: @user.name,
+            address: @user.address,
+            password: @user.password,
+            password_confirmation: @user.password_confirmation,
+            avatar: @user.avatar
           }
         }
       end
 
-      it 'flash[:succsess] should be "Data have updated"' do
+      it 'user has newest data' do
+        expect(current_user.name).to eql(@user.name)
+        expect(current_user.address).to eql(@user.address)
+        expect(current_user.password).to eql(@user.password)
+        expect(current_user.avatar&.url).to eql(@user.avatar&.url)
+      end
+
+      it 'gets success flash message' do
         expect(flash[:success]).to eql(I18n.t('users.update.update_success'))
       end
 
@@ -57,20 +64,30 @@ RSpec.describe UsersController, type: :controller do
 
     context 'with invalidate user_params' do
       before do
+        @user = build(:user)
         put 'update', params: {
           id: current_user.id,
           user: {
             name: nil,
-            address: nil,
-            password: nil,
-            password_confirmation: nil,
-            avatar: nil
+            address: @user.address,
+            password: @user.password,
+            password_confirmation: @user.password_confirmation,
+            avatar: @user.avatar
           }
         }
       end
 
       it 'should be render to edit' do
         expect(subject).to render_template(:edit)
+      end
+
+      it 'user not be updated' do
+        current_user.reload
+        expect(current_user.name).to_not eql(@user.name)
+        expect(current_user.address).to_not eql(@user.address)
+        expect(current_user.password_digest).to_not eql(@user.password_digest)
+        # TODO
+        # expect(current_user.avatar&.url).to_not eql(@user.avatar&.url)
       end
     end
   end

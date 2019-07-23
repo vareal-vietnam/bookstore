@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   def show
+    return if current_user
+
+    flash[:danger] = t('not_found')
+    redirect_to root_url
   end
 
   def new
