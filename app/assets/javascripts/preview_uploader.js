@@ -11,7 +11,6 @@ $(function() {
   }
 
   $("#avatar-upload").change(function(){
-    $('#img_prev').removeClass('hidden');
     readURL(this);
   });
 });

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def new
-    @book = current_user.books.new
+    @book = Book.new
   end
 
   def index
