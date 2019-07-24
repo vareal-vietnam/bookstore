@@ -44,6 +44,14 @@ en:
       book_content: "Book content"
       seller_comment: "Seller's comment"
 
+  book:
+    create: "Create"
+    name: "Book's title:"
+    price: "Price:"
+    quantity: "Quantity:"
+    description: "Book content:"
+    comment: "Seller's comment:"
+
   user:
     name: "Seller: %{name}"
     phone: "Phone: %{phone}"

@@ -1,4 +1,8 @@
 class BooksController < ApplicationController
+  def new
+    @book = current_user.books.new
+  end
+
   def index
     @books = Book.all.includes(:images, :user).page(params[:page]).per(10)
   end
