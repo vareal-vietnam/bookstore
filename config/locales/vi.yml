@@ -105,3 +105,9 @@ vi:
   shared:
     error_messages:
       errors_notification: "Form đăng kí có %{errors_count} lỗi"
+  book_request:
+    create: "Tạo yêu cầu"
+    name: "Tên sách:"
+    budget: "Tầm giá:"
+    quantity: "Số lượng:"
+    comment: "Bình luận:"

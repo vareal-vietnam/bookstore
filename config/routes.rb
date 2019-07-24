@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   root to: 'books#index'
   resources :books, concerns: :paginatable
   delete 'logout', to: 'sessions#destroy'
+  resources :book_requests
 end

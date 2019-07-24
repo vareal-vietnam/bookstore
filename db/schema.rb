@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_17_071349) do
+ActiveRecord::Schema.define(version: 2019_07_24_062800) do
 
-  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "book_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "comment"
+    t.integer "budget", null: false
+    t.integer "quantity", default: 0, null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_book_requests_on_user_id"
+  end
+
+  create_table "books", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "description", null: false
     t.text "comment"
@@ -24,15 +35,17 @@ ActiveRecord::Schema.define(version: 2019_07_17_071349) do
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "url", null: false
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "bookrequest_id"
     t.index ["book_id"], name: "index_images_on_book_id"
+    t.index ["bookrequest_id"], name: "index_images_on_bookrequest_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "password_digest", null: false
     t.string "phone", null: false
@@ -42,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_07_17_071349) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "book_requests", "users"
   add_foreign_key "books", "users"
   add_foreign_key "images", "books"
 end
