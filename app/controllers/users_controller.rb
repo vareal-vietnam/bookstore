@@ -18,13 +18,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
-    # binding.pry
     if @user.save
       flash[:success] = t('.user_created')
       log_in @user
       redirect_to @user
     else
+      flash[:danger] = t('.user_create_fail')
       render 'new'
     end
   end

@@ -79,7 +79,7 @@ en:
       remove_book: "Remove"
     create:
       user_created: "User created"
-
+      user_create_fail: "User created fail"
     update:
       update_success: "Data have updated"
 
@@ -91,6 +91,7 @@ en:
       input_guide_phone: "Format 09xx......"
       input_guide_password: "atleast 6 characters"
       avatar: "Avatar"
+
 
     edit:
       title: "Update user's info"
