@@ -24,11 +24,11 @@ vi:
 
   views:
     pagination:
-      first: "« Trang đầu"
-      last: "Trang cuối »"
-      previous: "‹ Trang trước"
-      next: "Trang sau ›"
-      truncate: ". . ."
+      first: "«"
+      last: "»"
+      previous: "‹"
+      next: "›"
+      truncate: "..."
 
   books:
     index:
