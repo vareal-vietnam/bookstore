@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if logging_user&.authenticate(params[:session][:password])
       log_in logging_user
       flash[:success] = t('.success_login')
+      # binding.pry
       redirect_to logging_user
     else
       flash[:warning] = t('.wrong_password')
@@ -15,13 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-    redirect_to root_url
-  end
-
-  def log_out
     session.delete(:user_id)
     @current_user = nil
+    redirect_to root_url
   end
 
   private
