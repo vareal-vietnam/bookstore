@@ -1,4 +1,8 @@
 class Image < ApplicationRecord
   belongs_to :book
-  validates :url, presence: true
+  validates :file, presence: true
+  mount_uploader :file, ImageUploader
+  def url
+    file.url
+  end
 end

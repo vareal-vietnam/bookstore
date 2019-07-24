@@ -2,7 +2,7 @@ DEFAULT_PASSWORD = 'Aa123456'.freeze
 DEFAULT_PHONE_NUMBER = '0123456789'.freeze
 
 def generate_image_url width,height
-  image_id = rand(1..900)
+  image_id = rand(50..60)
   "https://picsum.photos/id/#{image_id}/#{width}/#{height}"
 end
 
@@ -19,7 +19,7 @@ User.create!(
     avatar: generate_image_url(600, 600)
   )
 
-10.times do
+5.times do
   user = User.create!(
     name: Faker::Name.first_name,
     password: DEFAULT_PASSWORD,
@@ -36,8 +36,8 @@ User.create!(
       description: Faker::Lorem.sentence,
       user_id: user.id
     )
-    3.times do
-      book.images.create!(url: generate_image_url(600, 900))
+    2.times do
+      book.images.create!(remote_file_url: generate_image_url(600, 900))
     end
   end
 end

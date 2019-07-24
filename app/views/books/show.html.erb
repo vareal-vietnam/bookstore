@@ -32,11 +32,9 @@
     <% end %>
   </div>
 </div>
-<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
- <div class="row"><p><%= @book.description %></p></div>
 <% if @book.comment.present? %>
   <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
-  <div class="row container">
-    <p><%= @book.comment %></p>
-  </div>
+  <div class="row container"><p><%= @book.comment %></p></div>
 <% end %>
+<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
+<div class="row container"><p><%= @book.description %></p></div>
