@@ -1,6 +1,6 @@
 require 'rails_helper'
-include_context 'logged in'
 RSpec.describe UsersController, type: :controller do
+  include_context 'logged in'
   describe 'create user' do
     before do
       @user_count = User.count
@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :controller do
         expect(subject).to redirect_to(user_path(id: user.id))
         expect(assigns(:user).attributes).to eql(user.attributes)
       end
-      it 'the quantity increase 1' do
+      it 'the quantity of user increase 1' do
         expect(User.count).to equal(@user_count + 1)
       end
     end
