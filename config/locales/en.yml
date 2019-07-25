@@ -72,7 +72,7 @@ en:
       user_not_exist: "User is not existed"
       update: "Update Info"
       user_not_found: "User not found"
-      join_at: "Joined"
+      join_from: "Joined"
       ago: "ago"
       day: "days"
       selling_book_list: "Selling Book List"
@@ -89,7 +89,7 @@ en:
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
       input_guide_phone: "Format 09xx......"
-      input_guide_password: "atleast 6 characters"
+      input_guide_password: "at least 6 characters"
       avatar: "Avatar"
 
 

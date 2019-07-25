@@ -70,7 +70,7 @@ vi:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
       user_not_found: "Không tìm thấy người bán"
-      join: "Tham gia từ"
+      join_from: "Tham gia từ"
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
       selling_book_list: "Sách đang bán"
