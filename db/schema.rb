@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_062800) do
+ActiveRecord::Schema.define(version: 2019_07_25_063418) do
+
+  create_table "book_request_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "url", null: false
+    t.bigint "book_request_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_request_id"], name: "index_book_request_images_on_book_request_id"
+  end
 
   create_table "book_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -40,9 +48,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_062800) do
     t.bigint "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "bookrequest_id"
     t.index ["book_id"], name: "index_images_on_book_id"
-    t.index ["bookrequest_id"], name: "index_images_on_bookrequest_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -55,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_062800) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "book_request_images", "book_requests"
   add_foreign_key "book_requests", "users"
   add_foreign_key "books", "users"
   add_foreign_key "images", "books"
