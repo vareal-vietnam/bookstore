@@ -8,6 +8,8 @@ RSpec.describe BookRequest, type: :model do
   it do
     should validate_numericality_of(:quantity).is_greater_than_or_equal_to(0)
   end
-  it { should validate_numericality_of(:budget).is_greater_than(0) }
   it { should validate_numericality_of(:budget).only_integer }
+  it do
+    should validate_numericality_of(:budget).is_greater_than_or_equal_to(0)
+  end
 end
