@@ -17,7 +17,6 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to t('.profile'), current_user %></li>
-              <li><%= link_to t('.booklist'), '#' %></li>
               <li class="divider"></li>
               <li><%= link_to t('.logout'), logout_path, method: :delete, data: { confirm: t('.logout_confirm')} %></li>
             </ul>
@@ -32,3 +31,4 @@
     </div>
   </div>
 </nav>
+

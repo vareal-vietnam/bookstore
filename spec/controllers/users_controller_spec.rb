@@ -1,8 +1,24 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   include_context 'logged in'
-  describe 'validate user' do
-    context 'not current_user' do
+  let(:other_user) { create(:user) }
+  let!(:user_count) { User.count }
+  let(:user) { User.last }
+  describe '#show' do
+    context 'not current user' do
+      before do
+        post :show, params: {
+          id: other_user.id
+        }
+      end
+      it 'flash and returns to home page' do
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+      it 'redirect to home' do
+        expect(subject).to redirect_to(root_url)
+      end
+    end
+    context 'current user' do
       before do
         100.times do
           @book = current_user.books.create!(
@@ -13,19 +29,14 @@ RSpec.describe UsersController, type: :controller do
           )
         end
       end
-      it 'flash and returns to home page' do
-        other_user = create(:user)
-        get 'show', params: { id: other_user.id }
-        expect(flash[:danger]).to eql(I18n.t('not_found'))
-        expect(subject).to redirect_to(root_url)
-        expect(current_user.books.count).to eql(10)
+      it "quantity of book must equal quantity of user's book" do
+        expect(current_user.books.count).to eql(100)
       end
     end
   end
   describe 'create user' do
     context 'with valid params' do
       before do
-        @user_count = User.count
         post 'create', params: {
           user: {
             name: 'Cuong',
@@ -41,18 +52,19 @@ RSpec.describe UsersController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('.users.create.user_created'))
       end
       it 'redirect to created user' do
-        user = User.last
         expect(subject).to redirect_to(user_path(id: user.id))
+      end
+      it "attributes must comply with created user's attributes" do
         expect(assigns(:user).attributes).to eql(user.attributes)
       end
+
       it 'the quantity of user increase 1' do
-        expect(User.count).to equal(@user_count + 1)
+        expect(User.count).to equal(user_count + 1)
       end
     end
 
     context 'with invalid params' do
       before do
-        @user_count = User.count
         post :create, params: {
           user: {
             name: nil,
@@ -65,7 +77,7 @@ RSpec.describe UsersController, type: :controller do
         }
       end
       it 'user quantity not increase 1' do
-        expect(User.count).to equal(@user_count)
+        expect(User.count).to equal(user_count)
       end
       it 'render to new user template' do
         expect(subject).to render_template(:new)
