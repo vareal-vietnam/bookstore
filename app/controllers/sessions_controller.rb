@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if logging_user&.authenticate(params[:session][:password])
       log_in logging_user
       flash[:success] = t('.success_login')
-      # binding.pry
       redirect_to logging_user
     else
       flash[:warning] = t('.wrong_password')

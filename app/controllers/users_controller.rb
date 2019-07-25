@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
 
   def show
-    @books = current_user.books.includes(
-      :images,
-      :user
-    ).page(params[:page]).per(4)
+    @books = current_user.books
+    .order(created_at: :desc)
+    .includes(:images,:user)
+    .page(params[:page]).per(4)
   end
 
   def new
