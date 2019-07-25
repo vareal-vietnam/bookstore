@@ -1,15 +1,20 @@
 class BooksController < ApplicationController
   def new
-    @book = Book.new
+    if current_user
+      @book = Book.new
+    else
+      flash[:danger] = t('not_found')
+      redirect_to root_url
+    end
   end
 
   def create
     @book = current_user.books.new(book_params)
     if @book.save
-      images_params.each do |image|
+      file_params.each do |image|
         @book.images.create(file: image)
       end
-      flash[:sucsess] = t('books.created')
+      flash[:success] = t('books.created')
       redirect_to @book
     else
       render 'new'
@@ -17,7 +22,9 @@ class BooksController < ApplicationController
   end
 
   def index
-    @books = Book.order(created_at: :desc).includes(:images, :user).page(params[:page]).per(10)
+    @books = Book.order(created_at: :desc)
+                 .includes(:images, :user)
+                 .page(params[:page]).per(10)
   end
 
   def show
@@ -36,7 +43,7 @@ class BooksController < ApplicationController
     )
   end
 
-  def images_params
+  def file_params
     params[:book][:files]
   end
 end

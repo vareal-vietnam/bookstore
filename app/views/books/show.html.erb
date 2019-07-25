@@ -18,8 +18,8 @@
   </div>
   <div class="col-sm-5">
     <div class="row text-big-size horizontal-border"><b><%= @book.name %></b></div>
-    <div class="row"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
-    <div class="row"><p><%= t('books.price', price: @book.price) %></p></div>
+    <div class="row container"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
+    <div class="row container"><p><%= t('books.price', price: @book.price) %></p></div>
   </div>
   <div class="col-sm-3 text-center left-border">
     <div class="row text-big-size"><b><%= t('user.name', name: @book.seller_name) %></b></div>

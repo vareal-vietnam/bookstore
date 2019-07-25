@@ -4,7 +4,7 @@ FactoryBot.define do
     price { rand(10..100) }
     quantity { rand(1..100) }
     description { Faker::Lorem.sentence }
-
+    comment { Faker::Lorem.sentence }
     user
   end
 end
