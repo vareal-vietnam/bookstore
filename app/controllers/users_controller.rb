@@ -3,9 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @books = current_user.books
-    .order(created_at: :desc)
-    .includes(:images,:user)
-    .page(params[:page]).per(4)
+                         .order(created_at: :desc)
+                         .includes(:images, :user)
+                         .page(params[:page]).per(4)
   end
 
   def new
