@@ -33,7 +33,8 @@ User.create!(
       name: Faker::Book.title,
       price: rand(10..999),
       quantity: rand(1..20),
-      description: Faker::Lorem.sentence,
+      comment: Faker::Lorem.paragraph(10),
+      description: Faker::Lorem.paragraph(50),
       user_id: user.id
     )
     2.times do
