@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :find_book, only: %i[show edit update]
+  before_action :find_and_assign_book, only: %i[show edit update]
 
   def new
     if current_user
@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.new(book_params)
     if @book.save
-      book_image_upload
+      update_book_images
       flash[:success] = t('books.created')
       redirect_to @book
     else
@@ -22,6 +22,8 @@ class BooksController < ApplicationController
   end
 
   def edit
+    # TODO
+    # Refactor later
     return if @book && current_user && current_user&.id == @book&.user_id
 
     flash[:danger] = t('not_found')
@@ -30,9 +32,9 @@ class BooksController < ApplicationController
 
   def update
     if @book.update_attributes(book_params)
-      if image_files_params
+      if image_files_params.present?
         destroy_book_images
-        book_image_upload
+        update_book_images
       end
       flash[:success] = t('book.updated')
       redirect_to @book
@@ -66,13 +68,13 @@ class BooksController < ApplicationController
     params[:book][:files]
   end
 
-  def book_image_upload
+  def update_book_images
     image_files_params&.each do |image_file|
       @book.images.create(file: image_file)
     end
   end
 
-  def find_book
+  def find_and_assign_book
     @book = Book.find_by(id: params[:id])
   end
 

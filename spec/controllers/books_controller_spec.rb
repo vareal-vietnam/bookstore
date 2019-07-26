@@ -1,26 +1,31 @@
 require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
   let(:image_files) do
+    image_files = []
     rand(1..3).times do
-      @image_files << Rack::Test::UploadedFile.new(
+      image_files << Rack::Test::UploadedFile.new(
         Rails.root.join('spec/support/default-book-cover.jpg'),
         'image/jpeg'
       )
     end
+    image_files
   end
+
+  let(:book_params) { create(:book) }
 
   let(:valid_book_params) do
     {
-      name: @book_params.name,
-      price: @book_params.price,
-      description: @book_params.description,
-      quantity: @book_params.quantity,
-      comment: @book_params.comment,
-      files: @image_files
+      name: book_params.name,
+      price: book_params.price,
+      description: book_params.description,
+      quantity: book_params.quantity,
+      comment: book_params.comment,
+      files: image_files
     }
   end
 
   let(:invalid_book_params) { { name: nil } }
+
   describe '#index' do
     before { get :index }
 
@@ -106,30 +111,29 @@ RSpec.describe BooksController, type: :controller do
   describe '#create' do
     include_context 'logged in'
     before do
-      @book_params = create(:book)
+      book_params
       @book_count = Book.count
-      @image_files = []
-      image_files
     end
     context 'with valid book_params' do
+      subject { post :create, params: { book: valid_book_params } }
       before do
         post :create, params: { book: valid_book_params }
       end
 
       it 'the number of book is increment by 1' do
-        expect(Book.count).to equal(@book_count + 1)
+        expect { subject }.to change(Book, :count).by(1)
       end
 
       it 'new book is created with correct data' do
-        expect(Book.last.name).to eql(@book_params.name)
-        expect(Book.last.quantity).to eql(@book_params.quantity)
-        expect(Book.last.price).to eql(@book_params.price)
-        expect(Book.last.comment).to eql(@book_params.comment)
-        expect(Book.last.description).to eql(@book_params.description)
+        expect(Book.last.name).to eql(book_params.name)
+        expect(Book.last.quantity).to eql(book_params.quantity)
+        expect(Book.last.price).to eql(book_params.price)
+        expect(Book.last.comment).to eql(book_params.comment)
+        expect(Book.last.description).to eql(book_params.description)
       end
 
       it 'new book is given enough image file' do
-        expect(Book.last.images.count).to eql(@image_files.count)
+        expect(Book.last.images.count).to eql(image_files.count)
       end
 
       it 'get a success flash' do
@@ -225,9 +229,6 @@ RSpec.describe BooksController, type: :controller do
     include_context 'logged in'
     before do
       @book = create(:book, user_id: current_user.id)
-      @book_params = create(:book)
-      @image_files = []
-      image_files
     end
 
     context 'with valid book params' do
@@ -236,15 +237,15 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'the book has newest data' do
-        expect(assigns(:book).name).to eql(@book_params.name)
-        expect(assigns(:book).quantity).to eql(@book_params.quantity)
-        expect(assigns(:book).price).to eql(@book_params.price)
-        expect(assigns(:book).comment).to eql(@book_params.comment)
-        expect(assigns(:book).description).to eql(@book_params.description)
+        expect(assigns(:book).name).to eql(book_params.name)
+        expect(assigns(:book).quantity).to eql(book_params.quantity)
+        expect(assigns(:book).price).to eql(book_params.price)
+        expect(assigns(:book).comment).to eql(book_params.comment)
+        expect(assigns(:book).description).to eql(book_params.description)
       end
 
       it 'the book is given enough image file' do
-        expect(@book.images.count).to eql(@image_files.count)
+        expect(@book.images.count).to eql(image_files.count)
       end
 
       it 'get a success flash' do
@@ -279,8 +280,6 @@ RSpec.describe BooksController, type: :controller do
 
     context 'book is updated with no images' do
       before do
-        @image_files = []
-        image_files
         put :update, params: { id: @book.id, book: invalid_book_params }
       end
 
