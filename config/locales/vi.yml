@@ -42,6 +42,15 @@ vi:
     show:
       book_content: "Nội dung chính"
       seller_comment: "Ý kiến của người bán"
+
+  book:
+    create: "Tạo sách"
+    name: "Tên sách:"
+    price: "Giá:"
+    quantity: "Số lượng:"
+    description: "Nội dung sách:"
+    comment: "Thông tin từ người bán:"
+
   user:
     name: "Người bán: %{name}"
     phone: "SĐT: %{phone}"
@@ -99,3 +108,9 @@ vi:
   shared:
     error_messages:
       errors_notification: "Form đăng kí có %{errors_count} lỗi"
+  book_request:
+    create: "Tạo yêu cầu"
+    name: "Tên sách:"
+    budget: "Tầm giá:"
+    quantity: "Số lượng:"
+    comment: "Ý kiến người mua:"

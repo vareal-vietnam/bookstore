@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   end
   root to: 'books#index'
   resources :books, concerns: :paginatable
+  resources :book_requests
+
 end
