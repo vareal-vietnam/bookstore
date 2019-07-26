@@ -193,10 +193,10 @@ RSpec.describe BooksController, type: :controller do
 
     context "current_user not be book's owner" do
       include_context 'logged in'
+      let(:user) { create(:user) }
+      let(:book) { create(:book, user_id: user.id) }
       before do
-        user = create(:user)
-        @book = create(:book, user_id: user.id)
-        get :edit, params: { id: @book.id }
+        get :edit, params: { id: book.id }
       end
 
       it 'return root page' do
@@ -211,25 +211,23 @@ RSpec.describe BooksController, type: :controller do
 
     context "after login as book's owner" do
       include_context 'logged in'
+      let(:book) { create(:book, user_id: current_user.id) }
       before do
-        @book = create(:book, user_id: current_user.id)
-        get :edit, params: { id: @book.id }
+        get :edit, params: { id: book.id }
       end
       it 'get the correct book' do
-        expect(assigns(:book).attributes).to eql(@book.attributes)
+        expect(assigns(:book).attributes).to eql(book.attributes)
       end
     end
   end
 
   describe '#update' do
     include_context 'logged in'
-    before do
-      @book = create(:book, user_id: current_user.id)
-    end
+    let(:book) { create(:book, user_id: current_user.id) }
 
     context 'with valid book params' do
       before do
-        put :update, params: { id: @book.id, book: valid_book_params }
+        put :update, params: { id: book.id, book: valid_book_params }
       end
 
       it 'the book has newest data' do
@@ -241,7 +239,7 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'the book is given enough image file' do
-        expect(@book.images.count).to eql(image_files.count)
+        expect(book.images.count).to eql(image_files.count)
       end
 
       it 'get a success flash' do
@@ -249,34 +247,33 @@ RSpec.describe BooksController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('book.updated'))
       end
 
-      it 'redirect to @book' do
-        expect(subject).to redirect_to(@book)
+      it 'redirect to book' do
+        expect(subject).to redirect_to(book)
       end
     end
 
     context 'with invalid book params' do
       before do
-        @book_origin = @book
-        put :update, params: { id: @book.id, book: invalid_book_params }
+        put :update, params: { id: book.id, book: invalid_book_params }
       end
 
       it 'the book not be update' do
         assigns(:book).reload
-        expect(assigns(:book).name).to eql(@book_origin.name)
-        expect(assigns(:book).quantity).to eql(@book_origin.quantity)
-        expect(assigns(:book).price).to eql(@book_origin.price)
-        expect(assigns(:book).comment).to eql(@book_origin.comment)
-        expect(assigns(:book).description).to eql(@book_origin.description)
+        expect(assigns(:book).name).to eql(book.name)
+        expect(assigns(:book).quantity).to eql(book.quantity)
+        expect(assigns(:book).price).to eql(book.price)
+        expect(assigns(:book).comment).to eql(book.comment)
+        expect(assigns(:book).description).to eql(book.description)
       end
 
-      it 'reder to :edit' do
+      it 'render to :edit' do
         expect(subject).to render_template(:edit)
       end
     end
 
     context 'book is updated with no images' do
       before do
-        put :update, params: { id: @book.id, book: invalid_book_params }
+        put :update, params: { id: book.id, book: invalid_book_params }
       end
 
       it 'all book images are deleted' do
