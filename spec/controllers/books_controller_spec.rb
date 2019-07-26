@@ -63,7 +63,7 @@ RSpec.describe BooksController, type: :controller do
       include_context 'logged in'
       it 'should be received a instace of Book' do
         get :new
-        expect(assigns(:book)&.class).to eql(Book)
+        expect(assigns(:book)).to be_a(Book)
       end
     end
 
