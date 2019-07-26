@@ -20,7 +20,7 @@ vi:
       login: "Đăng nhập"
       new_post: "Đăng bài"
       post_for_sell: "Bán sách"
-      post_for_buy: "Mua sách"
+      post_for_buy: "Tạo yêu cầu"
   not_found: "Không thể hiển thị trang yêu cầu"
 
   views:
@@ -123,3 +123,10 @@ vi:
               greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
             price:
               greater_than_or_equal_to: "Giá bán không hợp lệ"
+
+  book_request:
+    create: "Tạo yêu cầu"
+    name: "Tên sách:"
+    budget: "Tầm giá:"
+    quantity: "Số lượng:"
+    comment: "Ý kiến người mua:"

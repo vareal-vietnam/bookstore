@@ -21,7 +21,7 @@ en:
       logout_confirm: "Are you sure to Logout?"
       new_post: "New post"
       post_for_sell: "Sell book"
-      post_for_buy: "Buy book"
+      post_for_buy: "Request book"
 
   not_found: "Page not found"
 
@@ -127,3 +127,10 @@ en:
               greater_than_or_equal_to: "The quantity is invalid"
             price:
               greater_than_or_equal_to: "The price is invalid"
+
+  book_request:
+    create: "Create book request"
+    name: "Book's title:"
+    budget: "Budget:"
+    quantity: "Quantity:"
+    comment: "Some comment:"

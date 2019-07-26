@@ -1,0 +1,48 @@
+<% provide(:title, 'Create Book Request')  %>
+<h1>Create Book Request </h1>
+<div class="row">
+    <%= form_for(@book_request, html:{class: 'form-group'}) do |f|  %>
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= f.label t('book_request.name') %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label t('book_request.comment') %>
+            <%= f.text_area :comment, class: 'form-control', rows: '2' %>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label t('book_request.quantity') %>
+                <%= f.number_field :quantity, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <%= f.label t('book_request.budget') %>
+                <%= f.text_field :budget, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.file_field :images, accept: "image/*" %>
+          </div>
+          <div class="form-check text-center">
+            <%= f.submit t('book_request.create'), class: 'btn btn-primary col-sm-6' %>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <img
+            id="img_prev"
+            src="<%= image_path('default-book-cover.jpg') %>"
+            alt="Book's cover"
+            class="img-thumbnail book-image"
+          />
+        </div>
+    <% end %>
+  </div>
+</div>
