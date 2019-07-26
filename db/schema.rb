@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_07_25_063418) do
   create_table "book_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "comment"
-    t.integer "budget", null: false
+    t.integer "budget", default: 0, null: false
     t.integer "quantity", default: 0, null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
