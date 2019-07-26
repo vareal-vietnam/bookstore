@@ -1,7 +1,6 @@
 class BookRequest < ApplicationRecord
   belongs_to :user
   has_many :book_request_images, dependent: :destroy
-  accepts_nested_attributes_for :book_request_images, allow_destroy: true
   validates :name, presence: true
   validates :quantity, presence: true,
                        numericality:

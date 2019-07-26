@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="form-group">
-            <%= f.file_field :images, accept: "image/*" %>
+            <%= f.file_field :book_request_images, accept: "image/*", multiple: true %>
           </div>
           <div class="form-check text-center">
             <%= f.submit t('book_request.create'), class: 'btn btn-primary col-sm-6' %>
