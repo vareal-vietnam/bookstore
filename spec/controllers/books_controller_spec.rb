@@ -110,10 +110,6 @@ RSpec.describe BooksController, type: :controller do
 
   describe '#create' do
     include_context 'logged in'
-    before do
-      book_params
-      @book_count = Book.count
-    end
     context 'with valid book_params' do
       subject { post :create, params: { book: valid_book_params } }
       before do
@@ -152,7 +148,7 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'the number of book is constant' do
-        expect(Book.count).to equal(@book_count)
+        expect { subject }.to change(Book, :count).by(0)
       end
 
       it "should be reder to 'new'" do
