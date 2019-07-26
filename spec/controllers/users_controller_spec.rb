@@ -6,9 +6,24 @@ RSpec.describe UsersController, type: :controller do
   let(:user) { User.last }
   let(:n) { rand(100) }
   describe '#show' do
+    context 'user have not logged in' do
+      before do
+        allow(User).to receive(:find_by).with(anything).and_return(nil)
+        get :show, params: {
+          id: other_user.id
+        }
+      end
+      it 'redirect to home' do
+        expect(subject).to redirect_to(root_url)
+      end
+
+      it 'flash and returns to home page' do
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+    end
     context 'not current user' do
       before do
-        post :show, params: {
+        get :show, params: {
           id: other_user.id
         }
       end
@@ -179,4 +194,3 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 end
-
