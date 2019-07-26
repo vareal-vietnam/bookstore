@@ -45,7 +45,7 @@ en:
     show:
       book_content: "Book content"
       seller_comment: "Seller's comment"
-    created: "The book is uploaded"
+    created: "The book has been uploaded"
 
   book:
     create: "Create"

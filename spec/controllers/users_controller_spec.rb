@@ -88,7 +88,7 @@ RSpec.describe UsersController, type: :controller do
         expect(current_user.name).to_not eql(@user.name)
         expect(current_user.address).to_not eql(@user.address)
         expect(current_user.password_digest).to_not eql(@user.password_digest)
-        # To do
+        # TODO
         # expect(current_user.avatar&.url).to_not eql(@user.avatar&.url)
       end
     end

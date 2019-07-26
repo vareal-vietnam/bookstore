@@ -11,8 +11,8 @@ class BooksController < ApplicationController
   def create
     @book = current_user.books.new(book_params)
     if @book.save
-      file_params.each do |image|
-        @book.images.create(file: image)
+      image_files_params&.each do |image_file|
+        @book.images.create(file: image_file)
       end
       flash[:success] = t('books.created')
       redirect_to @book
@@ -43,7 +43,7 @@ class BooksController < ApplicationController
     )
   end
 
-  def file_params
+  def image_files_params
     params[:book][:files]
   end
 end
