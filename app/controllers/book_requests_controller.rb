@@ -4,10 +4,8 @@ class BookRequestsController < ApplicationController
   end
 
   def create
-    binding.pry
     if current_user
       @book_request = current_user.book_requests.build(book_request_params)
-      binding.pry
       if @book_request.save
         redirect_to root_url
       end
@@ -15,8 +13,10 @@ class BookRequestsController < ApplicationController
       redirect_to new_session_url
     end
   end
+
   private
+
     def book_request_params
-      params.require(:book_request).permit(:name, :comment, :budget, :quantity, :user_id)
+      params.require(:book_request).permit(:name, :comment, :budget, :quantity,:user_id)
     end
 end
