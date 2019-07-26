@@ -54,6 +54,8 @@ en:
     quantity: "Quantity:"
     description: "Book content:"
     comment: "Seller's comment:"
+    update: "Update"
+    updated: "The book has been updated"
 
   user:
     name: "Seller: %{name}"

@@ -52,6 +52,8 @@ vi:
     quantity: "Số lượng:"
     description: "Nội dung sách:"
     comment: "Thông tin từ người bán:"
+    update: "Cập nhật sách"
+    updated: "Sách đã được cập nhật"
 
   user:
     name: "Người bán: %{name}"
