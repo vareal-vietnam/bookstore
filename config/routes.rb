@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   root to: 'books#index'
   resources :books, concerns: :paginatable
   resources :book_requests
-
 end

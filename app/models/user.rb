@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   VALID_PHONE_REGEX = /\A[0]\d{9}\z/i.freeze
   validates :phone, presence: true,
+                    length: { is: 10 },
                     format: { with: VALID_PHONE_REGEX },
                     uniqueness: { case_sensitive: false }
   mount_uploader :avatar, AvatarUploader
