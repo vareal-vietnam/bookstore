@@ -108,3 +108,9 @@ en:
   shared:
     error_messages:
       errors_notification: "Have %{errors_count} errors in the form"
+  book_request:
+    create: "Create book request"
+    name: "Book's title:"
+    budget: "Budget:"
+    quantity: "Quantity:"
+    comment: "Some comment:"
