@@ -1,5 +1,26 @@
 require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
+  let(:image_files) do
+    rand(1..3).times do
+      @image_files << Rack::Test::UploadedFile.new(
+        Rails.root.join('spec/support/default-book-cover.jpg'),
+        'image/jpeg'
+      )
+    end
+  end
+
+  let(:valid_book_params) do
+    {
+      name: @book_params.name,
+      price: @book_params.price,
+      description: @book_params.description,
+      quantity: @book_params.quantity,
+      comment: @book_params.comment,
+      files: @image_files
+    }
+  end
+
+  let(:invalid_book_params) { { name: nil } }
   describe '#index' do
     before { get :index }
 
@@ -87,26 +108,12 @@ RSpec.describe BooksController, type: :controller do
     before do
       @book_params = create(:book)
       @book_count = Book.count
-      @files = []
-      rand(1..3).times do
-        @files << Rack::Test::UploadedFile.new(
-          Rails.root.join('spec/support/default-book-cover.jpg'),
-          'image/jpeg'
-        )
-      end
+      @image_files = []
+      image_files
     end
     context 'with valid book_params' do
       before do
-        post :create, params: {
-          book: {
-            name: @book_params.name,
-            price: @book_params.price,
-            description: @book_params.description,
-            quantity: @book_params.quantity,
-            comment: @book_params.comment,
-            files: @files
-          }
-        }
+        post :create, params: { book: valid_book_params }
       end
 
       it 'the number of book is increment by 1' do
@@ -122,7 +129,7 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'new book is given enough image file' do
-        expect(Book.last.images.count).to eql(@files.count)
+        expect(Book.last.images.count).to eql(@image_files.count)
       end
 
       it 'get a success flash' do
@@ -137,16 +144,7 @@ RSpec.describe BooksController, type: :controller do
 
     context 'with invalid book_params' do
       before do
-        post :create, params: {
-          book: {
-            name: nil,
-            price: @book_params.price,
-            description: @book_params.description,
-            quantity: @book_params.quantity,
-            comment: @book_params.comment,
-            files: @files
-          }
-        }
+        post :create, params: { book: invalid_book_params }
       end
 
       it 'the number of book is constant' do
@@ -228,28 +226,13 @@ RSpec.describe BooksController, type: :controller do
     before do
       @book = create(:book, user_id: current_user.id)
       @book_params = create(:book)
-      @files = []
-      rand(1..3).times do
-        @files << Rack::Test::UploadedFile.new(
-          Rails.root.join('spec/support/default-book-cover.jpg'),
-          'image/jpeg'
-        )
-      end
+      @image_files = []
+      image_files
     end
 
     context 'with valid book params' do
       before do
-        put :update, params: {
-          id: @book.id,
-          book: {
-            name: @book_params.name,
-            price: @book_params.price,
-            description: @book_params.description,
-            quantity: @book_params.quantity,
-            comment: @book_params.comment,
-            files: @files
-          }
-        }
+        put :update, params: { id: @book.id, book: valid_book_params }
       end
 
       it 'the book has newest data' do
@@ -261,7 +244,7 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'the book is given enough image file' do
-        expect(@book.images.count).to eql(@files.count)
+        expect(@book.images.count).to eql(@image_files.count)
       end
 
       it 'get a success flash' do
@@ -277,17 +260,7 @@ RSpec.describe BooksController, type: :controller do
     context 'with invalid book params' do
       before do
         @book_origin = @book
-        put :update, params: {
-          id: @book.id,
-          book: {
-            name: nil,
-            price: @book_params.price,
-            description: @book_params.description,
-            quantity: @book_params.quantity,
-            comment: @book_params.comment,
-            files: @files
-          }
-        }
+        put :update, params: { id: @book.id, book: invalid_book_params }
       end
 
       it 'the book not be update' do
@@ -299,25 +272,16 @@ RSpec.describe BooksController, type: :controller do
         expect(assigns(:book).description).to eql(@book_origin.description)
       end
 
-      it "reder to 'edit'" do
+      it 'reder to :edit' do
         expect(subject).to render_template(:edit)
       end
     end
 
     context 'book is updated with no images' do
       before do
-        @files = []
-        put :update, params: {
-          id: @book.id,
-          book: {
-            name: @book_params.name,
-            price: @book_params.price,
-            description: @book_params.description,
-            quantity: @book_params.quantity,
-            comment: @book_params.comment,
-            files: @files
-          }
-        }
+        @image_files = []
+        image_files
+        put :update, params: { id: @book.id, book: invalid_book_params }
       end
 
       it 'all book images are deleted' do
