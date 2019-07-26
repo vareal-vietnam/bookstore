@@ -18,8 +18,8 @@
   </div>
   <div class="col-sm-5">
     <div class="row text-big-size horizontal-border"><b><%= @book.name %></b></div>
-    <div class="row"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
-    <div class="row"><p><%= t('books.price', price: @book.price) %></p></div>
+    <div class="row container"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
+    <div class="row container"><p><%= t('books.price', price: @book.price) %></p></div>
   </div>
   <div class="col-sm-3 text-center left-border">
     <div class="row text-big-size"><b><%= t('user.name', name: @book.seller_name) %></b></div>
@@ -32,11 +32,9 @@
     <% end %>
   </div>
 </div>
-<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
- <div class="row"><p><%= @book.description %></p></div>
 <% if @book.comment.present? %>
   <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
-  <div class="row container">
-    <p><%= @book.comment %></p>
-  </div>
+  <div class="row container"><p class="paragraph"><%= @book.comment %></p></div>
 <% end %>
+<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
+<div class="row container"><p class="paragraph"><%= @book.description %></p></div>

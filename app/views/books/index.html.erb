@@ -4,10 +4,14 @@
       <div class="col-md-6">
         <div class="col-md-12 book-col">
           <div class="col-sm-3">
-            <img src= "<%= book.images.first&.url %>" alt= "Book's cover" class="book-cover">
+            <img src= "<%= book.images.first&.thumb_url %>" alt= "Book's cover" class="book-cover">
           </div>
           <div class="col-sm-9">
-            <div class="row"><b class="text-big-size"><%= book.name %></b></div>
+            <div class="row">
+              <b class="text-big-size">
+                <span title="<%= book.name %>"><%= truncate(book.name, length: 40) %></span>
+              </b>
+            </div>
             <div class="row"><p><%= t('books.seller_name', seller_name: book.seller_name) %></p></div>
             <div class="row"><p><%= t('books.quantity', quantity: book.quantity) %></p></div>
             <div class="row"><p><%= t('books.price', price: book.price) %></p></div>
