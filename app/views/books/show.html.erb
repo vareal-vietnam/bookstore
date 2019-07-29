@@ -8,10 +8,10 @@
           </div>
         <% end %>
       </div>
-      <a class="left carousel-control navigation-button" href="#myCarousel" data-slide="prev">
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
       </a>
-      <a class="right carousel-control navigation-button" href="#myCarousel" data-slide="next">
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
       </a>
     </div>
@@ -34,7 +34,7 @@
 </div>
 <% if @book.comment.present? %>
   <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
-  <div class="row container"><p class="paragraph"><%= @book.comment %></p></div>
+  <div class="row container"><p class="book-content"><%= @book.comment %></p></div>
 <% end %>
 <div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
-<div class="row container"><p class="paragraph"><%= @book.description %></p></div>
+<div class="row container"><p class="book-content"><%= @book.description %></p></div>

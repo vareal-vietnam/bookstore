@@ -10,7 +10,7 @@ $(function() {
     }
   }
 
-  $("#avatar-upload").change(function(){
+  $("#image-upload").change(function(){
     readURL(this);
   });
 });
