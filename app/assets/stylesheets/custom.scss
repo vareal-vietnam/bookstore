@@ -71,7 +71,7 @@ footer {
 .book-cover {
   height:138px;
   margin-top: 5px;
-  margin-left: -20px;
+  margin-left: -15px;
 }
 
 .book-image {
@@ -100,13 +100,11 @@ footer {
 }
 
 .navigation-button {
-  height: 92%;
-  width: 0%;
+  height: 100%;
+  width: 5%;
 }
 
 .horizontal-border {
-  border-top: 1px solid #B0C4DE;
-  border-bottom: 1px solid #B0C4DE;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -132,4 +130,8 @@ footer {
 .underline {
   text-decoration: underline;
   position: center;
+}
+
+.paragraph {
+  text-align: justify;
 }

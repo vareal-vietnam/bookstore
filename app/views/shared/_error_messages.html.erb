@@ -4,7 +4,7 @@
       <%= t('.errors_notification', errors_count: object.errors.count) %>
     </div>
     <ul>
-    <% object.errors.full_messages.each do |message| %>
+    <% object.errors.messages.values.flatten.each do |message| %>
       <li><%= message %></li>
     <% end %>
     </ul>

@@ -1,8 +1,34 @@
 require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
-  let(:n) { rand(100) }
+  let(:image_files) do
+    image_files = []
+    rand(1..3).times do
+      image_files << Rack::Test::UploadedFile.new(
+        Rails.root.join('spec/support/default-book-cover.jpg'),
+        'image/jpeg'
+      )
+    end
+    image_files
+  end
+
+  let(:book_params) { create(:book) }
+
+  let(:valid_book_params) do
+    {
+      name: book_params.name,
+      price: book_params.price,
+      description: book_params.description,
+      quantity: book_params.quantity,
+      comment: book_params.comment,
+      files: image_files
+    }
+  end
+
+  let(:invalid_book_params) { { name: nil } }
+
   describe '#index' do
     before { get :index }
+
     context 'has no book' do
       it 'assigns empty to books' do
         expect(assigns(:books)).to be_empty
@@ -16,8 +42,11 @@ RSpec.describe BooksController, type: :controller do
         end
       end
 
-      it 'assigns many book to books' do
+      it 'should be received enough book' do
         expect(assigns(:books).count).to equal(Book.count)
+      end
+
+      it 'should be received correct book' do
         expect(assigns(:books).pluck(:id)).to match_array(Book.all.pluck(:id))
       end
     end
@@ -27,17 +56,53 @@ RSpec.describe BooksController, type: :controller do
     before do
       @book = create(:book)
     end
-    context 'find result' do
-      it 'book found' do
+    context 'book is existing' do
+      it "should be received book's info" do
         get :show, params: { id: @book.id }
         expect(assigns(:book).attributes).to eql(@book.attributes)
       end
+    end
 
-      it 'book not found' do
+    context 'book is not existing' do
+      before do
         allow(Book).to receive(:find_by).with(anything).and_return(nil)
         get :show, params: { id: @book.id }
+      end
+
+      it 'should be received a nil object' do
         expect(assigns(:book)).to equal(nil)
+      end
+
+      it 'should be received a danger flash' do
+        expect(flash.count).to equal(1)
         expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+
+      it 'should be return root page' do
+        expect(subject).to redirect_to(root_url)
+      end
+    end
+  end
+
+  describe '#new' do
+    context 'after login' do
+      include_context 'logged in'
+      it 'get a instace of Book' do
+        get :new
+        expect(assigns(:book)).to be_a(Book)
+      end
+    end
+
+    context 'before login' do
+      before do
+        get :new
+      end
+      it 'get a danger flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+
+      it 'return root page' do
         expect(subject).to redirect_to(root_url)
       end
     end
@@ -51,10 +116,7 @@ RSpec.describe BooksController, type: :controller do
           @book = create(:book, user_id: current_user.id)
         end
       end
-      # destroy(@book_first)
-      # @book_last.destroy
       it 'the book quantity of current user reduce 2' do
-      binding.pry
         expect(current_user.books.count).to eql(98)
       end
 
@@ -63,12 +125,178 @@ RSpec.describe BooksController, type: :controller do
       end
       it 'the second book is removed' do
         expect(@book_second). to eql(nil)
+
+  describe '#create' do
+    include_context 'logged in'
+    context 'with valid book_params' do
+      subject { post :create, params: { book: valid_book_params } }
+      before do
+        post :create, params: { book: valid_book_params }
+      end
+
+      it 'the number of book is increment by 1' do
+        expect { subject }.to change(Book, :count).by(1)
+      end
+
+      it 'new book is created with correct data' do
+        expect(Book.last.name).to eql(book_params.name)
+        expect(Book.last.quantity).to eql(book_params.quantity)
+        expect(Book.last.price).to eql(book_params.price)
+        expect(Book.last.comment).to eql(book_params.comment)
+        expect(Book.last.description).to eql(book_params.description)
+      end
+
+      it 'new book is given enough image file' do
+        expect(Book.last.images.count).to eql(image_files.count)
+      end
+
+      it 'get a success flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:success]).to eql(I18n.t('books.created'))
+      end
+
+      it 'redirect to new book' do
+        expect(subject).to redirect_to(Book.last)
+      end
+    end
+
+    context 'with invalid book_params' do
+      before do
+        post :create, params: { book: invalid_book_params }
+      end
+
+      it 'the number of book is constant' do
+        expect { subject }.to change(Book, :count).by(0)
+      end
+
+      it "should be reder to 'new'" do
+        expect(subject).to render_template(:new)
       end
     end
   end
 
+  describe '#edit' do
+    context 'before login' do
+      before do
+        book = create(:book)
+        get :edit, params: { id: book.id }
+      end
 
+      it 'return root page' do
+        expect(subject).to redirect_to(root_url)
+      end
 
+      it 'get a danger flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+    end
 
+    context 'with invalid book' do
+      include_context 'logged in'
+      before do
+        allow(Book).to receive(:find_by).with(anything).and_return(nil)
+        get :edit, params: { id: 1 }
+      end
 
+      it 'return root page' do
+        expect(subject).to redirect_to(root_url)
+      end
+
+      it 'get a danger flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+    end
+
+    context "current_user not be book's owner" do
+      include_context 'logged in'
+      let(:user) { create(:user) }
+      let(:book) { create(:book, user_id: user.id) }
+      before do
+        get :edit, params: { id: book.id }
+      end
+
+      it 'return root page' do
+        expect(subject).to redirect_to(root_url)
+      end
+
+      it 'get a danger flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:danger]).to eql(I18n.t('not_found'))
+      end
+    end
+
+    context "after login as book's owner" do
+      include_context 'logged in'
+      let(:book) { create(:book, user_id: current_user.id) }
+      before do
+        get :edit, params: { id: book.id }
+      end
+      it 'get the correct book' do
+        expect(assigns(:book).attributes).to eql(book.attributes)
+      end
+    end
+  end
+
+  describe '#update' do
+    include_context 'logged in'
+    let(:book) { create(:book, user_id: current_user.id) }
+
+    context 'with valid book params' do
+      before do
+        put :update, params: { id: book.id, book: valid_book_params }
+      end
+
+      it 'the book has newest data' do
+        expect(assigns(:book).name).to eql(book_params.name)
+        expect(assigns(:book).quantity).to eql(book_params.quantity)
+        expect(assigns(:book).price).to eql(book_params.price)
+        expect(assigns(:book).comment).to eql(book_params.comment)
+        expect(assigns(:book).description).to eql(book_params.description)
+      end
+
+      it 'the book is given enough image file' do
+        expect(book.images.count).to eql(image_files.count)
+      end
+
+      it 'get a success flash' do
+        expect(flash.count).to equal(1)
+        expect(flash[:success]).to eql(I18n.t('book.updated'))
+      end
+
+      it 'redirect to book' do
+        expect(subject).to redirect_to(book)
+      end
+    end
+
+    context 'with invalid book params' do
+      before do
+        put :update, params: { id: book.id, book: invalid_book_params }
+      end
+
+      it 'the book not be update' do
+        assigns(:book).reload
+        expect(assigns(:book).name).to eql(book.name)
+        expect(assigns(:book).quantity).to eql(book.quantity)
+        expect(assigns(:book).price).to eql(book.price)
+        expect(assigns(:book).comment).to eql(book.comment)
+        expect(assigns(:book).description).to eql(book.description)
+      end
+
+      it 'render to :edit' do
+        expect(subject).to render_template(:edit)
+      end
+    end
+
+    context 'book is updated with no images' do
+      before do
+        put :update, params: { id: book.id, book: invalid_book_params }
+      end
+
+      it 'all book images are deleted' do
+        expect(assigns(:book).images.count).to eql(0)
+      end
+    end
+  end
 end

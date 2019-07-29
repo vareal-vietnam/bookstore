@@ -104,7 +104,7 @@ RSpec.describe UsersController, type: :controller do
   describe '#edit' do
     context 'with same user' do
       before do
-        get 'edit', params: { id: current_user.id }
+        get :edit, params: { id: current_user.id }
       end
 
       it 'expect has no flash message' do
@@ -115,7 +115,7 @@ RSpec.describe UsersController, type: :controller do
     context 'with different user' do
       before do
         other_user = create(:user)
-        get 'edit', params: { id: other_user.id }
+        get :edit, params: { id: other_user.id }
       end
 
       it 'gets danger flash message' do
@@ -133,7 +133,7 @@ RSpec.describe UsersController, type: :controller do
     context 'with valid params' do
       before do
         @user = build(:user)
-        put 'update', params: {
+        put :update, params: {
           id: current_user.id,
           user: {
             name: @user.name,
@@ -165,7 +165,7 @@ RSpec.describe UsersController, type: :controller do
     context 'with invalidate user_params' do
       before do
         @user = build(:user)
-        put 'update', params: {
+        put :update, params: {
           id: current_user.id,
           user: {
             name: nil,
