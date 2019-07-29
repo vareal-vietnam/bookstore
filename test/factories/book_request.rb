@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :book do
+  factory :book_request do
     name { Faker::Book.title }
-    price { rand(10..100) }
+    budget { rand(10..100) }
     quantity { rand(1..100) }
-    description { Faker::Lorem.sentence }
     comment { Faker::Lorem.sentence }
     user
   end

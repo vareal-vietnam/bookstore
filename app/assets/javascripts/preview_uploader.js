@@ -13,4 +13,8 @@ $(function() {
   $("#avatar-upload").change(function(){
     readURL(this);
   });
+
+  $("#book_request_images").change(function(){
+    readURL(this);
+  });
 });

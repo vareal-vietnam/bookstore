@@ -18,8 +18,9 @@ vi:
       books: "Sách đã bán"
       logout: "Đăng xuất"
       login: "Đăng nhập"
-      booklist: "Đăng bán sách"
-
+      new_post: "Đăng bài"
+      post_for_sell: "Bán sách"
+      post_for_buy: "Tạo yêu cầu"
   not_found: "Không thể hiển thị trang yêu cầu"
 
   views:
@@ -42,6 +43,7 @@ vi:
     show:
       book_content: "Nội dung chính"
       seller_comment: "Ý kiến của người bán"
+    created: "Đã tạo sách mới"
 
   book:
     create: "Tạo sách"
@@ -50,6 +52,8 @@ vi:
     quantity: "Số lượng:"
     description: "Nội dung sách:"
     comment: "Thông tin từ người bán:"
+    update: "Cập nhật sách"
+    updated: "Sách đã được cập nhật"
 
   user:
     name: "Người bán: %{name}"
@@ -105,9 +109,42 @@ vi:
   shared:
     error_messages:
       errors_notification: "Form đăng kí có %{errors_count} lỗi"
+
+  activerecord:
+    errors:
+      models:
+        book:
+          attributes:
+            description:
+              blank: "Nội dung của sách không được trống"
+            name:
+              blank: "Tên sách không được trống"
+            quantity:
+              greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
+            price:
+              greater_than_or_equal_to: "Giá bán không hợp lệ"
+
+  activerecord:
+    errors:
+      models:
+        book_request:
+          attributes:
+            name:
+              blank: "Nội dung của sách không được trống"
+            quantity:
+              greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
+              blank: "Nhập vào số lượng"
+            budget:
+              greater_than_or_equal_to: "Tầm giá  không hợp lệ"
+              blank: "Tầm giá không được trống"
+
   book_request:
     create: "Tạo yêu cầu"
     name: "Tên sách:"
     budget: "Tầm giá:"
     quantity: "Số lượng:"
     comment: "Ý kiến người mua:"
+
+  book_requests:
+    create:
+      create_success: "Đã tạo một yêu cầu mua sách"
