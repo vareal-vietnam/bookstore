@@ -47,12 +47,14 @@ vi:
 
   book:
     create: "Tạo sách"
+    create_label: "Đăng bán sách"
     name: "Tên sách:"
     price: "Giá:"
     quantity: "Số lượng:"
     description: "Nội dung sách:"
     comment: "Thông tin từ người bán:"
     update: "Cập nhật sách"
+    update_label: "Cập nhật thông tin sách"
     updated: "Sách đã được cập nhật"
 
   user:

@@ -1,5 +1,4 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import "application.scss";
 
 html, body {
   height: 90%;
@@ -50,39 +49,8 @@ a {
   }
 }
 
-footer {
-  padding-top: 5px;
-  border-top: 0px solid #B0C4DE;
-  color: #000000;
-  text-align: center;
-  background-color: #F5F5F5;
-  a {
-    color: #000000;
-    &:hover {
-    color: #000080;
-    }
-  }
-}
-
 .first-row {
   margin-bottom: 15px;
-}
-
-.book-cover {
-  height:138px;
-  margin-top: 5px;
-  margin-left: -15px;
-}
-
-.book-image {
-  width:275px;
-  margin-bottom: 30px;
-}
-
-.book-col {
-  margin-left: 5px;
-  background-color: #F5F5F5;
-  margin-top: 15px;
 }
 
 .highlight-name {
@@ -97,11 +65,6 @@ footer {
 
 .body-html {
   margin-top: 75px;
-}
-
-.navigation-button {
-  height: 100%;
-  width: 5%;
 }
 
 .horizontal-border {
@@ -130,8 +93,4 @@ footer {
 .underline {
   text-decoration: underline;
   position: center;
-}
-
-.paragraph {
-  text-align: justify;
 }

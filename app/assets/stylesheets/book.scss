@@ -1,0 +1,27 @@
+@import "application.scss";
+
+.book-cover {
+  height:138px;
+  margin-top: 5px;
+  margin-left: -15px;
+}
+
+.book-image {
+  width:275px;
+  margin-bottom: 30px;
+}
+
+.book-col {
+  margin-left: 5px;
+  background-color: #F5F5F5;
+  margin-top: 15px;
+}
+
+.book-slider {
+  height: 100%;
+  width: 5%;
+}
+
+.book-content {
+  text-align: justify;
+}
