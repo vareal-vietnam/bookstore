@@ -1,13 +1,9 @@
 class BooksController < ApplicationController
   before_action :find_and_assign_book, only: %i[show edit update]
+  before_action :check_login, only: %i[new edit]
 
   def new
-    if current_user
-      @book = Book.new
-    else
-      flash[:danger] = t('not_found')
-      redirect_to root_url
-    end
+    @book = Book.new
   end
 
   def create
@@ -22,9 +18,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-    # TODO
-    # Refactor later
-    return if @book && current_user && current_user&.id == @book&.user_id
+    return if current_user&.id == @book&.user_id
 
     flash[:danger] = t('not_found')
     redirect_to root_url
@@ -82,5 +76,12 @@ class BooksController < ApplicationController
     @book.images&.each do |book_image|
       book_image.destroy
     end
+  end
+
+  def check_login
+    return if current_user
+
+    flash[:danger] = t('not_found')
+    redirect_to root_url
   end
 end
