@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :find_and_assign_book, only: %i[show edit update]
   before_action :check_login, only: %i[new edit]
+  before_action :find_and_assign_book, only: %i[show edit update]
 
   def new
     @book = Book.new
