@@ -3,8 +3,6 @@ RSpec.describe UsersController, type: :controller do
   include_context 'logged in'
   let(:other_user) { create(:user) }
   let!(:user_count) { User.count }
-  let(:user) { User.last }
-  let(:n) { rand(100) }
   describe '#show' do
     context 'user have not logged in' do
       before do
@@ -35,14 +33,14 @@ RSpec.describe UsersController, type: :controller do
       end
     end
     context 'current user' do
+      random_number = rand(10)
       before do
-        n.times do
+        random_number.times do
           @book = create(:book, user_id: current_user.id)
         end
       end
-
       it "quantity of book must equal quantity of user's book" do
-        expect(current_user.books.count).to eql(n)
+        expect(current_user.books.count).to eql(random_number)
       end
     end
   end
@@ -72,7 +70,7 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'the quantity of user increase 1' do
-        expect(user_count + 1).to equal(User.count)
+        expect{ User.increment }.to change{ User.count }.from(0).to(1)
       end
     end
 

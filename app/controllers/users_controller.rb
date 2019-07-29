@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      flash[:danger] = t('.user_create_fail')
+      flash.now[:danger] = t('.user_create_fail')
       render 'new'
     end
   end

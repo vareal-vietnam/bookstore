@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = t('.success_login')
       redirect_to logging_user
     else
-      flash[:warning] = t('.wrong_password')
+      flash.now[:warning] = t('.wrong_password')
       render 'new'
     end
   end

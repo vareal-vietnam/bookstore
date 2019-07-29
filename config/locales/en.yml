@@ -80,7 +80,7 @@ en:
       user_not_exist: "User is not existed"
       update: "Update Info"
       user_not_found: "User not found"
-      join_from: "Joined"
+      join_data: "Joined %{time_ago_in_words(current_user.created_at)} ago"
       ago: "ago"
       day: "days"
       selling_book_list: "Selling Book List"

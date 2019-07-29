@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
+  let(:n) { rand(100) }
   describe '#index' do
     before { get :index }
     context 'has no book' do
@@ -41,4 +42,33 @@ RSpec.describe BooksController, type: :controller do
       end
     end
   end
+
+  describe "#delete user's book" do
+    include_context 'logged in'
+    context 'current user remove book in the list' do
+      before do
+        n.times do
+          @book = create(:book, user_id: current_user.id)
+        end
+      end
+      # destroy(@book_first)
+      # @book_last.destroy
+      it 'the book quantity of current user reduce 2' do
+      binding.pry
+        expect(current_user.books.count).to eql(98)
+      end
+
+      it 'the first book is remove' do
+        expect(@book_first). to eql(nil)
+      end
+      it 'the second book is removed' do
+        expect(@book_second). to eql(nil)
+      end
+    end
+  end
+
+
+
+
+
 end
