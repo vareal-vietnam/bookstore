@@ -24,8 +24,8 @@ class BookRequestsController < ApplicationController
 
   def save_images_to_book_request
     image_files = params[:book_request][:book_request_images]
-    image_files&.each do |file|
-      @book_request.book_request_images.create(file: file)
+    image_files&.each do |image_file|
+      @book_request.book_request_images.create(file: image_file)
     end
   end
 end
