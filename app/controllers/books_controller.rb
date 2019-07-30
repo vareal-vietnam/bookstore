@@ -43,6 +43,12 @@ class BooksController < ApplicationController
     end
   end
 
+  def destroy
+    Book.find(params[:id]).destroy
+    flash[:success] = t('book.removed')
+    redirect_to current_user
+  end
+
   def index
     @books = Book.order(created_at: :desc)
                  .includes(:images, :user)

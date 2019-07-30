@@ -18,14 +18,18 @@
       <%= current_user.phone %>
     </div>
     <div class="row first-row">
-      <%= t('.join_data') %><span> <%= time_ago_in_words(current_user.created_at) %> <%= t('.ago') %></span>
+      <%= t('.join_date') %><span> <%= time_ago_in_words(current_user.created_at) %> <%= t('.ago') %></span>
     </div>
       <div class="row">
         <a href="<%= edit_user_url %> " class="btn btn-primary"><%= t('.update') %></a>
       </div>
   </div>
 </div>
+
+<% if current_user.books.any? %>
+
   <h3 class="text-center"><%= t('.selling_book_list') %></h3>
 <div class="col-md-12 book-col">
   <%= render 'users/book_list', books: @books %>
 </div>
+<% end %>

@@ -46,7 +46,6 @@ en:
       book_content: "Book content"
       seller_comment: "Seller's comment"
     created: "The book has been uploaded"
-
   book:
     create: "Create"
     name: "Book's title:"
@@ -56,6 +55,8 @@ en:
     comment: "Seller's comment:"
     update: "Update"
     updated: "The book has been updated"
+    removed: "The book has been removed"
+
 
   user:
     name: "Seller: %{name}"
@@ -90,6 +91,12 @@ en:
       day: "days"
       selling_book_list: "Selling Book List"
       remove_book: "Remove"
+      delete_book: "Permanently remove book?"
+    book_list:
+      update: "Update Info"
+      delete_book: "Delete"
+      confirm_delete: "Permanently remove book?"
+
     create:
       user_created: "User created"
       user_create_fail: "User created fail"

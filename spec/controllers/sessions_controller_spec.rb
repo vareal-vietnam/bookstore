@@ -7,7 +7,7 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe '#create' do
-    before do
+    subject do
       post :create, params: {
         session: {
           phone: user.phone,
@@ -15,8 +15,10 @@ RSpec.describe SessionsController, type: :controller do
         }
       }
     end
+
     context 'valid param input' do
       it 'flash login success' do
+        subject
         expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
       end
 
@@ -25,9 +27,7 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
     context 'invalid param input' do
-      before do
-        user = create(:user, password: password,
-                             password_confirmation: password)
+      subject do
         post :create, params: {
           session: {
             phone: user.phone,
@@ -35,7 +35,9 @@ RSpec.describe SessionsController, type: :controller do
           }
         }
       end
+
       it 'flash login fail' do
+        subject
         expect(flash[:warning])
           .to eql(I18n.t('.sessions.create.wrong_password'))
       end
@@ -52,13 +54,13 @@ RSpec.describe SessionsController, type: :controller do
       session[:user_id] = current_user.id
     end
     context 'user log_out' do
-      before do
-        delete :destroy
-      end
+      subject { delete :destroy }
       it 'session of current user will be removed' do
+        subject
         expect(session[:user_id]).to eql(nil)
       end
       it 'current user will be removed' do
+        subject
         expect(assigns(:current_user)).to eql(nil)
       end
       it 'redirect to home' do

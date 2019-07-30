@@ -2,36 +2,48 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   include_context 'logged in'
   let(:other_user) { create(:user) }
-  let!(:user_count) { User.count }
+  let(:valid_user_params) do
+    user_params = attributes_for(:user)
+    {
+      name: user_params[:name],
+      phone: user_params[:phone],
+      address: user_params[:address],
+      password: user_params[:password],
+      password_confirmation: user_params[:password_confirmation],
+      avatar: user_params[:avatar]
+    }
+  end
+
+  let(:invalid_user_params) { { name: nil } }
+
   describe '#show' do
     context 'user have not logged in' do
+      subject { get :show, params: { id: other_user.id } }
       before do
         allow(User).to receive(:find_by).with(anything).and_return(nil)
-        get :show, params: {
-          id: other_user.id
-        }
+        subject
       end
       it 'redirect to home' do
         expect(subject).to redirect_to(root_url)
       end
 
       it 'flash and returns to home page' do
+        subject
         expect(flash[:danger]).to eql(I18n.t('not_found'))
       end
     end
+
     context 'not current user' do
-      before do
-        get :show, params: {
-          id: other_user.id
-        }
-      end
+      subject { get :show, params: { id: other_user.id } }
       it 'flash and returns to home page' do
+        subject
         expect(flash[:danger]).to eql(I18n.t('not_found'))
       end
       it 'redirect to home' do
         expect(subject).to redirect_to(root_url)
       end
     end
+
     context 'current user' do
       random_number = rand(10)
       before do
@@ -44,57 +56,44 @@ RSpec.describe UsersController, type: :controller do
       end
     end
   end
+
   describe '#create' do
     context 'with valid params' do
-      before do
-        @user = build(:user)
-        post 'create', params: {
-          user: {
-            name: @user.name,
-            phone: @user.phone,
-            address: @user.address,
-            password: @user.password,
-            password_confirmation: @user.password_confirmation,
-            avatar: @user.avatar
-          }
-        }
-      end
+      subject { post :create, params: { user: valid_user_params } }
+
       it 'flash success' do
+        subject
         expect(flash[:success]).to eql(I18n.t('.users.create.user_created'))
       end
+
       it 'redirect to created user' do
-        expect(subject).to redirect_to(user_path(id: User.last.id))
+        subject
+        expect(subject).to redirect_to(User.last)
       end
+
       it "attributes must comply with created user's attributes" do
+        subject
         expect(assigns(:user).attributes).to eql(User.last.attributes)
       end
 
       it 'the quantity of user increase 1' do
-        expect{ User.increment }.to change{ User.count }.from(0).to(1)
+        expect { subject }.to change { User.count }.by(1)
       end
     end
 
     context 'with invalid params' do
-      before do
-        @user = build(:user)
-        post 'create', params: {
-          user: {
-            name: nil,
-            phone: @user.phone,
-            address: @user.address,
-            password: @user.password,
-            password_confirmation: @user.password_confirmation,
-            avatar: @user.avatar
-          }
-        }
+      subject { post :create, params: { user: invalid_user_params } }
+
+      it 'user quantity not increase' do
+        expect { subject }.to change { User.count }.by(0)
       end
-      it 'user quantity not increase 1' do
-        expect(user_count).to equal(User.count)
-      end
+
       it 'render to new user template' do
         expect(subject).to render_template(:new)
       end
+
       it 'get danger flash' do
+        subject
         expect(flash.count).to equal(1)
         expect(flash[:danger]).to eql(I18n.t('.users.create.user_create_fail'))
       end

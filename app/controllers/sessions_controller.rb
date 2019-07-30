@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if logging_user&.authenticate(params[:session][:password])
+    if login_sucess
       log_in logging_user
       flash[:success] = t('.success_login')
       redirect_to logging_user
@@ -24,5 +24,9 @@ class SessionsController < ApplicationController
 
   def logging_user
     @logging_user ||= User.find_by(phone: params[:session][:phone])
+  end
+
+  def login_sucess
+    logging_user&.authenticate(params[:session][:password])
   end
 end

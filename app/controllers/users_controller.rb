@@ -1,6 +1,16 @@
 class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
 
+  def index
+    if current_user
+      redirect_to current_user
+
+    else
+      flash[:danger] = t('not_found')
+      redirect_to root_url
+    end
+  end
+
   def show
     @books = current_user.books
                          .order(created_at: :desc)

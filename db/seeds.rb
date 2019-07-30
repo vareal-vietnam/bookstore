@@ -26,7 +26,7 @@ admin = User.create!(
       description: Faker::Lorem.sentence
     )
     2.times do
-      book.images.create!(url: generate_image_url(600, 900))
+      book.images.create!(remote_file_url: generate_image_url(600, 900))
     end
 end
 

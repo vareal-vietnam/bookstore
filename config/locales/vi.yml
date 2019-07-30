@@ -45,6 +45,7 @@ vi:
       seller_comment: "Ý kiến của người bán"
     created: "Đã tạo sách mới"
 
+
   book:
     create: "Tạo sách"
     name: "Tên sách:"
@@ -54,6 +55,7 @@ vi:
     comment: "Thông tin từ người bán:"
     update: "Cập nhật sách"
     updated: "Sách đã được cập nhật"
+    removed: "Xóa thành công"
 
   user:
     name: "Người bán: %{name}"
@@ -88,6 +90,11 @@ vi:
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
       selling_book_list: "Sách đang bán"
       remove_book: "Xoá"
+    book_list:
+      update: "Chỉnh sửa"
+      delete_book: "Xóa"
+      confirm_delete: "Xóa sách?"
+
     create:
       user_created: "User tạo thành công"
     update:
