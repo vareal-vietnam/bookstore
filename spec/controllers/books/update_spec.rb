@@ -8,9 +8,7 @@ RSpec.describe BooksController, type: :controller do
     include_context 'logged in'
 
     context 'with valid book params' do
-      before do
-        put :update, params: { id: book.id, book: valid_book_params }
-      end
+      before { put :update, params: { id: book.id, book: valid_book_params } }
 
       it 'the book has newest data' do
         expect(assigns(:book).name).to eql(book_params[:name])
@@ -35,9 +33,7 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'with invalid book params' do
-      before do
-        put :update, params: { id: book.id, book: invalid_book_params }
-      end
+      before { put :update, params: { id: book.id, book: invalid_book_params } }
 
       it 'the book not be update' do
         assigns(:book).reload
@@ -58,12 +54,8 @@ RSpec.describe BooksController, type: :controller do
         put :update, params: { id: book.id, book: invalid_book_params }
       end
 
-      before do
-        put :update, params: { id: book.id, book: invalid_book_params }
-      end
-
       it 'all book images are not changed' do
-        expect { subject }.to change(assigns(:book).images, :count).by(0)
+        expect { subject }.to_not change(book, :images)
       end
     end
   end

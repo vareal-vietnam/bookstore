@@ -13,9 +13,7 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'before login' do
-      before do
-        get :new
-      end
+      before { get :new }
 
       it 'get a danger flash' do
         expect(flash.count).to equal(1)

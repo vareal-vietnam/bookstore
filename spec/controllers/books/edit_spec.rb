@@ -40,9 +40,7 @@ RSpec.describe BooksController, type: :controller do
       include_context 'logged in'
       let(:user) { create(:user) }
       let(:book) { create(:book, user_id: user.id) }
-      before do
-        get :edit, params: { id: book.id }
-      end
+      before { get :edit, params: { id: book.id } }
 
       it 'return root page' do
         expect(subject).to redirect_to(root_url)
@@ -57,9 +55,8 @@ RSpec.describe BooksController, type: :controller do
     context "after login as book's owner" do
       include_context 'logged in'
       let(:book) { create(:book, user_id: current_user.id) }
-      before do
-        get :edit, params: { id: book.id }
-      end
+      before { get :edit, params: { id: book.id } }
+
       it 'get the correct book' do
         expect(assigns(:book).attributes).to eql(book.attributes)
       end
