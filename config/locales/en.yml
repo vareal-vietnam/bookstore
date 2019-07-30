@@ -49,12 +49,14 @@ en:
 
   book:
     create: "Create"
+    create_label: "Creating book"
     name: "Book's title:"
     price: "Price:"
     quantity: "Quantity:"
     description: "Book content:"
     comment: "Seller's comment:"
     update: "Update"
+    update_label: "Updating book"
     updated: "The book has been updated"
 
   user:
