@@ -20,13 +20,13 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
+  def login_sucess
+    logging_user&.authenticate(params[:session][:password])
+  end
+
   private
 
   def logging_user
     @logging_user ||= User.find_by(phone: params[:session][:phone])
-  end
-
-  def login_sucess
-    logging_user&.authenticate(params[:session][:password])
   end
 end

@@ -21,7 +21,6 @@ RSpec.describe UsersController, type: :controller do
       subject { get :show, params: { id: other_user.id } }
       before do
         allow(User).to receive(:find_by).with(anything).and_return(nil)
-        subject
       end
       it 'redirect to home' do
         expect(subject).to redirect_to(root_url)
@@ -67,7 +66,6 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it 'redirect to created user' do
-        subject
         expect(subject).to redirect_to(User.last)
       end
 

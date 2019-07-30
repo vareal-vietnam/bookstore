@@ -1,14 +1,11 @@
 require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
   describe "#delete user's book" do
+    let!(:book) { create(:book, user_id: current_user.id) }
     include_context 'logged in'
+
     context 'current user remove book in the list' do
       subject { delete :destroy, params: { id: Book.last.id } }
-      before do
-        rand(3..10).times do
-          @book = create(:book, user_id: current_user.id)
-        end
-      end
 
       it 'the book quantity of reduce 1' do
         expect { subject }.to change(Book, :count).by(-1)
