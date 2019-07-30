@@ -136,9 +136,27 @@ vi:
             price:
               greater_than_or_equal_to: "Giá bán không hợp lệ"
 
+  activerecord:
+    errors:
+      models:
+        book_request:
+          attributes:
+            name:
+              blank: "Tiêu đề của sách không được trống"
+            quantity:
+              greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
+              blank: "Nhập vào số lượng"
+            budget:
+              greater_than_or_equal_to: "Tầm giá không hợp lệ"
+              blank: "Tầm giá không được trống"
+
   book_request:
     create: "Tạo yêu cầu"
     name: "Tên sách:"
     budget: "Tầm giá:"
     quantity: "Số lượng:"
     comment: "Ý kiến người mua:"
+
+  book_requests:
+    create:
+      create_success: "Đã tạo một yêu cầu mua sách"

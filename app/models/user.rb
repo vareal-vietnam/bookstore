@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   has_many :books, dependent: :destroy
 
+  has_many :book_requests, dependent: :destroy
+
   has_secure_password
 
   validates :name, presence: true, length: { maximum: 20 }

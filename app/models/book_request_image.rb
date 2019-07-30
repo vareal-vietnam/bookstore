@@ -1,4 +1,5 @@
 class BookRequestImage < ApplicationRecord
   belongs_to :book_request
-  validates :url, presence: true
+  validates :file, presence: true
+  mount_uploader :file, RequestImageUploader
 end
