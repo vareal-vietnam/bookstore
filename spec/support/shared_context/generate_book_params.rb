@@ -10,15 +10,15 @@ RSpec.shared_context 'generate book_params' do
     image_files
   end
 
-  let(:book_params) { create(:book) }
+  let(:book_params) { attributes_for(:book) }
 
   let(:valid_book_params) do
     {
-      name: book_params.name,
-      price: book_params.price,
-      description: book_params.description,
-      quantity: book_params.quantity,
-      comment: book_params.comment,
+      name: book_params[:name],
+      price: book_params[:price],
+      description: book_params[:description],
+      quantity: book_params[:quantity],
+      comment: book_params[:comment],
       files: image_files
     }
   end

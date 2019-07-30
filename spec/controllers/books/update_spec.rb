@@ -13,11 +13,11 @@ RSpec.describe BooksController, type: :controller do
       end
 
       it 'the book has newest data' do
-        expect(assigns(:book).name).to eql(book_params.name)
-        expect(assigns(:book).quantity).to eql(book_params.quantity)
-        expect(assigns(:book).price).to eql(book_params.price)
-        expect(assigns(:book).comment).to eql(book_params.comment)
-        expect(assigns(:book).description).to eql(book_params.description)
+        expect(assigns(:book).name).to eql(book_params[:name])
+        expect(assigns(:book).quantity).to eql(book_params[:quantity])
+        expect(assigns(:book).price).to eql(book_params[:price])
+        expect(assigns(:book).comment).to eql(book_params[:comment])
+        expect(assigns(:book).description).to eql(book_params[:description])
       end
 
       it 'the book is given enough image file' do
