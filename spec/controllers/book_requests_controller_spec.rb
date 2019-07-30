@@ -46,9 +46,10 @@ RSpec.describe BookRequestsController, type: :controller do
         expect(BookRequest.last.comment).to eql(book_request_params.comment)
         expect(BookRequest.last.quantity).to eql(book_request_params.quantity)
         expect(BookRequest.last.budget).to eql(book_request_params.budget)
+        expect(BookRequest.last.user_id).to eql(current_user.id)
       end
-      it 'redirect to root url' do
-        expect(subject).to redirect_to(root_url)
+      it 'redirect to book request url' do
+        expect(subject).to redirect_to(BookRequest.last)
       end
     end
     context 'has invalid params' do

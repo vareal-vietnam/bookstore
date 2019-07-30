@@ -8,7 +8,7 @@ class BookRequestsController < ApplicationController
     if @book_request.save
       upload_images
       flash[:success] = t('.success')
-      redirect_to root_url
+      redirect_to @book_request
     else
       render 'new'
     end
