@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_25_063418) do
+ActiveRecord::Schema.define(version: 2019_07_30_020809) do
 
   create_table "book_request_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "url", null: false
+    t.string "file", null: false
     t.bigint "book_request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

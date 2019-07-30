@@ -14,6 +14,10 @@ class BookRequestsController < ApplicationController
     end
   end
 
+  def index
+    @book_requests = BookRequest.all
+  end
+
   private
 
   def book_request_params
