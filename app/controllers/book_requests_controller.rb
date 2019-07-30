@@ -6,7 +6,7 @@ class BookRequestsController < ApplicationController
   def create
     @book_request = current_user.book_requests.build(book_request_params)
     if @book_request.save
-      insert_data
+      upload_images
       flash[:success] = t('.success')
       redirect_to root_url
     else
@@ -22,10 +22,10 @@ class BookRequestsController < ApplicationController
     )
   end
 
-  def insert_data
-    images = params[:book_request][:book_request_images]
-    images&.each do |image|
-      @book_request.book_request_images.create(url: image)
+  def upload_images
+    files = params[:book_request][:book_request_images]
+    files&.each do |file|
+      @book_request.book_request_images.create(file: file)
     end
   end
 end

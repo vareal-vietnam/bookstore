@@ -1,11 +1,9 @@
 require 'rails_helper'
 RSpec.describe BookRequestsController, type: :controller do
-  let(:user) { create(:user) }
   let(:book_request_params) { create(:book_request) }
-  let(:user) { create(:user) }
   let(:image_files) do
     image_files = []
-    rand(1..3).times do
+    rand(0..3).times do
       image_files << Rack::Test::UploadedFile.new(
         Rails.root.join('spec/support/default-book-cover.jpg'),
         'image/jpeg'
@@ -19,17 +17,10 @@ RSpec.describe BookRequestsController, type: :controller do
       budget: book_request_params.budget,
       quantity: book_request_params.quantity,
       comment: book_request_params.comment,
-      book_request_images: image_files,
-      user_id: user.id
+      book_request_images: image_files
     }
   end
-  let(:invalid_book_request_params) do
-    {
-      name: book_request_params.name,
-      quantity: '1sad',
-      budget: nil
-    }
-  end
+  let(:invalid_book_request_params) { { name: nil } }
   describe '#create' do
     include_context 'logged in'
     context 'has valid params' do
@@ -43,6 +34,7 @@ RSpec.describe BookRequestsController, type: :controller do
         expect { subject }.to change(BookRequest, :count).by(1)
       end
       it 'give success flash' do
+        expect(flash.count).to equal(1)
         expect(flash[:success]).to eql(I18n.t('book_requests.create.success'))
       end
       it 'book request images save enough image ' do

@@ -132,12 +132,12 @@ vi:
         book_request:
           attributes:
             name:
-              blank: "Nội dung của sách không được trống"
+              blank: "Tiêu đề của sách không được trống"
             quantity:
               greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
               blank: "Nhập vào số lượng"
             budget:
-              greater_than_or_equal_to: "Tầm giá  không hợp lệ"
+              greater_than_or_equal_to: "Tầm giá không hợp lệ"
               blank: "Tầm giá không được trống"
 
   book_request:
