@@ -129,6 +129,19 @@ en:
               greater_than_or_equal_to: "The quantity is invalid"
             price:
               greater_than_or_equal_to: "The price is invalid"
+  activerecord:
+    errors:
+      models:
+        book_request:
+          attributes:
+            name:
+              blank: "Book's title is required"
+            quantity:
+              greater_than_or_equal_to: "Quantity not valid"
+              blank: "Quantity is required"
+            budget:
+              greater_than_or_equal_to: "Budget not valid "
+              blank: "Budget is required"
 
   book_request:
     create: "Create book request"
@@ -136,3 +149,6 @@ en:
     budget: "Budget:"
     quantity: "Quantity:"
     comment: "Some comment:"
+  book_requests:
+    create:
+      success: "A new book request created"
