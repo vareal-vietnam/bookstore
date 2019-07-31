@@ -94,16 +94,30 @@ a {
 }
 
 .book-request {
-  margin-top: 10px;
-  margin-left: 10px;
-  background-color: yellow;
+  display:block;
+  margin:auto;
 }
 
-.book-request-image{
+.book-request-image {
   width: 100px;
   heigh: 200px;
 }
 
 .book-request-content {
-  margin-left: 10px
+margin-left: 10px
+}
+
+.book-request-image {
+    width: 186px;
+    heigh: 200px;
+    display:block;
+    margin:left;
+}
+.vnd {
+    font-size: 1rem;
+    color: #ee4d2d;
+}
+
+.book-title {
+  font-size: 2rem;
 }

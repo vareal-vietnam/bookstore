@@ -1,18 +1,27 @@
 <div class="row">
 	<% @book_requests&.each do |book_request| %>
-	<a href="#">
-	  <div class="col-sm-3 book-request" >
-	  	<div class="row">
-	  	  <div class="col-sm-4">
-	  	    <img src="http://hinhnendepnhat.net/wp-content/uploads/2015/08/hinh-nen-mua-he-dong-co-xanh-tuoi-mat-nhat.jpg" class="book-request-image">
-	  	  </div>
-	  	  <div class="col-sm-8 book-request-content">
-	  	  	<p>aaa</p>
-	  	  	<p>bbb</p>
-	  	  </div>
-	  	 </div>
-	  </div>
-	</a>
+		<div class="col-md-3 book-request">
+			<div class="row">
+				<img src="<%= book_request.book_request_images&.first.url %>" alt = "Book's cover" class="book-request-image">
+				<div class="col-md-12" style="margin-top: 10px; padding: 5px;">
+					<p class="book-title"><%= book_request.name %></p>
+					<p>2 quyển</p>
+          <p>10000 <span class="vnd">đ</span></p>
+				</div>
+			</div>
+		</div>
 	<% end %>
 </div>
-<h1>Ahihi</h1>
+
+
+
+<!-- 		<div class="col-md-3 book-request">
+			<div class="row">
+				<img src="https://downloadsach.com/wp-content/uploads/2017/05/sach-di-tim-le-song-ebook-206x300.jpg" class="book-request-image">
+				<div class="col-md-12" style="margin-top: 10px; padding: 5px;">
+					<p class="book-title">ĐI TÌM LẼ SỐNG</p>
+					<p>2 quyển</p>
+          <p>10000 <span class="vnd">đ</span></p>
+				</div>
+			</div>
+		</div> -->
