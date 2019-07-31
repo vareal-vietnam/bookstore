@@ -7,8 +7,13 @@
             "alt = "Book's cover" class="book-request-image">
           <div class="col-md-12 book-request-content" >
             <p class="book-request-title"><%= book_request.name %></p>
-            <p class="book-request-detail">Quantity: <%= book_request.quantity %></p>
-            <p class="book-request-detail">Budget: <%= book_request.budget %></p>
+            <p class="book-request-detail">User: Obama</p>
+            <p class="book-request-detail"><%= t('book_request.quantity') %>
+              <%= book_request.quantity %>
+            </p>
+            <p class="book-request-detail">Budget: <%= t('book_request.budget') %>
+              <%= book_request.budget %>
+            </p>
             <p class="book-request-detail"><span title="<%= book_request.comment %>">
               <%= truncate(book_request.comment, length: 25) %></span>
             </p>
@@ -18,3 +23,4 @@
     <% end %>
   <% end %>
 </div>
+
