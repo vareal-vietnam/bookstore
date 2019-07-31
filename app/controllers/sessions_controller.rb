@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if login_sucess
+    if authenticate_sucess
       log_in logging_user
       flash[:success] = t('.success_login')
       redirect_to logging_user
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-  def login_sucess
+  def authenticate_sucess
     logging_user&.authenticate(params[:session][:password])
   end
 
