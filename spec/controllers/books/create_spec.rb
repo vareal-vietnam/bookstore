@@ -14,12 +14,7 @@ RSpec.describe BooksController, type: :controller do
 
       it 'new book is created with correct data' do
         subject
-        expect(Book.last.name).to eql(book_params[:name])
-        expect(Book.last.quantity).to eql(book_params[:quantity])
-        expect(Book.last.price).to eql(book_params[:price])
-        expect(Book.last.comment).to eql(book_params[:comment])
-        expect(Book.last.description).to eql(book_params[:description])
-        expect(Book.last.user_id).to eql(current_user.id)
+        expect(Book.last.attributes).to include(book_params.stringify_keys)
       end
 
       it 'new book is given enough image file' do

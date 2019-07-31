@@ -23,5 +23,16 @@ RSpec.shared_context 'generate book_params' do
     }
   end
 
+  let(:valid_book_params_without_images) do
+    {
+      name: book_params[:name],
+      price: book_params[:price],
+      description: book_params[:description],
+      quantity: book_params[:quantity],
+      comment: book_params[:comment],
+      files: []
+    }
+  end
+
   let(:invalid_book_params) { { name: nil } }
 end
