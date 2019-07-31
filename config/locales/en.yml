@@ -58,6 +58,7 @@ en:
     update_label: "Updating book"
     updated: "The book has been updated"
     removed: "The book has been removed"
+    removed_fail: "The book fails to be removed"
 
 
   user:

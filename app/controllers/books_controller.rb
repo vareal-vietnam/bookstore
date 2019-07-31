@@ -38,8 +38,11 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
-    flash[:success] = t('book.removed')
+    if @book.destroy
+      flash[:success] = t('book.removed')
+    else
+      flash[:danger] = t('book.removed_fail')
+    end
     redirect_to current_user
   end
 

@@ -58,6 +58,7 @@ vi:
     update_label: "Cập nhật thông tin sách"
     updated: "Sách đã được cập nhật"
     removed: "Xóa thành công"
+    removed_fail: "Xóa thất bại"
 
   user:
     name: "Người bán: %{name}"
