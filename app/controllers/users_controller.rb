@@ -2,9 +2,14 @@ class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
 
   def show
+    @books = current_user.books
+                         .order(created_at: :desc)
+                         .includes(:images, :user)
+                         .page(params[:page]).per(4)
   end
 
   def new
+    redirect_to current_user if current_user
     @user = User.new
   end
 
@@ -14,9 +19,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success] = t('.user_created')
       log_in @user
       redirect_to @user
     else
+      flash.now[:danger] = t('.user_create_fail')
       render 'new'
     end
   end

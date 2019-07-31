@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :check_login, only: %i[new edit]
-  before_action :find_and_assign_book, only: %i[show edit update]
+  before_action :find_and_assign_book, only: %i[show edit update destroy]
 
   def new
     @book = Book.new
@@ -35,6 +35,15 @@ class BooksController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    if @book.destroy
+      flash[:success] = t('book.removed')
+    else
+      flash[:danger] = t('book.removed_fail')
+    end
+    redirect_to current_user
   end
 
   def index
