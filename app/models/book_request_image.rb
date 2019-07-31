@@ -8,6 +8,6 @@ class BookRequestImage < ApplicationRecord
   end
 
   def thumb_url
-    file.thumb_url
+    file.thumb.url
   end
 end
