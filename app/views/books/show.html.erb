@@ -1,40 +1,26 @@
 <div class="row">
   <div class="col-sm-3">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <% @book.images.each_with_index do |book_image, index| %>
-          <div class="item <%= "active" if index == 0 %> ">
-            <img src="<%= book_image&.url %>">
-          </div>
-        <% end %>
-      </div>
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
+    <%= render partial: 'shared/images_slider', locals: {images: @book.images}  %>
   </div>
   <div class="col-sm-5">
-    <div class="row text-big-size horizontal-border"><b><%= @book.name %></b></div>
-    <div class="row container"><p><%= t('books.quantity', quantity: @book.quantity) %></p></div>
-    <div class="row container"><p><%= t('books.price', price: @book.price) %></p></div>
+    <h3><%= @book.name %></h3>
+    <p><%= t('books.quantity', quantity: @book.quantity) %></p>
+    <p><%= t('books.price', price: @book.price) %></p>
   </div>
-  <div class="col-sm-3 text-center left-border">
-    <div class="row text-big-size"><b><%= t('user.name', name: @book.seller_name) %></b></div>
-    <div class="row"> <img src="<%= @book.seller_avatar %>" class="user-avatar"> </div>
+  <div class="col-sm-3 text-center book-seller-area">
+    <h3><%= @book.seller_name %></h3>
+    <img src="<%= @book.seller_avatar %>" class="user-avatar">
     <% if current_user %>
-      <div class="row"><p><%= t('user.phone', phone: @book.seller_phone) %></p></div>
-      <div class="row"><p><%= t('user.address', address: @book.seller_address) %></p></div>
+      <p><%= t('user.phone', phone: @book.seller_phone) %></p>
+      <p><%= t('user.address', address: @book.seller_address) %></p>
     <% else %>
-      <div class="row"><p><%= t('user.login_required') %></p></div>
+      <p><%= t('user.login_required') %></p>
     <% end %>
   </div>
 </div>
 <% if @book.comment.present? %>
-  <div class="row horizontal-border"><b class="text-big-size"><%= t('.seller_comment') %></b></div>
-  <div class="row container"><p class="book-content"><%= @book.comment %></p></div>
+  <h3><%= t('.seller_comment') %></h3>
+  <p class="book-content"><%= @book.comment %></p>
 <% end %>
-<div class="row horizontal-border"><b class="text-big-size"><%= t('.book_content') %></b></div>
-<div class="row container"><p class="book-content"><%= @book.description %></p></div>
+<h3><%= t('.book_content') %></h3>
+<p class="book-content"><%= @book.description %></p>
