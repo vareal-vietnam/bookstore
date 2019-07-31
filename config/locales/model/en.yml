@@ -11,7 +11,7 @@ en:
             name:
               blank: "Please input name"
             password:
-              blank: "Aassword is blank"
+              blank: "Password is blank"
               too_short: "Password is too short"
             address:
               blank: "Address is blank"

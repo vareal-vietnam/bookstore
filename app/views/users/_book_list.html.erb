@@ -1,0 +1,26 @@
+<div class="row">
+  <% books.each do |book| %>
+    <%= link_to book_path book do %>
+      <div class="col-md-6">
+        <div class="col-md-12 book-col">
+          <div class="col-sm-3">
+            <img src= "<%= book.images.first&.thumb_url %>" alt= "Book's cover" class="book-cover">
+          </div>
+          <div class="col-sm-9">
+            <div class="row"><b class="text-big-size"><%= book.name %></b></div>
+            <div class="row"><p><%= t('books.seller_name', seller_name: book.seller_name) %></p></div>
+            <div class="row"><p><%= t('books.quantity', quantity: book.quantity) %></p></div>
+            <div class="row"><p><%= t('books.price', price: book.price) %></p></div>
+            <div class="row text-center">
+              <a href="<%= edit_book_url book.id %>" class="btn btn-primary"><%= t('.update') %></a>
+              <span> <a href="<%= book_path book.id %>" data-method= "delete" data-confirm="<%= t('.confirm_delete') %>" class="btn btn-primary"><%= t('.remove_book') %></a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div class="row text-center">
+  <%= paginate books %>
+</div>

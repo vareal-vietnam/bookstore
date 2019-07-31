@@ -11,11 +11,7 @@ RSpec.describe BooksController, type: :controller do
       before { put :update, params: { id: book.id, book: valid_book_params } }
 
       it 'the book has newest data' do
-        expect(assigns(:book).name).to eql(book_params[:name])
-        expect(assigns(:book).quantity).to eql(book_params[:quantity])
-        expect(assigns(:book).price).to eql(book_params[:price])
-        expect(assigns(:book).comment).to eql(book_params[:comment])
-        expect(assigns(:book).description).to eql(book_params[:description])
+        expect(assigns(:book).attributes).to include(book_params.stringify_keys)
       end
 
       it 'the book is given enough image file' do
@@ -33,25 +29,31 @@ RSpec.describe BooksController, type: :controller do
     end
 
     context 'with invalid book params' do
-      before { put :update, params: { id: book.id, book: invalid_book_params } }
+      subject do
+        put :update, params: { id: book.id, book: invalid_book_params }
+      end
 
       it 'the book not be update' do
-        assigns(:book).reload
-        expect(assigns(:book).name).to eql(book.name)
-        expect(assigns(:book).quantity).to eql(book.quantity)
-        expect(assigns(:book).price).to eql(book.price)
-        expect(assigns(:book).comment).to eql(book.comment)
-        expect(assigns(:book).description).to eql(book.description)
+        expect { subject }.to_not change(book, :reload)
       end
 
       it 'render to :edit' do
+        subject
         expect(subject).to render_template(:edit)
       end
     end
 
     context 'book is updated with no images' do
       subject do
-        put :update, params: { id: book.id, book: invalid_book_params }
+        put :update, params: {
+          id: book.id,
+          book: valid_book_params_without_images
+        }
+      end
+
+      it 'the book has newest data' do
+        subject
+        expect(assigns(:book).attributes).to include(book_params.stringify_keys)
       end
 
       it 'all book images are not changed' do

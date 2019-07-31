@@ -45,6 +45,7 @@ vi:
       seller_comment: "Ý kiến của người bán"
     created: "Đã tạo sách mới"
 
+
   book:
     create: "Tạo sách"
     create_label: "Đăng bán sách"
@@ -56,6 +57,8 @@ vi:
     update: "Cập nhật sách"
     update_label: "Cập nhật thông tin sách"
     updated: "Sách đã được cập nhật"
+    removed: "Xóa thành công"
+    removed_fail: "Xóa thất bại"
 
   user:
     name: "Người bán: %{name}"
@@ -85,10 +88,18 @@ vi:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
       user_not_found: "Không tìm thấy người bán"
-      join: "Tham gia từ"
+      join_from: "Tham gia từ"
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
+      selling_book_list: "Sách đang bán"
+      remove_book: "Xoá"
+    book_list:
+      update: "Chỉnh sửa"
+      delete_book: "Xóa"
+      confirm_delete: "Xóa sách?"
 
+    create:
+      user_created: "User tạo thành công"
     update:
       update_success: "Cập nhật thông tin thành công."
 

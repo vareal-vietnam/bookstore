@@ -46,7 +46,6 @@ en:
       book_content: "Book content"
       seller_comment: "Seller's comment"
     created: "The book has been uploaded"
-
   book:
     create: "Create"
     create_label: "Creating book"
@@ -58,6 +57,9 @@ en:
     update: "Update"
     update_label: "Updating book"
     updated: "The book has been updated"
+    removed: "The book has been removed"
+    removed_fail: "The book fails to be removed"
+
 
   user:
     name: "Seller: %{name}"
@@ -87,10 +89,20 @@ en:
       user_not_exist: "User is not existed"
       update: "Update Info"
       user_not_found: "User not found"
-      join_at: "Joined"
+      join_data: "Joined %{time_ago_in_words(current_user.created_at)} ago"
       ago: "ago"
       day: "days"
+      selling_book_list: "Selling Book List"
+      remove_book: "Remove"
+      delete_book: "Permanently remove book?"
+    book_list:
+      update: "Update Info"
+      delete_book: "Delete"
+      confirm_delete: "Permanently remove book?"
 
+    create:
+      user_created: "User created"
+      user_create_fail: "User created fail"
     update:
       update_success: "Data have updated"
 
@@ -99,9 +111,10 @@ en:
       phone: "Phone"
       password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
-      input_guide_phone: "Format 09xx......"
-      input_guide_password: "atleast 6 characters"
+      input_guide_phone: "format 0xx......"
+      input_guide_password: "at least 6 characters"
       avatar: "Avatar"
+
 
     edit:
       title: "Update user's info"
