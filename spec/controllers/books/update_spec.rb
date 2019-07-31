@@ -11,11 +11,7 @@ RSpec.describe BooksController, type: :controller do
       before { put :update, params: { id: book.id, book: valid_book_params } }
 
       it 'the book has newest data' do
-        expect(assigns(:book).name).to eql(book_params[:name])
-        expect(assigns(:book).quantity).to eql(book_params[:quantity])
-        expect(assigns(:book).price).to eql(book_params[:price])
-        expect(assigns(:book).comment).to eql(book_params[:comment])
-        expect(assigns(:book).description).to eql(book_params[:description])
+        expect(assigns(:book).attributes).to include(book_params.stringify_keys)
       end
 
       it 'the book is given enough image file' do
@@ -57,11 +53,7 @@ RSpec.describe BooksController, type: :controller do
 
       it 'the book has newest data' do
         subject
-        expect(assigns(:book).name).to eql(book_params[:name])
-        expect(assigns(:book).quantity).to eql(book_params[:quantity])
-        expect(assigns(:book).price).to eql(book_params[:price])
-        expect(assigns(:book).comment).to eql(book_params[:comment])
-        expect(assigns(:book).description).to eql(book_params[:description])
+        expect(assigns(:book).attributes).to include(book_params.stringify_keys)
       end
 
       it 'all book images are not changed' do
