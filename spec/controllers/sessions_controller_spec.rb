@@ -7,16 +7,16 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe '#create' do
-    subject do
-      post :create, params: {
-        session: {
-          phone: user.phone,
-          password: password
-        }
-      }
-    end
-
     context 'valid param input' do
+      subject do
+        post :create, params: {
+          session: {
+            phone: user.phone,
+            password: password
+          }
+        }
+      end
+
       it 'flash login success' do
         subject
         expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))

@@ -38,7 +38,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    Book.find(params[:id]).destroy
+    @book.destroy
     flash[:success] = t('book.removed')
     redirect_to current_user
   end

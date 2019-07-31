@@ -26,7 +26,7 @@ RSpec.describe UsersController, type: :controller do
         expect(subject).to redirect_to(root_url)
       end
 
-      it 'flash and returns to home page' do
+      it 'returns flash' do
         subject
         expect(flash[:danger]).to eql(I18n.t('not_found'))
       end
