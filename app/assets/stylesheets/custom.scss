@@ -86,3 +86,41 @@ a {
   text-decoration: underline;
   position: center;
 }
+
+.book-request {
+  display:block;
+  margin:auto;
+}
+
+.book-request-image {
+  width: 100px;
+  height: 200px;
+}
+
+.book-request-content {
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.book-request-image {
+    display:block;
+    margin:left;
+    width: 186px;
+    height: auto;
+}
+
+.book-request-title {
+  font: italic bold 12px/30px Georgia;
+}
+
+.book-request {
+  background: rgba(0,0,0,.03);
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 186px;
+}
+
+.book-request-detail{
+  font-size: 1.25rem;
+}
+
