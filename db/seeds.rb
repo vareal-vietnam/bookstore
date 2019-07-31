@@ -10,7 +10,7 @@ def generate_phone_number
   "0" + rand(100000000..899999999).to_s
 end
 
-User.create!(
+admin = User.create!(
     name: 'Admin',
     password: DEFAULT_PASSWORD,
     password_confirmation: DEFAULT_PASSWORD,
@@ -18,6 +18,17 @@ User.create!(
     phone: DEFAULT_PHONE_NUMBER,
     remote_avatar_url: generate_image_url(600, 600)
   )
+10.times do
+    book = admin.books.create!(
+      name: Faker::Book.title,
+      price: rand(10..999),
+      quantity: rand(1..20),
+      description: Faker::Lorem.sentence
+    )
+    2.times do
+      book.images.create!(remote_file_url: generate_image_url(600, 900))
+    end
+end
 
 5.times do
   user = User.create!(
@@ -42,3 +53,4 @@ User.create!(
     end
   end
 end
+
