@@ -31,7 +31,7 @@ class BooksController < ApplicationController
         update_book_images
       end
       flash[:success] = t('book.updated')
-      redirect_to current_user
+      redirect_to @book
     else
       render 'edit'
     end

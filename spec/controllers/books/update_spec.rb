@@ -23,8 +23,8 @@ RSpec.describe BooksController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('book.updated'))
       end
 
-      it 'redirect to current_user' do
-        expect(subject).to redirect_to(current_user)
+      it 'redirect to book' do
+        expect(subject).to redirect_to(book)
       end
     end
 
@@ -60,8 +60,8 @@ RSpec.describe BooksController, type: :controller do
         expect { subject }.to_not change(book, :images)
       end
 
-      it 'redirect to current_user' do
-        expect(subject).to redirect_to(current_user)
+      it 'redirect to book' do
+        expect(subject).to redirect_to(book)
       end
     end
   end
