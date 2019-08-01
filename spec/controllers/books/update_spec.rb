@@ -59,6 +59,10 @@ RSpec.describe BooksController, type: :controller do
       it 'all book images are not changed' do
         expect { subject }.to_not change(book, :images)
       end
+
+      it 'redirect to book' do
+        expect(subject).to redirect_to(book)
+      end
     end
   end
 end
