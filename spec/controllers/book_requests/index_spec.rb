@@ -2,7 +2,7 @@ RSpec.describe BookRequestsController, type: :controller do
   describe '#index' do
     before { get :index }
 
-    context 'many book requests' do
+    context 'has many book requests' do
       before do
         rand(5..15).times do
           create(:book_request)
@@ -19,7 +19,7 @@ RSpec.describe BookRequestsController, type: :controller do
       end
     end
 
-    context 'has no book requests' do
+    context 'no book requests' do
       it 'has no book request' do
         expect(assigns(:book_requests)).to be_empty
       end
