@@ -7,7 +7,7 @@
             "alt = "Book's cover" class="book-request-image">
           <div class="col-md-12 book-request-content" >
             <p class="book-request-title"><%= book_request.name %></p>
-            <p class="book-request-detail">User: Obama</p>
+            <p class="book-request-detail">User: <%= User.find(book_request.user_id).name %></p>
             <p class="book-request-detail"><%= t('book_request.quantity') %>
               <%= book_request.quantity %>
             </p>
@@ -22,5 +22,8 @@
       </div>
     <% end %>
   <% end %>
+</div>
+<div class="text-center">
+  <%= paginate @book_requests %>
 </div>
 

@@ -52,7 +52,7 @@ end
       book.images.create!(remote_file_url: generate_image_url(600, 900))
     end
   end
-  5.times do
+  10.times do
     book_request = BookRequest.create!(
       name: Faker::Book.title,
       budget: rand(0..100),
