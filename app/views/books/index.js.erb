@@ -1,0 +1,2 @@
+$('#books').html(' <%= escape_javascript(render partial: 'books/book_list', locals: { books: @books }) %> ');
+$('#paginator').html(' <%= escape_javascript(paginate @books, remote: true) %> ');
