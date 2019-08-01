@@ -11,6 +11,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def avatar_whitelist
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 end
