@@ -157,6 +157,7 @@ vi:
     budget: "Tầm giá:"
     quantity: "Số lượng:"
     comment: "Ý kiến người mua:"
+    buyer: "Người mua:"
 
   book_requests:
     create:

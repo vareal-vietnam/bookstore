@@ -1,33 +1,27 @@
 RSpec.describe BookRequestsController, type: :controller do
   describe '#index' do
-    context 'have book requests' do
-      # let(:latest_requests) { BookRequest.all.limit(20).to_a }
-      let(:latest_requests) { BookRequest.all.limit(20).to_a }
-      binding.pry
-      before { get :index }
+    before { get :index }
 
-      it 'returns right number of book requests' do
-        expect(assigns(:book_requests).count).to equal(latest_requests.count)
+    context 'many book requests' do
+      before do
+        rand(5..15).times do
+          create(:book_request)
+        end
+      end
+
+      it 'return right number of book requests' do
+        expect(assigns(:book_requests).count).to eql(BookRequest.count)
       end
 
       it 'data of book request is exactly' do
-
-        # expect(assigns(:book_requests).pluck(:id))
-        #   .to match_array(BookRequest.all.pluck(:id))
-        # expect(assigns(:book_requests).pluck(:user_id))
-        #   .to match_array(BookRequest.all.pluck(:user_id))
-        # expect(assigns(:book_requests).pluck(:budget))
-        #   .to match_array(BookRequest.all.pluck(:budget))
-        # expect(assigns(:book_requests).pluck(:quantity))
-        #   .to match_array(BookRequest.all.pluck(:quantity))
-        # expect(assigns(:book_requests).pluck(:comment))
-        #   .to match_array(BookRequest.all.pluck(:comment))
+        expect(assigns(:book_requests)
+          .pluck(:id)).to eql(BookRequest.all.pluck(:id))
       end
     end
 
-    context 'do not have any book request' do
-      it 'no book request is given' do
-        # expect(assigns(:book_requests)).to be_empty
+    context 'has no book requests' do
+      it 'has no book request' do
+        expect(assigns(:book_requests)).to be_empty
       end
     end
   end
