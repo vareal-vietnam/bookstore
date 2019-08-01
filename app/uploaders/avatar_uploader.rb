@@ -9,4 +9,8 @@ class AvatarUploader < CarrierWave::Uploader::Base
   def default_url
     ActionController::Base.helpers.image_path('BookLogo.jpg')
   end
+
+  def avatar_whitelist
+    %w(jpg jpeg gif png)
+  end
 end
