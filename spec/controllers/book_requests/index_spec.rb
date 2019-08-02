@@ -1,6 +1,8 @@
+require 'rails_helper'
 RSpec.describe BookRequestsController, type: :controller do
+  let!(:page_number) { 2 }
   describe '#index' do
-    before { get :index, params: { page: 2 } }
+    before { get :index, params: { page: page_number } }
 
     context 'has many book requests' do
       before do
@@ -11,7 +13,7 @@ RSpec.describe BookRequestsController, type: :controller do
 
       it 'return right number of book requests' do
         expected_book_requests =
-          BookRequest.order(created_at: :desc).page(2).per(15)
+          BookRequest.order(created_at: :desc).page(page_number).per(15)
         expect(assigns(:book_requests)
           .pluck(:id)).to eql(expected_book_requests.pluck(:id))
       end
