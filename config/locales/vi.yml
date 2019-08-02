@@ -21,6 +21,8 @@ vi:
       new_post: "Đăng bài"
       post_for_sell: "Bán sách"
       post_for_buy: "Tạo yêu cầu"
+      user_books: "Sách"
+
   not_found: "Không thể hiển thị trang yêu cầu"
 
   views:
@@ -84,6 +86,11 @@ vi:
       wrong_password: "Nhập sai password"
 
   users:
+    books:
+      user_books_list:
+        remove_book: "Xóa"
+        update: "Chỉnh sửa"
+        confirm_delete: "Xóa sách?"
     show:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"

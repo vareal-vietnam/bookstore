@@ -1,0 +1,7 @@
+<div class="row", id="user-books">
+  <%= render 'users/books/user_books_list', user_books: @user_books %>
+</div>
+
+<div class="row text-center", id="user-books-paginator">
+  <%= paginate @user_books, remote: true %>
+</div>
