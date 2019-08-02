@@ -1,21 +1,19 @@
 RSpec.describe BookRequestsController, type: :controller do
   describe '#index' do
-    before { get :index }
+    before { get :index, params: { page: 2 } }
 
     context 'has many book requests' do
       before do
-        rand(5..15).times do
+        20.times do
           create(:book_request)
         end
       end
 
       it 'return right number of book requests' do
-        expect(assigns(:book_requests).count).to eql(BookRequest.count)
-      end
-
-      it 'data of book request is exactly' do
+        expected_book_requests =
+          BookRequest.order(created_at: :desc).page(2).per(15)
         expect(assigns(:book_requests)
-          .pluck(:id)).to eql(BookRequest.all.pluck(:id))
+          .pluck(:id)).to eql(expected_book_requests.pluck(:id))
       end
     end
 
