@@ -29,7 +29,7 @@ class User < ApplicationRecord
 
   def remember
     self.remember_token = user_new_token
-    update_attribute(:remember_digest, user_digest(remember_token))
+    update_attribute(:remember_digest, user_digest('remember_token'))
   end
 
   def authenticated?(remember_token)

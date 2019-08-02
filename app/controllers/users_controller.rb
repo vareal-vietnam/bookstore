@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = t('.user_created')
-      log_in @user
+      assign_user_to_session @user
       redirect_to @user
     else
       flash.now[:danger] = t('.user_create_fail')

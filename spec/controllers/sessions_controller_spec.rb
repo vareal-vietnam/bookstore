@@ -7,26 +7,6 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe '#create' do
-    context 'valid param input' do
-      subject do
-        post :create, params: {
-          session: {
-            phone: user.phone,
-            password: password
-          }
-        }
-      end
-
-      it 'flash login success' do
-        subject
-        expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
-      end
-
-      it 'redirect to logged in user' do
-        expect(subject).to redirect_to(user)
-      end
-    end
-
     context 'invalid param input' do
       subject do
         post :create, params: {
@@ -46,6 +26,70 @@ RSpec.describe SessionsController, type: :controller do
 
       it 'render to new' do
         expect(subject).to render_template(:new)
+      end
+    end
+
+    context 'valid param input not checked remember me' do
+      subject do
+        post :create, params: {
+          session: {
+            phone: user.phone,
+            password: password,
+            remember_me: '0'
+          }
+        }
+      end
+
+      it 'remember_disgest must be nil' do
+        subject
+        expect(user[:remember_digest]).to eql(nil)
+      end
+
+      it 'the user_id and remember_token of the cookie must be nil' do
+        subject
+        expect(cookies[:user_id]).to eql(nil)
+        expect(cookies[:remember_token]).to eql(nil)
+      end
+
+      it 'flash login success' do
+        subject
+        expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
+      end
+
+      it 'redirect to logged in user' do
+        expect(subject).to redirect_to(user)
+      end
+    end
+
+    context 'valid param input and checked remember me' do
+      subject do
+        post :create, params: {
+          session: {
+            phone: user.phone,
+            password: password,
+            remember_me: '1'
+          }
+        }
+      end
+
+      it 'remember_disgest not be nil' do
+        subject
+        expect(user.reload[:remember_digest]).not_to eql(nil)
+      end
+
+      it 'the user_id and remember_token of the cookie not be nil' do
+        subject
+        expect(cookies[:user_id]).not_to eql(nil)
+        expect(cookies[:remember_token]).not_to eql(nil)
+      end
+
+      it 'flash login success' do
+        subject
+        expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
+      end
+
+      it 'redirect to logged in user' do
+        expect(subject).to redirect_to(user)
       end
     end
   end
@@ -71,6 +115,17 @@ RSpec.describe SessionsController, type: :controller do
 
       it 'redirect to home' do
         expect(subject).to redirect_to(root_url)
+      end
+
+      it 'remember_disgest of current_user be nil' do
+        subject
+        expect(current_user[:remember_digest]).to eql(nil)
+      end
+
+      it 'the user_id and remember_token of the cookie must be nil' do
+        subject
+        expect(cookies[:user_id]).to eql(nil)
+        expect(cookies[:remember_token]).to eql(nil)
       end
     end
   end
