@@ -162,6 +162,8 @@ en:
     budget: "Budget:"
     quantity: "Quantity:"
     comment: "Some comment:"
+    buyer: "Buyer:"
+
   book_requests:
     create:
       success: "A new book request created"
