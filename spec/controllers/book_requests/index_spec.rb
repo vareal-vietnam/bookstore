@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe BookRequestsController, type: :controller do
-  let!(:page_number) { 2 }
+  let(:page_number) { 2 }
   describe '#index' do
     before { get :index, params: { page: page_number } }
 
