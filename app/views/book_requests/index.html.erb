@@ -6,7 +6,7 @@
           <img src="<%= book_request.book_request_images&.first.thumb_url %>
             "alt = "Book's cover" class="book-request-image">
           <div class="col-md-12 book-request-content" >
-            <p class="book-request-title"> <%= truncate(book_request.name, length: 25) %></p>
+            <p class="book-request-title"> <%= truncate(book_request.buyer_name, length: 25) %></p>
             <p class="book-request-detail"><%=t('book_request.buyer') %>
               <%= User.find(book_request.user_id).name %></p>
             <p class="book-request-detail"><%= t('book_request.quantity') %>
