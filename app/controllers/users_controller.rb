@@ -6,6 +6,10 @@ class UsersController < ApplicationController
                          .order(created_at: :desc)
                          .includes(:images, :user)
                          .page(params[:page]).per(4)
+    @book_requests = current_user.book_requests
+                         .order(created_at: :desc)
+                         .includes(:book_request_images, :user)
+                         .page(params[:page]).per(20) 
   end
 
   def new
