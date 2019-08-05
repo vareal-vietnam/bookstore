@@ -20,7 +20,7 @@ module SessionsHelper
 
   def find_and_assign_by_cookies
     user = User.find_by(id: cookies.signed[:user_id])
-    return unless user&.authenticated(cookies[:remember_token])
+    return unless user&.authenticated?(cookies[:remember_token])
 
     @current_user = user
   end
