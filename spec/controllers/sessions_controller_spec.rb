@@ -1,19 +1,11 @@
 require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
-  let(:password) { 'Aa123456' }
-  let(:other_password) { 'Aa00000' }
-  let(:user) do
-    create(:user, password: password, password_confirmation: password)
-  end
-
+  include_context 'user_login_params'
   describe '#create' do
     context 'invalid param input' do
       subject do
         post :create, params: {
-          session: {
-            phone: user.phone,
-            password: other_password
-          }
+          session: invalid_user_params
         }
       end
 
@@ -32,11 +24,7 @@ RSpec.describe SessionsController, type: :controller do
     context 'valid param input not checked remember me' do
       subject do
         post :create, params: {
-          session: {
-            phone: user.phone,
-            password: password,
-            remember_me: '0'
-          }
+          session: valid_user_params_unchecked_remember_me
         }
       end
 
@@ -69,11 +57,7 @@ RSpec.describe SessionsController, type: :controller do
     context 'valid param input and checked remember me' do
       subject do
         post :create, params: {
-          session: {
-            phone: user.phone,
-            password: password,
-            remember_me: '1'
-          }
+          session: valid_user_params_checked_remember_me
         }
       end
 
