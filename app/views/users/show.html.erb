@@ -9,7 +9,7 @@
   <%= render partial: 'profile' if params[:tag] == "profile"%>
   <%= render 'users/book_list', books: @books if params[:tag] == "books" %>
   <% if params[:tag] == "book requests" %>
-    <div class="row" style="margin-left: 50px;">
+    <div class="row my-book-requests">
       <%= render 'users/book_request_list', books: @book_requests %>
       <div class="row text-center">
         <%= paginate @book_requests%>
