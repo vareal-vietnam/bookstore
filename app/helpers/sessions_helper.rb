@@ -25,14 +25,14 @@ module SessionsHelper
     @current_user = user
   end
 
-  def remember(user)
-    user.remember
+  def remember_user_and_create_cookies(user)
+    user.generate_remember_token_and_assign_to_remember_digest
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  def forget(user)
-    user.forget
+  def not_remember_and_delete_cookies(user)
+    user.remove_remember_digest_value
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end

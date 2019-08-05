@@ -19,17 +19,17 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def user_digest(string)
+  def create_user_digest(string)
     BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
   end
 
-  def user_new_token
+  def create_user_new_token
     SecureRandom.urlsafe_base64
   end
 
-  def remember
-    self.remember_token = user_new_token
-    update_attribute(:remember_digest, user_digest('remember_token'))
+  def generate_remember_token_and_assign_to_remember_digest
+    self.remember_token = create_user_new_token
+    update_attribute(:remember_digest, create_user_digest('remember_token'))
   end
 
   def authenticated?(remember_token)
@@ -38,7 +38,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
-  def forget
+  def remove_remember_digest_value
     update_attribute(:remember_digest, nil)
   end
 end

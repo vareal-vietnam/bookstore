@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    forget(current_user)
+    not_remember_and_delete_cookies(current_user)
     session.delete(:user_id)
     @current_user = nil
     redirect_to root_url
@@ -28,9 +28,9 @@ class SessionsController < ApplicationController
 
   def logging_choice
     if params[:session][:remember_me] == '1'
-      remember(logging_user)
+      remember_user_and_create_cookies(logging_user)
     else
-      forget(logging_user)
+      not_remember_and_delete_cookies(logging_user)
     end
   end
 
