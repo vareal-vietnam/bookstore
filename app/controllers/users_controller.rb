@@ -61,6 +61,6 @@ class UsersController < ApplicationController
     current_user.book_requests
                 .order(created_at: :desc)
                 .includes(:book_request_images, :user)
-                .page(params[:page]).per(20)
+                .page(params[:page]).per(16)
   end
 end
