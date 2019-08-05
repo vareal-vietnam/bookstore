@@ -101,7 +101,6 @@ RSpec.describe SessionsController, type: :controller do
         subject
         expect(session[:user_id]).to eql(user.id)
       end
-
     end
   end
 
