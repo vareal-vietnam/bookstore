@@ -10,6 +10,5 @@ module Users
     def edit
       @book_request = BookRequest.find(params[:id])
     end
-
   end
 end
