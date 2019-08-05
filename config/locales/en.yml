@@ -167,3 +167,5 @@ en:
   book_requests:
     create:
       success: "A new book request created"
+      create_new: "Create book request"
+      update: "Update book"

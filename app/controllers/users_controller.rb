@@ -2,14 +2,8 @@ class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
 
   def show
-    @books = current_user.books
-                         .order(created_at: :desc)
-                         .includes(:images, :user)
-                         .page(params[:page]).per(4)
-    @book_requests = current_user.book_requests
-                         .order(created_at: :desc)
-                         .includes(:book_request_images, :user)
-                         .page(params[:page]).per(20) 
+    @books = get_books
+    @book_requests = get_book_requests
   end
 
   def new
@@ -54,5 +48,19 @@ class UsersController < ApplicationController
 
     flash[:danger] = t('not_found')
     redirect_to root_url
+  end
+
+  def get_books
+    current_user.books
+                .order(created_at: :desc)
+                .includes(:images, :user)
+                .page(params[:page]).per(4)
+  end
+
+  def get_book_requests
+    current_user.book_requests
+                .order(created_at: :desc)
+                .includes(:book_request_images, :user)
+                .page(params[:page]).per(20)
   end
 end

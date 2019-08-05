@@ -162,3 +162,5 @@ vi:
   book_requests:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
+      create_new: "Tạo yêu cầu"
+      update: "Cập nhật yêu cầu"

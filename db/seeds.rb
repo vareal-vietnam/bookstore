@@ -64,5 +64,16 @@ end
       book_request.book_request_images.create!(remote_file_url: generate_image_url(600, 900))
     end
   end
+  20.times do
+    book_request = admin.book_requests.create!(
+      name: Faker::Book.title,
+      budget: rand(10..999),
+      quantity: rand(1..20),
+      comment: Faker::Lorem.sentence
+    )
+    2.times do
+      book_request.book_request_images.create!(remote_file_url: generate_image_url(600, 900))
+    end
+end
 end
 
