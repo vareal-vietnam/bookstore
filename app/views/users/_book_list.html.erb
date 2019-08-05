@@ -1,5 +1,5 @@
 <div class="row">
-  <% @books.each do |book| %>
+  <% books.each do |book| %>
     <%= link_to book_path book do %>
       <div class="col-md-6">
         <div class="col-md-12 book-col">
@@ -22,5 +22,5 @@
   <% end %>
 </div>
 <div class="row text-center">
-  <%= paginate @books %>
+  <%= paginate books %>
 </div>
