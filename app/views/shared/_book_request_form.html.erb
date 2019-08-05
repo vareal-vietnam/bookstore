@@ -1,8 +1,8 @@
 <div class="row">
-    <%= form_for(@book_request, html:{class: 'form-group'}) do |f|  %>
+    <%= form_for(book_request, html:{class: 'form-group'}) do |f|  %>
       <div class="col-sm-8 col-sm-offset-2">
         <div class="col-sm-6">
-          <%= render partial: 'shared/error_messages', locals: {object: @book_request} %>
+          <%= render partial: 'shared/error_messages', locals: { object: book_request } %>
           <div class="form-group">
             <%= f.label t('book_request.name') %>
             <%= f.text_field :name, class: 'form-control' %>

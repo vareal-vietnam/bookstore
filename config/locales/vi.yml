@@ -158,9 +158,9 @@ vi:
     quantity: "Số lượng:"
     comment: "Ý kiến người mua:"
     buyer: "Người mua:"
+    update: "Cập nhật yêu cầu"
 
   book_requests:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
       create_new: "Tạo yêu cầu"
-      update: "Cập nhật yêu cầu"

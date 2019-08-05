@@ -2,20 +2,41 @@
   <nav class="navbar navbar-default col-sm-12 tab-option">
       <ul class="nav navbar-nav">
         <li><%= link_to "Profile", url_for(tag: "profile") %></li>
-        <li><%= link_to "Books", url_for(tag: "books") %></li>
-        <li><%= link_to "Book Requests", url_for(tag: "book requests") %></li>
+        <li><%= link_to "Books", "#" %></li>
+        <li><%= link_to "Book Requests", user_book_requests_path(user_id: 1) %></li>
       </ul>
   </nav>
-  <%= render partial: 'profile' if params[:tag] == "profile"%>
-  <%= render 'users/book_list', books: @books if params[:tag] == "books" %>
-  <% if params[:tag] == "book requests" %>
-    <div class="row my-book-requests">
-      <%= render 'users/book_request_list', books: @book_requests %>
-      <div class="row text-center">
-        <%= paginate @book_requests%>
-      </div>
-    </div>
-  <% end %>
 </div>
-
-
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <img src="<%= current_user.avatar&.url %>" class="user-avatar">
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+  <div class="col-sm-7">
+    <div class="row first-row">
+      <p><b><%= current_user.name %></b></p>
+    </div>
+    <div class="row first-row">
+      <%= current_user.address %>
+    </div>
+    <div class="row first-row">
+      <%= current_user.phone %>
+    </div>
+    <div class="row first-row">
+      <%= t('.join_date') %><span> <%= time_ago_in_words(current_user.created_at) %> <%= t('.ago') %></span>
+    </div>
+      <div class="row">
+        <a href="<%= edit_user_url %> " class="btn btn-primary"><%= t('.update') %></a>
+      </div>
+  </div>
+</div>
+<% if current_user.books.any? %>
+  <h3 class="text-center"><%= t('.selling_book_list') %></h3>
+<div class="col-md-12 book-col">
+  <%= render 'users/book_list', books: @books %>
+</div>
+<% end %>
