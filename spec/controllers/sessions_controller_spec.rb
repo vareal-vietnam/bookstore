@@ -59,6 +59,11 @@ RSpec.describe SessionsController, type: :controller do
       it 'redirect to logged in user' do
         expect(subject).to redirect_to(user)
       end
+
+      it 'session id must be created' do
+        subject
+        expect(session[:user_id]).to eql(user.id)
+      end
     end
 
     context 'valid param input and checked remember me' do
@@ -91,6 +96,12 @@ RSpec.describe SessionsController, type: :controller do
       it 'redirect to logged in user' do
         expect(subject).to redirect_to(user)
       end
+
+      it 'session id must be created' do
+        subject
+        expect(session[:user_id]).to eql(user.id)
+      end
+
     end
   end
 

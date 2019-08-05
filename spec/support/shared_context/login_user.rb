@@ -2,6 +2,6 @@ RSpec.shared_context 'logged in' do
   let(:current_user) { create(:user) }
 
   before do
-    allow(User).to receive(:find_by).with(anything).and_return(current_user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(current_user)
   end
 end
