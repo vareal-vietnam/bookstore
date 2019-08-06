@@ -24,7 +24,9 @@ module Users
          redirect_to user_book_request_path @book_request
        end
     end
+
     private
+
       def book_request_params
         params.require(:book_request).permit(
           :name, :comment, :budget, :quantity, :book_request_images
