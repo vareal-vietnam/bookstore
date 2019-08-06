@@ -13,7 +13,7 @@ RSpec.describe BookRequestsController, type: :controller do
 
       it 'return right number of book requests' do
         expected_book_requests =
-          BookRequest.order(created_at: :desc).page(page_number).per(15)
+          BookRequest.order(created_at: :desc).page(page_number).per(16)
         expect(assigns(:book_requests)
           .pluck(:id)).to eql(expected_book_requests.pluck(:id))
       end

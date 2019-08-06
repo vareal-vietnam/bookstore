@@ -1,0 +1,24 @@
+<% book_requests.each do |book_request| %>
+  <%= link_to book_request_path book_request do %>
+    <div class="col-md-3 book-request">
+      <div class="row">
+        <img src="<%= book_request.book_request_images.first.thumb_url %>
+          "alt = "Book's cover" class="book-request-image">
+        <div class="col-md-12 book-request-content" >
+          <p class="book-request-name"> <%= truncate(book_request.name, length: 25) %></p>
+          <p class="book-request-detail"><%=t('book_request.buyer') %>
+            <%= book_request.buyer_name %></p>
+          <p class="book-request-detail"><%= t('book_request.quantity') %>
+            <%= book_request.quantity %>
+          </p>
+          <p class="book-request-detail"><%= t('book_request.budget') %>
+            <%= book_request.budget %>
+          </p>
+          <p class="book-request-detail"><span title="<%= book_request.comment %>">
+            <%= truncate(book_request.comment, length: 25) %></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

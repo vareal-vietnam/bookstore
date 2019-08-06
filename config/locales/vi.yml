@@ -22,6 +22,7 @@ vi:
       post_for_sell: "Bán sách"
       post_for_buy: "Tạo yêu cầu"
       user_books: "Sách"
+      user_book_requests: "Yêu cầu sách"
 
   not_found: "Không thể hiển thị trang yêu cầu"
 
@@ -162,7 +163,9 @@ vi:
     quantity: "Số lượng:"
     comment: "Ý kiến người mua:"
     buyer: "Người mua:"
+    update: "Cập nhật yêu cầu"
 
   book_requests:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
+      create_new: "Tạo yêu cầu"

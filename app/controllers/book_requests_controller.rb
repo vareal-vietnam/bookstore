@@ -16,7 +16,7 @@ class BookRequestsController < ApplicationController
 
   def index
     @book_requests =
-      BookRequest.order(created_at: :desc).page(params[:page]).per(15)
+      BookRequest.order(created_at: :desc).page(params[:page]).per(16)
   end
 
   private

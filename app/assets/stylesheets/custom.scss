@@ -123,3 +123,26 @@ a {
 .book-request-detail{
   font-size: 1.25rem;
 }
+
+#book-requests {
+  float: left;
+  font-size: 0.9em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.tab-option{
+  background-color: #FFFFFF;
+  border: 0px;
+  padding: 0px;
+}
+
+.my-book-requests {
+  margin-left: 50px;
+}
