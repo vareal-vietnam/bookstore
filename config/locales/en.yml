@@ -21,7 +21,6 @@ en:
       logout_confirm: "Are you sure to Logout?"
       new_post: "New post"
       post_for_sell: "Sell book"
-      post_for_buy: "Request book"
 
   not_found: "Page not found"
 
@@ -168,3 +167,7 @@ en:
   book_requests:
     create:
       success: "A new book request created"
+
+  nav:
+    book: "Books selling"
+    book_requests: "Book requests"
