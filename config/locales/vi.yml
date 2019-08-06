@@ -87,7 +87,7 @@ vi:
 
   users:
     books:
-      user_books_list:
+      list:
         remove_book: "Xóa"
         update: "Chỉnh sửa"
         confirm_delete: "Xóa sách?"

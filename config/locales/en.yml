@@ -87,7 +87,7 @@ en:
 
   users:
     books:
-      user_books_list:
+      list:
         remove_book: "Remove"
         update: "Update"
         confirm_delete: "Permanently remove book?"
