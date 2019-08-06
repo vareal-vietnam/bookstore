@@ -17,8 +17,8 @@
                 <%= t('.new_post') %> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to t('.post_for_sell'), new_book_url %></li>
-                <li><%= link_to t('.post_for_buy'), new_book_request_url %></li>
+                <li><%= link_to t('.post_for_sell'), new_book_path %></li>
+                <li><%= link_to t('.post_for_buy'), new_book_request_path %></li>
               </ul>
             </li>
             <li class="dropdown">
@@ -27,6 +27,8 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to t('.profile'), current_user %></li>
+                <li><%= link_to t('.user_books'), user_books_path(current_user) %></li>
+                <li><%= link_to t('.book_requests'), user_book_requests_path(current_user) %></li>
                 <li class="divider"></li>
                 <li><%= link_to t('.logout'), sessions_path, method: :delete, data: { confirm: t('.logout_confirm')} %></li>
               </ul>
