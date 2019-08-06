@@ -27,9 +27,9 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
-  def generate_remember_token_and_assign_to_remember_digest
+  def create_token_and_update_remember_digest
     self.remember_token = create_user_new_token
-    update_attribute(:remember_digest, create_user_digest('remember_token'))
+    update_attribute(:remember_digest, create_user_digest(remember_token))
   end
 
   def authenticated?(remember_token)
