@@ -30,3 +30,11 @@
   margin-right: 30px;
   padding-left: 30px;
 }
+
+.glyphicon {
+  color: #000000;
+  padding-top: 10px;
+  &:hover {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,2 @@
+$('#user-books').html(' <%= j (render 'users/books/user_books_list', user_books: @user_books) %> ');
+$('#user-books-paginator').html(' <%= j (paginate @user_books, remote: true) %> ');
