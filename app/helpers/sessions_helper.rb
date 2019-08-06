@@ -7,22 +7,22 @@ module SessionsHelper
     return @current_user if @current_user
 
     if session[:user_id]
-      find_and_assign_by_session
+      find_and_assign_user_by_session
     else
-      find_and_assign_by_cookie
+      @curent_user = find_user_by_cookie
       save_user_to_session(@current_user) if @current_user
     end
   end
 
-  def find_and_assign_by_session
+  def find_and_assign_user_by_session
     @current_user = User.find_by(id: session[:user_id])
   end
 
-  def find_and_assign_by_cookie
+  def find_user_by_cookie
     user = User.find_by(id: cookies.signed[:user_id])
     return unless user&.authenticated?(cookies[:remember_token])
 
-    @current_user = user
+    user
   end
 
   def remember_user(user)
