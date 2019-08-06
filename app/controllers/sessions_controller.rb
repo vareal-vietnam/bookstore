@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   def create
     if valid_account?
       save_user_to_session logging_user
-      logging_user_check_remember_me
+      remember_user(logging_user) if check_remember_me?
 
       flash[:success] = t('.success_login')
       redirect_to logging_user
@@ -27,10 +27,8 @@ class SessionsController < ApplicationController
     logging_user&.authenticate(params[:session][:password])
   end
 
-  def logging_user_check_remember_me
-    return unless params[:session][:remember_me] == '1'
-
-    remember_user(logging_user)
+  def check_remember_me?
+    params[:session][:remember_me] == '1'
   end
 
   private
