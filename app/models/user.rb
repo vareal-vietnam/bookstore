@@ -27,7 +27,7 @@ class User < ApplicationRecord
     SecureRandom.urlsafe_base64
   end
 
-  def create_token_and_update_remember_digest
+  def generate_remember_token!
     self.remember_token = create_user_new_token
     update_attribute(:remember_digest, create_user_digest(remember_token))
   end
@@ -38,7 +38,7 @@ class User < ApplicationRecord
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
-  def remove_remember_digest_value
-    update_attribute(:remember_digest, nil)
+  def remove_remember_digest
+    update(remember_digest: nil)
   end
 end

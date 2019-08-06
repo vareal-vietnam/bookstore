@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     if valid_account?
-      assign_user_to_session logging_user
+      save_user_to_session logging_user
       logging_user_check_remember_me
 
       flash[:success] = t('.success_login')
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    forget_and_delete_cookies(current_user)
+    forget_user(current_user)
     session.delete(:user_id)
     @current_user = nil
     redirect_to root_url
@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def logging_user_check_remember_me
     return unless params[:session][:remember_me] == '1'
 
-    remember_and_assign_cookies(logging_user)
+    remember_user(logging_user)
   end
 
   private

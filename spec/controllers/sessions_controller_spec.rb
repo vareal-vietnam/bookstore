@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
   include_context 'user_login_params'
   describe '#create' do
-    context 'invalid param input' do
+    context 'invalid params input' do
       subject do
         post :create, params: {
           session: invalid_user_params
@@ -21,7 +21,7 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
 
-    context 'valid param input not checked remember me' do
+    context 'valid params input not checked remember me' do
       subject do
         post :create, params: {
           session: valid_user_params_unchecked_remember_me
@@ -54,7 +54,7 @@ RSpec.describe SessionsController, type: :controller do
       end
     end
 
-    context 'valid param input and checked remember me' do
+    context 'valid params input and checked remember me' do
       subject do
         post :create, params: {
           session: valid_user_params_checked_remember_me

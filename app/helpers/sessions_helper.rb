@@ -1,5 +1,5 @@
 module SessionsHelper
-  def assign_user_to_session(user)
+  def save_user_to_session(user)
     session[:user_id] = user.id
   end
 
@@ -9,8 +9,8 @@ module SessionsHelper
     if session[:user_id]
       find_and_assign_by_session
     else
-      find_and_assign_by_cookies
-      assign_user_to_session(@current_user) if @current_user
+      find_and_assign_by_cookie
+      save_user_to_session(@current_user) if @current_user
     end
   end
 
@@ -18,21 +18,21 @@ module SessionsHelper
     @current_user = User.find_by(id: session[:user_id])
   end
 
-  def find_and_assign_by_cookies
+  def find_and_assign_by_cookie
     user = User.find_by(id: cookies.signed[:user_id])
     return unless user&.authenticated?(cookies[:remember_token])
 
     @current_user = user
   end
 
-  def remember_and_assign_cookies(user)
-    user.create_token_and_update_remember_digest
+  def remember_user(user)
+    user.generate_remember_token!
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  def forget_and_delete_cookies(user)
-    user.remove_remember_digest_value
+  def forget_user(user)
+    user.remove_remember_digest
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
