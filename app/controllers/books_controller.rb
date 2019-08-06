@@ -17,6 +17,7 @@ class BooksController < ApplicationController
     if @book.save
       update_book_images
       flash[:success] = t('books.created')
+      binding.pry
       redirect_to @book
     else
       render 'new'

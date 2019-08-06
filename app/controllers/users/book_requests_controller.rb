@@ -10,12 +10,12 @@ module Users
 
     def edit
       @book_request = BookRequest.find_by(params[:id])
-      binding.pry
     end
 
     def update
       @book_request = BookRequest.find(params[:id])
         if @book_request.update_attributes(book_request_params)
+          update_book_request_images
           flash[:success] = t('book_requests.update.success')
           redirect_to user_book_request_path @book_request
         end
@@ -42,6 +42,14 @@ module Users
       params.require(:book_request).permit(
         :name, :comment, :budget, :quantity, :book_request_images
       )
+    end
+
+    def get_images_book_request
+      params[:book_request][:book_request_images]
+    end
+
+    def update_book_request_images
+      @book_request.book_request_images if get_images_book_request
     end
   end
 end
