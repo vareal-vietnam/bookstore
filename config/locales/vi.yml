@@ -22,6 +22,8 @@ vi:
       post_for_sell: "Bán sách"
       post_for_buy: "Tạo yêu cầu"
       sign_up: "Đăng kí"
+      user_books: "Sách"
+
   not_found: "Không thể hiển thị trang yêu cầu"
 
   views:
@@ -86,6 +88,11 @@ vi:
       wrong_password: "Nhập sai password"
 
   users:
+    books:
+      list:
+        remove_book: "Xóa"
+        update: "Chỉnh sửa"
+        confirm_delete: "Xóa sách?"
     show:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
@@ -140,9 +147,6 @@ vi:
             price:
               greater_than_or_equal_to: "Giá bán không hợp lệ"
 
-  activerecord:
-    errors:
-      models:
         book_request:
           attributes:
             name:

@@ -11,13 +11,14 @@ def generate_phone_number
 end
 
 admin = User.create!(
-    name: 'Admin',
-    password: DEFAULT_PASSWORD,
-    password_confirmation: DEFAULT_PASSWORD,
-    address: Faker::Address.city,
-    phone: DEFAULT_PHONE_NUMBER,
-    remote_avatar_url: generate_image_url(600, 600)
-  )
+  name: 'Admin',
+  password: DEFAULT_PASSWORD,
+  password_confirmation: DEFAULT_PASSWORD,
+  address: Faker::Address.city,
+  phone: DEFAULT_PHONE_NUMBER,
+  remote_avatar_url: generate_image_url(600, 600)
+)
+
 10.times do
     book = admin.books.create!(
       name: Faker::Book.title,

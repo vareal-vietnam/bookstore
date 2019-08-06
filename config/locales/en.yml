@@ -23,6 +23,7 @@ en:
       post_for_sell: "Sell book"
       post_for_buy: "Request book"
       sign_up: "Sign up"
+      user_books: "Books"
 
   not_found: "Page not found"
 
@@ -87,6 +88,11 @@ en:
       wrong_password: "Wrong password"
 
   users:
+    books:
+      list:
+        remove_book: "Remove"
+        update: "Update"
+        confirm_delete: "Permanently remove book?"
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -144,9 +150,6 @@ en:
               greater_than_or_equal_to: "The quantity is invalid"
             price:
               greater_than_or_equal_to: "The price is invalid"
-  activerecord:
-    errors:
-      models:
         book_request:
           attributes:
             name:
