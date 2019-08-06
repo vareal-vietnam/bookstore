@@ -148,9 +148,6 @@ en:
               greater_than_or_equal_to: "The quantity is invalid"
             price:
               greater_than_or_equal_to: "The price is invalid"
-  activerecord:
-    errors:
-      models:
         book_request:
           attributes:
             name:

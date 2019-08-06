@@ -144,9 +144,6 @@ vi:
             price:
               greater_than_or_equal_to: "Giá bán không hợp lệ"
 
-  activerecord:
-    errors:
-      models:
         book_request:
           attributes:
             name:
