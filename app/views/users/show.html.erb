@@ -1,8 +1,8 @@
 <div class="row">
   <nav class="navbar navbar-default col-sm-12 tab-option">
       <ul class="nav navbar-nav">
-        <li><%= link_to "Books", "#" %></li>
-        <li><%= link_to "Book Requests", user_book_requests_path(current_user)%></li>
+        <li><%= link_to t('nav.book_requests'), "#" %></li>
+        <li><%= link_to t('nav.book_requests'), user_book_requests_path(current_user)%></li>
       </ul>
   </nav>
 </div>
@@ -36,6 +36,6 @@
 <% if current_user.books.any? %>
   <h3 class="text-center"><%= t('.selling_book_list') %></h3>
 <div class="col-md-12 book-col">
-  <%= render 'users/book_list', books: @books %>
+  <%= render 'list', books: @books %>
 </div>
 <% end %>
