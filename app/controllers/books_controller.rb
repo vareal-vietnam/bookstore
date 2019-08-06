@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.order(created_at: :desc)
                  .includes(:images, :user)
-                 .page(params[:page]).per(10)
+    @books = collect(@books, params[:page], 10)
   end
 
   def create
