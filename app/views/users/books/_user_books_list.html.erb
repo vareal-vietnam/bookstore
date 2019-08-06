@@ -12,7 +12,7 @@
           <p><%= t('books.price', price: book.price) %></p>
         </div>
         <div class="col-sm-2 text-right">
-          <%= link_to '', edit_book_url(book.id), class: "glyphicon glyphicon-edit" %>
+          <%= link_to '', edit_book_path(book.id), class: "glyphicon glyphicon-edit" %>
           <%= link_to '',
             user_book_path(user_id: current_user.id, id: book.id, page: params[:page]),
             data: { method: :delete, confirm: t('.confirm_delete') },

@@ -22,9 +22,14 @@ module Users
     end
 
     def find_and_assign_user_books
-      @user_books = current_user.books.order(created_at: :desc)
-                                .includes(:images, :user)
-                                .page(params[:page]).per(10)
+      if current_user
+        @user_books = current_user.books.order(created_at: :desc)
+                                  .includes(:images, :user)
+                                  .page(params[:page]).per(10)
+      else
+        flash[:success] = t('not_found')
+        redirect_to root_url
+      end
     end
   end
 end
