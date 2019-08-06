@@ -2,7 +2,7 @@
   <%= link_to book_request_path book_request do %>
     <div class="col-md-3 book-request">
       <div class="row">
-        <img src="<%= book_request.book_request_images&.first.thumb_url %>
+        <img src="<%= book_request.book_request_images.first.thumb_url %>
           "alt = "Book's cover" class="book-request-image">
         <div class="col-md-12 book-request-content" >
           <p class="book-request-name"> <%= truncate(book_request.name, length: 25) %></p>
