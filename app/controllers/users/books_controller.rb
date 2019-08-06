@@ -25,7 +25,7 @@ module Users
       if current_user
         @user_books = current_user.books.order(created_at: :desc)
                                   .includes(:images, :user)
-        @user_books = collect(@user_books, params[:page], 10)
+        @user_books = paginate_collection(@user_books, params[:page], 10)
       else
         flash[:success] = t('not_found')
         redirect_to root_url
