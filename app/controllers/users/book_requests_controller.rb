@@ -1,6 +1,8 @@
 module Users
   class BookRequestsController < ApplicationController
-    before_action :check_valid_user, only: %i[new edit index]
+    before_action :check_log_in, only: %i[new edit index update]
+    before_action :check_valid_user, only: %i[edit update]
+    before_action :find_and_assign_book_request, only: %i[edit update]
     def index
       @book_requests = book_requests_user.book_requests
                                          .order(created_at: :desc)
@@ -9,15 +11,20 @@ module Users
     end
 
     def edit
-      @book_request = BookRequest.find_by(params[:id])
+      return if current_user&.id == @book_request&.user_id
+
+      handle_invalid_params
     end
 
     def update
       @book_request = BookRequest.find(params[:id])
         if @book_request.update_attributes(book_request_params)
-          update_book_request_images
+          destroy_image_files unless image_file_params.nil?
+          create_image_files
           flash[:success] = t('book_requests.update.success')
           redirect_to user_book_request_path @book_request
+        else
+          render 'edit'
         end
     end
 
@@ -27,29 +34,50 @@ module Users
       User.find(params[:user_id])
     end
 
-    def check_valid_user
-      return if current_user && valid_user?
+    # def check_valid_params
+    #   return if valid_user? @book_request
 
+    #   handle_invalid_params
+    # end
+
+    def handle_invalid_params
       flash[:danger] = t('not_found')
       redirect_to root_url
     end
 
-    def valid_user?
-      current_user.id == params[:user_id].to_i
+    def check_valid_user
+      handle_invalid_params unless current_user.id == params[:user_id].to_i
+    end
+
+    def check_log_in
+      handle_invalid_params unless current_user
+    end
+
+    def find_and_assign_book_request
+      @book_request = BookRequest.find_by(id: params[:id])
     end
 
     def book_request_params
       params.require(:book_request).permit(
-        :name, :comment, :budget, :quantity, :book_request_images
+        :name, :comment, :budget, :quantity
       )
     end
 
-    def get_images_book_request
+    def image_file_params
       params[:book_request][:book_request_images]
     end
 
-    def update_book_request_images
-      @book_request.book_request_images if get_images_book_request
+    def create_image_files
+      image_file_params&.each do |image_file|
+        @book_request.book_request_images.create(file: image_file)
+      end
+    end
+
+    def destroy_image_files
+      file_images = @book_request.book_request_images
+      file_images&.each do |image_file|
+        image_file.destroy
+      end
     end
   end
 end
