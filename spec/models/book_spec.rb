@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Book, type: :model do
   it { should validate_presence_of(:name) }
+  it { should validate_length_of(:name).is_at_most(60) }
   it { should validate_presence_of(:price) }
   it { should validate_presence_of(:quantity) }
   it { should have_many(:images).dependent(:destroy) }
@@ -14,4 +15,7 @@ RSpec.describe Book, type: :model do
   end
   it { should validate_numericality_of(:price).only_integer }
   it { should validate_numericality_of(:price).is_greater_than_or_equal_to(0) }
+  it do
+    should validate_numericality_of(:price).is_less_than_or_equal_to(99_999_000)
+  end
 end
