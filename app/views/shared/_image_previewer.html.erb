@@ -1,6 +1,7 @@
+<% book_cover ||= image_path('default-book-cover.jpg')%>
 <img
   id="img_prev"
-  src="<%= image_path('default-book-cover.jpg') %>"
+  src="<%= book_cover %>"
   alt="Book's cover"
   class="book-image"
 />

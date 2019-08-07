@@ -2,7 +2,7 @@
   <%= form_for(@book, html: {class: 'form-group'} ) do |f| %>
     <div class="col-sm-8 col-sm-offset-2">
       <div class="col-sm-5 text-right">
-        <%= render 'shared/image_previewer' %>
+        <%= render 'shared/image_previewer', book_cover: @book.images.first&.url %>
       </div>
       <div class="col-sm-6">
         <%= render partial: 'shared/error_messages', locals: {object: @book} %>
