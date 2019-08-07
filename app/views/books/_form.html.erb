@@ -14,7 +14,7 @@
           <div class="col-sm-6">
             <div class="form-group">
             <%= f.label t('book.quantity') %>
-            <%= f.number_field :quantity, class: 'form-control' %>
+            <%= f.number_field :quantity, class: 'form-control number-field', min: 0, max: 1000 %>
             </div>
           </div>
           <div class="col-sm-6">
