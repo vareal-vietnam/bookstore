@@ -3,7 +3,7 @@
     <%= render partial: 'shared/images_slider', locals: {images: @book.images}  %>
   </div>
   <div class="col-sm-5">
-    <h3><%= @book.name %></h3>
+    <h3 class="book-content"><%= @book.name %></h3>
     <p><%= t('books.quantity', quantity: @book.quantity) %></p>
     <p><%= t('books.price', price: @book.price) %></p>
   </div>
