@@ -21,6 +21,7 @@ vi:
       new_post: "Đăng bài"
       post_for_sell: "Bán sách"
       post_for_buy: "Tạo yêu cầu"
+      sign_up: "Đăng kí"
       user_books: "Sách"
       user_book_requests: "Yêu cầu sách"
 
@@ -81,6 +82,7 @@ vi:
       login: "Đăng nhập"
       password: "Nhập mật khẩu"
       sign_in_now: "Đăng nhập"
+      remember_me: "Ghi nhớ người dùng"
 
     create:
       success_login: "Đăng nhập thành công"
@@ -100,11 +102,12 @@ vi:
       ago: " ngày trước"
       day: "%{time_ago_in_words(@user.created_at)} ngày trước"
       selling_book_list: "Sách đang bán"
-      remove_book: "Xoá"
+
     book_list:
       update: "Chỉnh sửa"
       delete_book: "Xóa"
       confirm_delete: "Xóa sách?"
+      remove_book: "Xoá"
 
     create:
       user_created: "User tạo thành công"

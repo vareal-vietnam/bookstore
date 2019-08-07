@@ -22,6 +22,7 @@ en:
       new_post: "New post"
       post_for_sell: "Sell book"
       post_for_buy: "Request book"
+      sign_up: "Sign up"
       user_books: "Books"
       user_book_requests: "Book requests"
 
@@ -81,6 +82,7 @@ en:
       login: "Log In "
       password: "Password"
       sign_in_now: "Sign In "
+      remember_me: "Remember me on this computer"
 
     create:
       success_login: "Success Logged In"
@@ -100,12 +102,12 @@ en:
       ago: "ago"
       day: "days"
       selling_book_list: "Selling Book List"
-      remove_book: "Remove"
       delete_book: "Permanently remove book?"
     book_list:
       update: "Update Info"
       delete_book: "Delete"
       confirm_delete: "Permanently remove book?"
+      remove_book: "Remove"
 
     create:
       user_created: "User created"
