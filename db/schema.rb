@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_30_020809) do
+ActiveRecord::Schema.define(version: 2019_07_31_081549) do
 
   create_table "book_request_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "file", null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_07_30_020809) do
     t.text "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "remember_digest"
   end
 
   add_foreign_key "book_request_images", "book_requests"

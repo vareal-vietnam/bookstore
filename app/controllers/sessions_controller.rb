@@ -5,7 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     if valid_account?
-      log_in logging_user
+      save_user_to_session logging_user
+      remember_user(logging_user) if check_remember_me?
+
       flash[:success] = t('.success_login')
       redirect_to logging_user
     else
@@ -15,6 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    forget_user(current_user)
     session.delete(:user_id)
     @current_user = nil
     redirect_to root_url
@@ -22,6 +25,10 @@ class SessionsController < ApplicationController
 
   def valid_account?
     logging_user&.authenticate(params[:session][:password])
+  end
+
+  def check_remember_me?
+    params[:session][:remember_me] == '1'
   end
 
   private
