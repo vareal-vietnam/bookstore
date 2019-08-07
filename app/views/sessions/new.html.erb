@@ -3,11 +3,11 @@
     <h1><%= t('.login') %></h1>
     <%= form_for(:session, url: sessions_path, html: {class: 'form-group'} ) do |f| %>
     <div class="form-group">
-      <%= f.label t('.phone') %>
+      <%= f.label t('.phone') %><span class = "required">(*)<span>
       <%= f.phone_field :phone, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label t('.password') %>
+      <%= f.label t('.password') %><span class = "required">(*)<span>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
     <div class="form-group">

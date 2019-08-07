@@ -123,7 +123,7 @@ en:
       input_guide_phone: "format 0xx......"
       input_guide_password: "at least 6 characters"
       avatar: "Avatar"
-
+      avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
       title: "Update user's info"

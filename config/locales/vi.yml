@@ -122,6 +122,7 @@ vi:
       input_guide_phone: "Nhập định dạng 09xx......"
       input_guide_password: "Nhập ít nhất 6 ký tự"
       avatar: "Hình đại diện"
+      avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
       enter_password: "Nhập mật khẩu để xác nhận:"
