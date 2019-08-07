@@ -4,23 +4,23 @@
     <%= form_for(@user, html: {class: 'form-group'} ) do |f| %>
       <%= render partial: 'shared/error_messages', locals: {object: @user} %>
       <div class="form-group">
-        <%= f.label t('users.name') %><span class = "required">(*)<span>
+        <%= f.label t('users.name') %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label t('.phone') %> <span class = "required">(*)<span> <i><%= t('.input_guide_phone') %></i>
+        <%= f.label t('.phone') %>&nbsp;<i><%= t('.input_guide_phone') %></i>
         <%= f.phone_field :phone, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label t('users.address') %><span class = "required">(*)<span>
+        <%= f.label t('users.address') %>
         <%= f.text_field :address, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label t('users.password') %><span class = "required">(*)<span> <i><span><%= t('.input_guide_password') %><span></i>
+        <%= f.label t('users.password') %>&nbsp;<i><span><%= t('.input_guide_password') %><span></i>
         <%= f.password_field :password, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :password_confirmation, t('.password_confirmation') %><span class = "required">(*)<span>
+        <%= f.label :password_confirmation, t('.password_confirmation') %>
         <%= f.password_field :password_confirmation, class: 'form-control'%>
       </div>
       <div class="form-group">
