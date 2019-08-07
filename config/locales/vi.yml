@@ -18,6 +18,7 @@ vi:
       books: "Sách đã bán"
       logout: "Đăng xuất"
       login: "Đăng nhập"
+      logout_confirm: "Bạn chắc chắn đăng xuất?"
       new_post: "Đăng bài"
       post_for_sell: "Bán sách"
       post_for_buy: "Tạo yêu cầu"
@@ -98,9 +99,8 @@ vi:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
       user_not_found: "Không tìm thấy người bán"
-      join_from: "Tham gia từ"
+      join_date: "Tham gia từ"
       ago: " ngày trước"
-      day: "%{time_ago_in_words(@user.created_at)} ngày trước"
       selling_book_list: "Sách đang bán"
 
     book_list:
@@ -116,19 +116,24 @@ vi:
 
     new:
       sign_up: "Đăng kí "
-      phone: "Nhập số điện thoại"
-      password_confirmation : "Nhập lại mật khẩu"
+      phone: "Nhập số điện thoại (*)"
+      password_confirmation : "Nhập lại mật khẩu (*)"
       create_my_account: " Tạo tài khoản"
-      input_guide_phone: "Nhập định dạng 09xx......"
-      input_guide_password: "Nhập ít nhất 6 ký tự"
+      input_guide_phone: "nhập định dạng 0xx......"
+      input_guide_password: "nhập ít nhất 6 ký tự"
       avatar: "Hình đại diện"
+      avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
       enter_password: "Nhập mật khẩu để xác nhận:"
+      title: "Thay đổi thông tin"
+      password_confirmation: "Nhập lại mật khẩu"
+      avatar: "Hình đại diện"
+      update_info: "Cập nhật"
 
-    name: "Nhập tên"
-    address: "Nhập địa chỉ"
-    password: "Nhập mật khẩu"
+    name: "Nhập tên (*)"
+    address: "Nhập địa chỉ (*)"
+    password: "Nhập mật khẩu (*)"
 
   shared:
     error_messages:
@@ -172,3 +177,9 @@ vi:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
       create_new: "Tạo yêu cầu"
+
+  datetime:
+    distance_in_words:
+      x_days:
+        one: 1 ngày
+        other: "%{count}"
