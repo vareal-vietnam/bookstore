@@ -8,11 +8,11 @@ module Users
 
     def destroy
       if @book.destroy
-        flash.now[:success] = t('book.removed')
+        flash[:success] = t('book.removed')
       else
-        flash.now[:danger] = t('book.removed_fail')
+        flash[:danger] = t('book.removed_fail')
       end
-      render layout: false
+      redirect_to "#{user_books_path}?page=#{params[:page]}"
     end
 
     private
@@ -25,7 +25,7 @@ module Users
       if current_user
         @user_books = current_user.books.order(created_at: :desc)
                                   .includes(:images, :user)
-                                  .page(params[:page]).per(10)
+        @user_books = paginate_collection(@user_books, params[:page], 10)
       else
         flash[:success] = t('not_found')
         redirect_to root_url
