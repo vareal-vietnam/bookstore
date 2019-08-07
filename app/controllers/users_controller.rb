@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = t('.update_success')
       redirect_to current_user
     else
+      current_user.reload
       render 'edit'
     end
   end
