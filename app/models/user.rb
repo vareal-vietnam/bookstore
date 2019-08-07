@@ -32,13 +32,13 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, generate_user_digest(remember_token))
   end
 
-  def authenticated?(remember_token)
+  def authenticated?(token)
     return false if remember_digest.nil?
 
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(token)
   end
 
   def remove_remember_digest
-    update(remember_digest: nil)
+    update_attribute(:remember_digest, nil)
   end
 end

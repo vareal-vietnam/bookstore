@@ -9,7 +9,7 @@ module SessionsHelper
     if session[:user_id]
       find_and_assign_user_by_session
     else
-      @curent_user = find_user_by_cookie
+      @current_user = find_user_by_cookie
       save_user_to_session(@current_user) if @current_user
     end
   end
