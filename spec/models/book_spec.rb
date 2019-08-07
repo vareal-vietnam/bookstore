@@ -14,4 +14,7 @@ RSpec.describe Book, type: :model do
   end
   it { should validate_numericality_of(:price).only_integer }
   it { should validate_numericality_of(:price).is_greater_than_or_equal_to(0) }
+  it do
+    should validate_numericality_of(:price).is_less_than_or_equal_to(99_999_000)
+  end
 end
