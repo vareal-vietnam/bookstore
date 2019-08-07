@@ -134,31 +134,6 @@ vi:
     error_messages:
       errors_notification: "Form đăng kí có %{errors_count} lỗi"
 
-  activerecord:
-    errors:
-      models:
-        book:
-          attributes:
-            description:
-              blank: "Nội dung của sách không được trống"
-            name:
-              blank: "Tên sách không được trống"
-            quantity:
-              greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
-            price:
-              greater_than_or_equal_to: "Giá bán không hợp lệ"
-
-        book_request:
-          attributes:
-            name:
-              blank: "Tiêu đề của sách không được trống"
-            quantity:
-              greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
-              blank: "Nhập vào số lượng"
-            budget:
-              greater_than_or_equal_to: "Tầm giá không hợp lệ"
-              blank: "Tầm giá không được trống"
-
   book_request:
     create: "Tạo yêu cầu"
     name: "Tên sách:"
