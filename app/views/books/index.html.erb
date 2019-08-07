@@ -1,7 +1,7 @@
-<div class="row", id="books">
-  <%= render partial: 'books/list', locals: { books: @books } %>
+<div class="row">
+  <%= render partial: 'list', locals: { books: @books } %>
 </div>
 
-<div class="row text-center", id="paginator">
-  <%= paginate @books, remote: true %>
+<div class="row text-center">
+  <%= paginate @books %>
 </div>

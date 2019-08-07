@@ -24,6 +24,7 @@ en:
       post_for_buy: "Request book"
       sign_up: "Sign up"
       user_books: "Books"
+      user_book_requests: "Book requests"
 
   not_found: "Page not found"
 
@@ -168,6 +169,7 @@ en:
     quantity: "Quantity:"
     comment: "Some comment:"
     buyer: "Buyer:"
+    update: "Update book request"
 
   book_requests:
     create:

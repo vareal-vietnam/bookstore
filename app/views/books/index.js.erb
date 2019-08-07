@@ -1,2 +1,0 @@
-$('#books').html(' <%= j (render partial: 'books/list', locals: { books: @books }) %> ');
-$('#paginator').html(' <%= j (paginate @books, remote: true) %> ');
