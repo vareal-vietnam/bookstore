@@ -98,8 +98,8 @@ en:
       user_not_exist: "User is not existed"
       update: "Update Info"
       user_not_found: "User not found"
-      join_data: "Joined %{time_ago_in_words(current_user.created_at)} ago"
-      ago: "ago"
+      join_date: "Joined"
+      ago: " ago"
       day: "days"
       selling_book_list: "Selling Book List"
       delete_book: "Permanently remove book?"
@@ -117,22 +117,22 @@ en:
 
     new:
       sign_up: "Sign Up"
-      phone: "Phone"
-      password_confirmation : "Password Confirmation"
+      phone: "Phone (*)"
+      password_confirmation : "Password Confirmation (*)"
       create_my_account: "Create my account"
       input_guide_phone: "format 0xx......"
       input_guide_password: "at least 6 characters"
       avatar: "Avatar"
-
+      avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
       title: "Update user's info"
       update_info: "Update"
       enter_password: "Enter password for confirmation"
 
-    name: "Name"
-    address: "Address"
-    password: "Password"
+    name: "Name (*)"
+    address: "Address (*)"
+    password: "Password (*)"
 
   shared:
     error_messages:
