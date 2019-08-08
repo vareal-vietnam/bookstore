@@ -7,26 +7,26 @@
       <div class="col-sm-6">
         <%= render partial: 'shared/error_messages', locals: {object: @book} %>
         <div class="form-group">
-          <%= f.label t('book.name') %>
-          <%= f.text_field :name, class: 'form-control', maxlength: 60 %>
+          <%= f.label "#{t('book.name')} (*)" %>
+          <%= f.text_field :name, class: 'form-control', maxlength: 60, required: true %>
         </div>
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-            <%= f.label t('book.quantity') %>
-            <%= f.number_field :quantity, class: 'form-control number-field', min: 0, max: 1000 %>
+            <%= f.label "#{t('book.quantity')} (*)" %>
+            <%= f.number_field :quantity, class: 'form-control number-field', min: 0, max: 1000, required: true %>
             </div>
           </div>
           <div class="col-sm-6">
             <div class="form-group">
-              <%= f.label t('book.price') %>
-              <%= f.number_field :price, class: 'form-control number-field', min: 0, max: 99_999_000 %>
+              <%= f.label "#{t('book.price')} (*)" %>
+              <%= f.number_field :price, class: 'form-control number-field', min: 0, max: 99_999_000, required: true %>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <%= f.label t('book.description') %>
-          <%= f.text_area :description, class: 'form-control', rows: "4" %>
+          <%= f.label "#{t('book.description')} (*)" %>
+          <%= f.text_area :description, class: 'form-control', rows: "4", required: true %>
         </div>
         <div class="form-group">
           <%= f.label t('book.comment') %>

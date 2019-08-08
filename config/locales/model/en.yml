@@ -24,8 +24,12 @@ en:
             name:
               blank: "Book's title can not be blank"
             quantity:
+              blank: "Quantity can not be blank"
+              not_a_number: "Quantity must be a number"
               greater_than_or_equal_to: "The quantity is invalid"
             price:
+              blank: "Price can not be blank"
+              not_a_number: "Price must be a number"
               greater_than_or_equal_to: "The price is invalid"
 
         book_request:
