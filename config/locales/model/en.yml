@@ -10,6 +10,7 @@ en:
               taken: "Phone number is already used"
             name:
               blank: "Please input name"
+              too_long: "Name is too long"
             password:
               blank: "Password is blank"
               too_short: "Password is too short"
@@ -17,3 +18,29 @@ en:
               confirmation: "Password confirmation doesn't match password"
             address:
               blank: "Address is blank"
+
+        book:
+          attributes:
+            description:
+              blank: "Book's content can not be blank"
+            name:
+              blank: "Book's title can not be blank"
+            quantity:
+              blank: "Quantity can not be blank"
+              not_a_number: "Quantity must be a number"
+              greater_than_or_equal_to: "The quantity is invalid"
+            price:
+              blank: "Price can not be blank"
+              not_a_number: "Price must be a number"
+              greater_than_or_equal_to: "The price is invalid"
+
+        book_request:
+          attributes:
+            name:
+              blank: "Book's title is required"
+            quantity:
+              greater_than_or_equal_to: "Quantity not valid"
+              blank: "Quantity is required"
+            budget:
+              greater_than_or_equal_to: "Budget not valid "
+              blank: "Budget is required"
