@@ -1,7 +1,7 @@
 module Users
   class BookRequestsController < ApplicationController
-    before_action :check_log_in, only: %i[new edit index update]
-    before_action :check_valid_user, only: %i[edit update]
+    before_action :authenticate_user!, only: %i[new edit index update]
+    before_action :handle_invalid_user!, only: %i[edit update index]
     before_action :find_and_assign_book_request, only: %i[edit update]
     def index
       @book_requests = book_requests_user.book_requests
@@ -13,12 +13,12 @@ module Users
     def edit
       return if current_user&.id == @book_request&.user_id
 
-      handle_danger_flash
+      set_not_found_flash_and_redirect
     end
 
     def update
       if @book_request.update_attributes(book_request_params)
-        destroy_image_files unless image_file_params
+        destroy_image_files unless image_files_params
         create_image_files
         flash[:success] = t('book_requests.update.success')
         redirect_to user_book_request_path(current_user, @book_request)
@@ -33,17 +33,18 @@ module Users
       User.find_by(params[:user_id])
     end
 
-    def handle_danger_flash
+    def set_not_found_flash_and_redirect
       flash[:danger] = t('not_found')
-      redirect_to root_url
+      redirect_to(root_url) && return
     end
 
-    def check_valid_user
-      handle_danger_flash unless current_user.id == params[:user_id].to_i
+    def handle_invalid_user!
+      set_not_found_flash_and_redirect unless
+      current_user.id == params[:user_id].to_i
     end
 
-    def check_log_in
-      handle_danger_flash unless current_user
+    def authenticate_user!
+      set_not_found_flash_and_redirect unless current_user
     end
 
     def find_and_assign_book_request
@@ -56,21 +57,19 @@ module Users
       )
     end
 
-    def image_file_params
+    def image_files_params
       params[:book_request][:book_request_images]
     end
 
     def create_image_files
-      image_file_params&.each do |image_file|
+      image_files_params&.each do |image_file|
         @book_request.book_request_images.create(file: image_file)
       end
     end
 
     def destroy_image_files
       file_images = @book_request.book_request_images
-      file_images&.each do |image_file|
-        image_file.destroy
-      end
+      file_images.destroy_all if file_images.present?
     end
   end
 end
