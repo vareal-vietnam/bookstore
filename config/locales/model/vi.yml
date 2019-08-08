@@ -24,8 +24,12 @@ vi:
             name:
               blank: "Tên sách không được trống"
             quantity:
+              blank: "Số lượng không thể bỏ trống"
+              not_a_number: "Số lượng phải nhập dạng số"
               greater_than_or_equal_to: "Số lượng nhập không hợp lệ"
             price:
+              blank: "Giá không thể bỏ trống"
+              not_a_number: "Giá phải nhập dạng số"
               greater_than_or_equal_to: "Giá bán không hợp lệ"
 
         book_request:
