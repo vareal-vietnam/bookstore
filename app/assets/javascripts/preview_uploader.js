@@ -6,7 +6,6 @@ $(function() {
       reader.onload = function (e) {
         $('#img_prev').attr('src', e.target.result);
       }
-      console.log(input.files)
       var i;
       for (i = 0; i < input.files.length; i++) {
         if(input.files[i].type.includes("image")) {
