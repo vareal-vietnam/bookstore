@@ -42,8 +42,8 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
       it 'return redirect to view detail' do
         subject
-        expect(subject).
-          to redirect_to(user_book_request(current_user, id, book_request.id))
+        expect(subject)
+          .to redirect_to(user_book_request_url(current_user, book_request.id))
       end
     end
   end

@@ -41,7 +41,8 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
 
       it 'return correct book_request' do
-        expect(assigns(:book_request).attributes).to eql(book_request.attributes)
+        expect(assigns(:book_request).attributes)
+          .to eql(book_request.attributes)
       end
     end
   end

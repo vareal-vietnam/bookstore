@@ -2,7 +2,7 @@ module Users
   class BookRequestsController < ApplicationController
     before_action :check_log_in, only: %i[new edit index update]
     before_action :check_valid_user, only: %i[edit update]
-    before_action :find_and_assign_book_request, only: %i[edit update]
+    before_action :find_and_assign_book_request, only: %i[edit]
     def index
       @book_requests = book_requests_user.book_requests
                                          .order(created_at: :desc)
@@ -13,19 +13,19 @@ module Users
     def edit
       return if current_user&.id == @book_request&.user_id
 
-      handle_invalid_params
+      handle_danger_flash
     end
 
     def update
       @book_request = BookRequest.find(params[:id])
-        if @book_request.update_attributes(book_request_params)
-          destroy_image_files unless image_file_params.nil?
-          create_image_files
-          flash[:success] = t('book_requests.update.success')
-          redirect_to user_book_request_path @book_request
-        else
-          render 'edit'
-        end
+      if @book_request.update_attributes(book_request_params)
+        destroy_image_files unless image_file_params
+        create_image_files
+        flash[:success] = t('book_requests.update.success')
+        redirect_to user_book_request_path @book_request
+      else
+        render 'edit'
+      end
     end
 
     private
@@ -34,23 +34,17 @@ module Users
       User.find(params[:user_id])
     end
 
-    # def check_valid_params
-    #   return if valid_user? @book_request
-
-    #   handle_invalid_params
-    # end
-
-    def handle_invalid_params
+    def handle_danger_flash
       flash[:danger] = t('not_found')
       redirect_to root_url
     end
 
     def check_valid_user
-      handle_invalid_params unless current_user.id == params[:user_id].to_i
+      handle_danger_flash unless current_user.id == params[:user_id].to_i
     end
 
     def check_log_in
-      handle_invalid_params unless current_user
+      handle_danger_flash unless current_user
     end
 
     def find_and_assign_book_request
