@@ -3,12 +3,7 @@
     <div class="col-sm-6">
       <div class="col-sm-12 book-col">
         <div class="col-sm-2">
-          <% if book.images.first %>
-            <% book_cover = book.images.first&.thumb_url %>
-          <% else %>
-            <% book_cover = image_path('default-book-cover.jpg') %>
-          <% end %>
-          <img src= "<%= book_cover %>" alt= "Book's cover" class="book-cover">
+          <img src= "<%= get_thumb_url(book) %>" alt= "Book's cover" class="book-cover">
         </div>
         <div class="col-sm-8">
           <h4 class="book-title"><span title="<%= book.name %>"><%= book.name %></span></h4>
