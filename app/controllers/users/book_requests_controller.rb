@@ -33,14 +33,14 @@ module Users
       User.find_by(params[:user_id])
     end
 
-    def set_not_found_flash_and_redirect
-      flash[:danger] = t('not_found')
+    def set_not_found_flash_and_redirect(message)
+      flash[:danger] = message
       redirect_to(root_url) && return
     end
 
     def handle_invalid_user!
       set_not_found_flash_and_redirect unless
-      current_user.id == params[:user_id].to_i
+        current_user.id == params[:user_id].to_i
     end
 
     def authenticate_user!
