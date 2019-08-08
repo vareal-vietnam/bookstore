@@ -20,7 +20,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rubocop', '~> 0.72.0', require: false
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'rmagick'
-# gem "strip_attributes"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
