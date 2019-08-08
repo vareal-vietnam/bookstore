@@ -17,10 +17,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         expect { subject }.to_not change(book_request, :reload)
       end
 
-      it 'number of book request not change' do
-        expect { subject }.to_not change(book_request, :reload)
-      end
-
       it 'should be render to edit' do
         expect(subject).to render_template(:edit)
       end
@@ -32,11 +28,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
           user_id: current_user.id, id: book_request.id,
           book_request: valid_book_request_params
         }
-      end
-
-      it 'number of book request not change' do
-        subject
-        expect { subject }.to change(BookRequest, :count).by(0)
       end
 
       it 'book request have newest data' do

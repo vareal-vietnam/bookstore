@@ -151,4 +151,4 @@ en:
     create:
       success: "A new book request created"
     update:
-      success: "your book request updated"
+      success: "Your book request updated"

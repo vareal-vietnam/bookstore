@@ -19,8 +19,9 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
     context 'book request not belong to current user' do
       include_context 'logged in'
+      let(:book_request) { create(:book_request) }
       before do
-        get :edit, params: { user_id: current_user.id, id: random_id }
+        get :edit, params: { user_id: current_user.id, id: book_request.id }
       end
 
       it 'return flash page not found' do
@@ -33,7 +34,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
     end
 
-    context 'with valid params' do
+    context 'book request belong to current user' do
       include_context 'logged in'
       let(:book_request) { create(:book_request, user_id: current_user.id) }
       before do
