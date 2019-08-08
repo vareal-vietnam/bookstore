@@ -86,7 +86,7 @@ en:
 
     create:
       success_login: "Success Logged In"
-      wrong_password: "Wrong password"
+      wrong_password: "Incorrect phone number or password"
 
   users:
     books:
@@ -137,6 +137,7 @@ en:
   shared:
     error_messages:
       errors_notification: "Have %{errors_count} errors in the form"
+    doesn't match Password: "Password confirmation doesn't match password"
 
   activerecord:
     errors:

@@ -13,5 +13,7 @@ en:
             password:
               blank: "Password is blank"
               too_short: "Password is too short"
+            password_confirmation:
+              confirmation: "Password confirmation doesn't match password"
             address:
               blank: "Address is blank"
