@@ -40,10 +40,10 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('book_requests.update.success'))
       end
 
-      it 'return redirect to view detail' do
+      it 'redirect to view detail' do
         subject
         expect(subject)
-          .to redirect_to(user_book_request_url(current_user, book_request.id))
+          .to redirect_to(user_book_request_url(current_user, book_request))
       end
     end
   end

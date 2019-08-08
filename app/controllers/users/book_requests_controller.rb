@@ -22,7 +22,7 @@ module Users
         destroy_image_files unless image_file_params
         create_image_files
         flash[:success] = t('book_requests.update.success')
-        redirect_to user_book_request_path @book_request
+        redirect_to user_book_request_path(current_user, @book_request)
       else
         render 'edit'
       end
