@@ -8,7 +8,7 @@
         <%= render partial: 'shared/error_messages', locals: {object: @book} %>
         <div class="form-group">
           <%= f.label "#{t('book.name')} (*)" %>
-          <%= f.text_field :name, class: 'form-control', maxlength: 60 %>
+          <%= f.text_field :name, class: 'form-control', maxlength: 60, required: true %>
         </div>
         <div class="row">
           <div class="col-sm-6">
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
           <%= f.label "#{t('book.description')} (*)" %>
-          <%= f.text_area :description, class: 'form-control', rows: "4" %>
+          <%= f.text_area :description, class: 'form-control', rows: "4", required: true %>
         </div>
         <div class="form-group">
           <%= f.label t('book.comment') %>
