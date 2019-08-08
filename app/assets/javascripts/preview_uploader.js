@@ -1,5 +1,5 @@
 $(function() {
-  function readURL(input) {
+  function showImagePreview(input) {
     if (input.files) {
       var reader = new FileReader();
 
@@ -17,6 +17,6 @@ $(function() {
   }
 
   $("#image-upload").change(function(){
-    readURL(this);
+    showImagePreview(this);
   });
 });
