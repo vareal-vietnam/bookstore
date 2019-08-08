@@ -2,7 +2,7 @@ module Users
   class BookRequestsController < ApplicationController
     before_action :check_log_in, only: %i[new edit index update]
     before_action :check_valid_user, only: %i[edit update]
-    before_action :find_and_assign_book_request, only: %i[edit]
+    before_action :find_and_assign_book_request, only: %i[edit update]
     def index
       @book_requests = book_requests_user.book_requests
                                          .order(created_at: :desc)
@@ -17,7 +17,6 @@ module Users
     end
 
     def update
-      @book_request = BookRequest.find(params[:id])
       if @book_request.update_attributes(book_request_params)
         destroy_image_files unless image_file_params
         create_image_files
@@ -31,7 +30,7 @@ module Users
     private
 
     def book_requests_user
-      User.find(params[:user_id])
+      User.find_by(params[:user_id])
     end
 
     def handle_danger_flash
