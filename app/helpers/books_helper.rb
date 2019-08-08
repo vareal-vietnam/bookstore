@@ -1,9 +1,9 @@
 module BooksHelper
-  def get_thumb_url(images)
+  def get_thumb_url(book)
     if images.empty?
-      image_path('default-book-cover.jpg')
+      book.image_path('default-book-cover.jpg')
     else
-      images.first.thumb_url
+      book.images.first.thumb_url
     end
   end
 end
