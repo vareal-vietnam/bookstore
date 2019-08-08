@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  before_validation :strip_whitespace
+
   VALID_PHONE_REGEX = /\A[0]\d{9}\z/i.freeze
 
   has_many :books, dependent: :destroy
@@ -41,4 +43,11 @@ class User < ApplicationRecord
   def remove_remember_digest
     update_attribute(:remember_digest, nil)
   end
+
+  def strip_whitespace
+    self.name = self.name.strip unless self.name.nil?
+    self.address = self.address.strip unless self.address.nil?
+    self.phone = self.phone.strip unless self.phone.nil?
+  end
+
 end
