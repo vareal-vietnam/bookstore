@@ -32,4 +32,23 @@ RSpec.describe User, type: :model do
   context 'secure password' do
     it { should have_secure_password }
   end
+
+  describe 'squish_whitespace' do
+    let(:name) { '   A       B C   ' }
+    let(:name_correct) { 'A B C' }
+    let(:address) { '   X   Y   Z   ' }
+    let(:address_correct) { 'X Y Z' }
+    let(:password) { 'Aa123456' }
+    let!(:user) do
+      create(:user, name: name,
+                    address: address,
+                    password: password,
+                    password_confirmation: password)
+    end
+
+    it 'remove whitespace at undesired positions' do
+      expect(User.last.name).to eql(name_correct)
+      expect(User.last.address).to eql(address_correct)
+    end
+  end
 end

@@ -87,7 +87,7 @@ vi:
 
     create:
       success_login: "Đăng nhập thành công"
-      wrong_password: "Nhập sai password"
+      wrong_password: "Nhập sai Số điện thoại/mật khẩu"
 
   users:
     books:
