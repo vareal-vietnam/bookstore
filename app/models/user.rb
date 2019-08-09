@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
+  before_validation :squish_whitespace
+
   VALID_PHONE_REGEX = /\A[0]\d{9}\z/i.freeze
 
   has_many :books, dependent: :destroy
@@ -40,5 +42,10 @@ class User < ApplicationRecord
 
   def remove_remember_digest
     update_attribute(:remember_digest, nil)
+  end
+
+  def squish_whitespace
+    self.name = name.squish unless name.nil?
+    self.address = address.squish unless address.nil?
   end
 end
