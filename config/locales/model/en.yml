@@ -8,6 +8,7 @@ en:
               invalid: "Phone number is invalid"
               blank: "Phone number is blank"
               taken: "Phone number is already used"
+              wrong_length: "Phone number is the wrong length (should be 10 characters)"
             name:
               blank: "Please input name"
               too_long: "Name is too long"
