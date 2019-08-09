@@ -47,6 +47,5 @@ class User < ApplicationRecord
   def squish_whitespace
     self.name = name.squish unless name.nil?
     self.address = address.squish unless address.nil?
-    self.phone = phone.squish unless phone.nil?
   end
 end
