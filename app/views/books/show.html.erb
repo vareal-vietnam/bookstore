@@ -20,7 +20,7 @@
 </div>
 <% if @book.comment.present? %>
   <h3><%= t('.seller_comment') %></h3>
-  <p class="book-content"><%= @book.comment %></p>
+  <p class="book-content"><%= simple_format @book.comment %></p>
 <% end %>
 <h3><%= t('.book_content') %></h3>
-<p class="book-content"><%= @book.description %></p>
+<p class="book-content"><%= simple_format @book.description %></p>
