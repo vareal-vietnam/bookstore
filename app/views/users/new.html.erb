@@ -5,15 +5,15 @@
       <%= render partial: 'shared/error_messages', locals: {object: @user} %>
       <div class="form-group">
         <%= f.label t('users.name') %>
-        <%= f.text_field :name, class: 'form-control', maxlength: 20, size: 50, onchange = "trimString(0)" %>
+        <%= f.text_field :name, class: 'form-control', maxlength: 20, size: 50, onchange: "trimString(0)" %>
       </div>
       <div class="form-group">
         <%= f.label t('.phone') %>&nbsp;<i><%= t('.input_guide_phone') %></i>
-        <%= f.phone_field :phone, class: 'form-control', maxlength: 10, size: 10, onchange: 'trimString(1)'%>
+        <%= f.phone_field :phone, class: 'form-control', maxlength: 10, size: 10, onchange: "trimString(1)" %>
       </div>
       <div class="form-group">
         <%= f.label t('users.address') %>
-        <%= f.text_field :address, class: 'form-control', maxlength: 50, size: 50, onchange: 'trimString(2)'%>
+        <%= f.text_field :address, class: 'form-control', maxlength: 50, size: 50, onchange: "trimString(2)" %>
       </div>
       <div class="form-group">
         <%= f.label t('users.password') %>&nbsp;<i><span><%= t('.input_guide_password') %><span></i>
