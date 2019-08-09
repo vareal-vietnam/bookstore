@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
 
-  before_validation :strip_whitespace
+  before_validation :squish_whitespace
 
   VALID_PHONE_REGEX = /\A[0]\d{9}\z/i.freeze
 
@@ -44,10 +44,9 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  def strip_whitespace
-    self.name = self.name.strip unless self.name.nil?
-    self.address = self.address.strip unless self.address.nil?
-    self.phone = self.phone.strip unless self.phone.nil?
+  def squish_whitespace
+    self.name = name.squish unless name.nil?
+    self.address = address.squish unless address.nil?
+    self.phone = phone.squish unless phone.nil?
   end
-
 end

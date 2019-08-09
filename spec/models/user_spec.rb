@@ -32,4 +32,18 @@ RSpec.describe User, type: :model do
   context 'secure password' do
     it { should have_secure_password }
   end
+
+  describe 'squish_whitespace' do
+    let(:name) { '   A       B C   ' }
+    let(:password) { 'Aa123456' }
+    let(:address) { '   X   Y   Z   ' }
+    let!(:user) do
+      create(:user, name: name, address: address, password: password, password_confirmation: password)
+    end
+
+    it 'squish_whitespace' do
+      expect(User.last.name).to eql('A B C')
+      expect(User.last.address).to eql('X Y Z')
+    end
+  end
 end

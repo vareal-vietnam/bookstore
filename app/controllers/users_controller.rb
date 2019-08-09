@@ -22,7 +22,6 @@ class UsersController < ApplicationController
       flash[:success] = t('.user_created')
       save_user_to_session @user
       redirect_to @user
-      binding.pry
     else
       flash.now[:danger] = t('.user_create_fail')
       render 'new'
