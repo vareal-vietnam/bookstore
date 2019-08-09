@@ -12,6 +12,7 @@ en:
       blog: "Blog"
 
     header:
+      book: "Book"
       home: "Home"
       logged_in_user: "User Logged in"
       profile: "Profile"
@@ -20,11 +21,9 @@ en:
       login: "Login"
       logout_confirm: "Are you sure to Logout?"
       new_post: "New post"
-      post_for_sell: "Sell book"
-      post_for_buy: "Request book"
+      post_for_sell: "New book"
       sign_up: "Sign up"
-      user_books: "Books"
-      user_book_requests: "Book requests"
+      user_books: "My books"
 
   not_found: "Page not found"
 

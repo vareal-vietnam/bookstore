@@ -12,6 +12,7 @@ vi:
       blog: "Diễn đàn"
 
     header:
+      book: "Sách"
       home: "Về trang chủ"
       logged_in_user: "User đã đăng nhập"
       profile: "Thông tin"
@@ -20,11 +21,9 @@ vi:
       login: "Đăng nhập"
       logout_confirm: "Bạn chắc chắn đăng xuất?"
       new_post: "Đăng bài"
-      post_for_sell: "Bán sách"
-      post_for_buy: "Tạo yêu cầu"
+      post_for_sell: "Tạo sách mới"
       sign_up: "Đăng kí"
-      user_books: "Sách"
-      user_book_requests: "Yêu cầu sách"
+      user_books: "Sách của tôi"
 
   not_found: "Không thể hiển thị trang yêu cầu"
 
