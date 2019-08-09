@@ -22,7 +22,6 @@ gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'rmagick'
 
 group :development, :test do
-  gem 'sqlite3', '1.3.13'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "pry-rails"
   gem 'rspec-rails', '~> 3.8'
