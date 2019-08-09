@@ -3,19 +3,20 @@ $(function() {
   function showImagePreview(input) {
     if (input.files) {
       var reader = new FileReader();
-      var i, filesCount = input.files.length;
+      var validFiles = true, filesCount = input.files.length;
       reader.onload = function (e) {
         $('#img_prev').attr('src', e.target.result);
       }
-      for (i = 0; i < filesCount; i++) {
+      for (var i = 0; i < filesCount; i++) {
         if(!(input.files[i].type.includes("image"))) {
           alert("Input files must be image type!" );
           $('#image-upload').wrap('<form>').closest('form').get(0).reset();
           $('#image-upload').unwrap();
+          validFiles = false;
           break;
         }
       }
-      if (i == filesCount) {
+      if (validFiles) {
         reader.readAsDataURL(input.files[0]);
       }
     }
