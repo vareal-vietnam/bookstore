@@ -3,11 +3,11 @@ $(function() {
   function showImagePreview(input) {
     if (input.files) {
       var reader = new FileReader();
-      var validFiles = true, filesCount = input.files.length;
+      var validFiles = true;
       reader.onload = function (e) {
         $('#img_prev').attr('src', e.target.result);
       }
-      for (var i = 0; i < filesCount; i++) {
+      for (var i = 0; i < input.files.length; i++) {
         if(!(input.files[i].type.includes("image"))) {
           alert("Input files must be image type!" );
           $('#image-upload').wrap('<form>').closest('form').get(0).reset();
