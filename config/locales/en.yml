@@ -152,3 +152,9 @@ en:
       success: "A new book request created"
     update:
       success: "Your book request updated"
+
+  warning:
+    user_not_exist: "User not exist"
+    book_request_not_exist: "Book request not exist"
+    need_log_in: "Please log in"
+    not_permission: "Not enough permission"

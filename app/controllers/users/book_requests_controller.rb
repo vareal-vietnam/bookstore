@@ -13,7 +13,7 @@ module Users
     def edit
       return if current_user&.id == @book_request&.user_id
 
-      set_not_found_flash_and_redirect
+      set_content_flash_and_redirect(t('warning.not_permission'))
     end
 
     def update
@@ -30,25 +30,33 @@ module Users
     private
 
     def book_requests_user
-      User.find_by(params[:user_id])
+      User.find_by(id: params[:user_id])
     end
 
-    def set_not_found_flash_and_redirect(message)
-      flash[:danger] = message
+    def set_content_flash_and_redirect(flash_content)
+      flash[:danger] = flash_content
       redirect_to(root_url) && return
     end
 
     def handle_invalid_user!
-      set_not_found_flash_and_redirect unless
-        current_user.id == params[:user_id].to_i
+      user = book_requests_user
+      if user
+        set_content_flash_and_redirect(t('warning.not_permission')) unless
+          current_user.id == params[:user_id].to_i
+      else
+        set_content_flash_and_redirect(t('warning.user_not_exist'))
+      end
     end
 
     def authenticate_user!
-      set_not_found_flash_and_redirect unless current_user
+      set_content_flash_and_redirect(t('warning.need_log_in')) unless
+        current_user
     end
 
     def find_and_assign_book_request
       @book_request = BookRequest.find_by(id: params[:id])
+      set_content_flash_and_redirect(t('warning.book_request_not_exist')) unless
+        @book_request
     end
 
     def book_request_params

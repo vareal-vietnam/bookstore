@@ -63,11 +63,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         }
       end
 
-      it 'number of book request not change' do
-        subject
-        expect { subject }.to change(BookRequest, :count).by(0)
-      end
-
       it 'book request have newest data' do
         subject
         expect(assigns(:book_request)
