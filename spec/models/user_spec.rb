@@ -38,7 +38,10 @@ RSpec.describe User, type: :model do
     let(:password) { 'Aa123456' }
     let(:address) { '   X   Y   Z   ' }
     let!(:user) do
-      create(:user, name: name, address: address, password: password, password_confirmation: password)
+      create(:user, name: name,
+                    address: address,
+                    password: password,
+                    password_confirmation: password)
     end
 
     it 'squish_whitespace' do
