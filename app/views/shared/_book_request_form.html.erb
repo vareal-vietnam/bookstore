@@ -1,5 +1,5 @@
 <div class="row">
-    <%= form_for(book_request, html:{class: 'form-group'}) do |f|  %>
+    <%= form_for(book_request, html:{class: 'form-group', method: method },url: url) do |f|  %>
       <div class="col-sm-8 col-sm-offset-2">
         <div class="col-sm-6">
           <%= render partial: 'shared/error_messages', locals: { object: book_request } %>

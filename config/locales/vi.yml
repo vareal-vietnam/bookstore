@@ -158,3 +158,9 @@ vi:
       x_days:
         one: 1 ngày
         other: "%{count}"
+
+  warning:
+    user_not_exist: "Người dùng không tồn tại"
+    book_request_not_exist: "Yêu cầu không tồn tại"
+    need_log_in: "Bạn cần đăng nhập"
+    not_permission: "Bạn không đủ quyền"

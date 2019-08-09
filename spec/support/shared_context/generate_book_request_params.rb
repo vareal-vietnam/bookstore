@@ -23,4 +23,14 @@ RSpec.shared_context 'generate book_request_params' do
   end
 
   let(:invalid_book_request_params) { { name: nil } }
+
+  let(:valid_book_request_params_no_image) do
+    {
+      name: book_request_params[:name],
+      budget: book_request_params[:budget],
+      quantity: book_request_params[:quantity],
+      comment: book_request_params[:comment],
+      book_request_images: []
+    }
+  end
 end
