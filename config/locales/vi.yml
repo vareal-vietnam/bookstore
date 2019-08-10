@@ -110,8 +110,10 @@ vi:
 
     create:
       user_created: "User tạo thành công"
+
     update:
-      update_success: "Cập nhật thông tin thành công."
+      password_incorect: "Mật khẩu không chính xác!"
+      update_success: "Cập nhật thành công."
 
     new:
       sign_up: "Đăng kí "
@@ -124,11 +126,13 @@ vi:
       avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
-      enter_password: "Nhập mật khẩu để xác nhận:"
       title: "Thay đổi thông tin"
-      password_confirmation: "Nhập lại mật khẩu"
       avatar: "Hình đại diện"
+      change_password: "Đổi mật khẩu"
       update_info: "Cập nhật"
+      old_password: "Mật khẩu"
+      password: "Mật khẩu mới"
+      password_confirmation: "Xác nhận mật khẩu"
 
     name: "Nhập tên (*)"
     address: "Nhập địa chỉ (*)"

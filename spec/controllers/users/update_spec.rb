@@ -4,16 +4,54 @@ RSpec.describe UsersController, type: :controller do
   include_context 'logged in'
   include_context 'assign user'
 
+  let(:valid_params_update_info) do
+    user_params = attributes_for(:user)
+    {
+      name: user_params[:name],
+      address: user_params[:address],
+      password: user_params[:password]
+    }
+  end
+
+  let(:valid_params_update_password) do
+    user_params = attributes_for(:user)
+    {
+      password: user_params[:password],
+      password_confirmation: user_params[:password_confirmation]
+    }
+  end
+
   describe '#update' do
-    context 'with valid params' do
+    context 'with valid params update info' do
       before do
-        put :update, params: { id: current_user.id, user: valid_user_params }
+        put :update,
+            params: { id: current_user.id, user: valid_params_update_info }
       end
 
       it 'user has newest data' do
-        expect(current_user.name).to eql(valid_user_params[:name])
-        expect(current_user.address).to eql(valid_user_params[:address])
-        expect(current_user.password).to eql(valid_user_params[:password])
+        expect(current_user.name).to eql(valid_params_update_info[:name])
+        expect(current_user.address).to eql(valid_params_update_info[:address])
+      end
+
+      it 'gets success flash message' do
+        expect(flash.count).to equal(1)
+        expect(flash[:success]).to eql(I18n.t('users.update.update_success'))
+      end
+
+      it 'should be redirect to current_user' do
+        expect(subject).to redirect_to(current_user)
+      end
+    end
+
+    context 'valid params update password' do
+      before do
+        put :update,
+            params: { id: current_user.id, user: valid_params_update_password }
+      end
+
+      it 'user has newest password' do
+        expect(current_user.password)
+          .to eql(valid_params_update_password[:password])
       end
 
       it 'gets success flash message' do
