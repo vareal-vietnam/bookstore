@@ -112,7 +112,8 @@ en:
       user_created: "User created"
       user_create_fail: "User created fail"
     update:
-      update_success: "Data have updated"
+      password_incorect: "Password is incorrect!"
+      update_success: "Update successfully!"
 
     new:
       sign_up: "Sign Up"
@@ -127,7 +128,10 @@ en:
     edit:
       title: "Update user's info"
       update_info: "Update"
-      enter_password: "Enter password for confirmation"
+      change_password: "Change password"
+      old_password: "Password"
+      password: "New password"
+      password_confirmation: "Password confirmation"
 
     name: "Name (*)"
     address: "Address (*)"
