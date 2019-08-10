@@ -36,6 +36,7 @@ en:
       truncate: "..."
 
   books:
+    edit_button: "Edit book"
     index:
       seller_name: "Seller"
       quantity: "Quantity: %{quantity}"
