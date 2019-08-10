@@ -36,6 +36,7 @@ vi:
       truncate: "..."
 
   books:
+    edit_button: "Chỉnh sửa"
     index:
       seller_name: "Người bán: "
       quantity: "Số lượng: %{quantity}"
