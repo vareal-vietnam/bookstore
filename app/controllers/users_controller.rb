@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :validate_user, only: %i[show edit change_password]
+  before_action :validate_user, only: %i[show edit]
   before_action :authenticate, only: :update
 
   def show
