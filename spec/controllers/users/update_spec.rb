@@ -9,7 +9,7 @@ RSpec.describe UsersController, type: :controller do
     {
       name: user_params[:name],
       address: user_params[:address],
-      password: user_params[:password],
+      password: user_params[:password]
     }
   end
 
@@ -24,7 +24,8 @@ RSpec.describe UsersController, type: :controller do
   describe '#update' do
     context 'with valid params update info' do
       before do
-        put :update, params: { id: current_user.id, user: valid_params_update_info }
+        put :update,
+            params: { id: current_user.id, user: valid_params_update_info }
       end
 
       it 'user has newest data' do
@@ -44,11 +45,13 @@ RSpec.describe UsersController, type: :controller do
 
     context 'valid params update password' do
       before do
-        put :update, params: { id: current_user.id, user: valid_params_update_password }
+        put :update,
+            params: { id: current_user.id, user: valid_params_update_password }
       end
 
       it 'user has newest password' do
-        expect(current_user.password).to eql(valid_params_update_password[:password])
+        expect(current_user.password)
+          .to eql(valid_params_update_password[:password])
       end
 
       it 'gets success flash message' do
