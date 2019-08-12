@@ -55,7 +55,6 @@ vi:
     show:
       book_content: "Nội dung chính"
       seller_comment: "Ý kiến của người bán"
-      login: "Đăng nhập"
     created: "Đã tạo sách mới"
 
 

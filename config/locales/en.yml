@@ -55,7 +55,6 @@ en:
     show:
       book_content: "Book content"
       seller_comment: "Seller's comment"
-      login: "Login"
     created: "The book has been uploaded"
   book:
     create: "Create"
