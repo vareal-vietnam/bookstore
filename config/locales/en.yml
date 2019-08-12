@@ -94,6 +94,9 @@ en:
         remove_book: "Remove"
         update: "Update"
         confirm_delete: "Permanently remove book?"
+    book_requests:
+      list:
+        confirm_delete: "Delete this book request?"
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
