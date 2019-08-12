@@ -5,7 +5,7 @@ en:
         delimiter: "."
         format: "%u %n"
         precision: 0
-        
+
   layouts:
     footer:
       contact: "Contact"
@@ -97,6 +97,9 @@ en:
 
   users:
     books:
+      empty:
+        empty_notification: "You have no books."
+        link_to_new_book: "Click to post a new book."
       list:
         remove_book: "Remove"
         update: "Update"
