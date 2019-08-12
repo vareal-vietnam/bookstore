@@ -1,4 +1,11 @@
 vi:
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 0
+
   layouts:
     footer:
       contact: "Liên hệ"
