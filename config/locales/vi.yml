@@ -43,6 +43,8 @@ vi:
       truncate: "..."
 
   books:
+    form:
+      file_input_warning: "(Dung lượng của tệp ảnh phải nhỏ hơn 3MB)"
     empty:
       empty_notification: "Không có sách để hiển thị."
     edit_button: "Chỉnh sửa"
