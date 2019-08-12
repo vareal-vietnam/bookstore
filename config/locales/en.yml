@@ -40,11 +40,11 @@ en:
     index:
       seller_name: "Seller"
       quantity: "Quantity: %{quantity}"
-      price: "Price: %{price}"
+      price: "Price: %{price} "
 
     seller_name: "Seller: %{seller_name}"
     quantity: "Quantity: %{quantity}"
-    price: "Price: %{price}"
+    price: "Price: %{price} "
     show:
       book_content: "Book content"
       seller_comment: "Seller's comment"
@@ -52,11 +52,11 @@ en:
   book:
     create: "Create"
     create_label: "Creating book"
-    name: "Book's title:"
-    price: "Price:"
-    quantity: "Quantity:"
-    description: "Book content:"
-    comment: "Seller's comment:"
+    name: "Book's title"
+    price: "Price"
+    quantity: "Quantity"
+    description: "Book content"
+    comment: "Seller's comment"
     update: "Update"
     update_label: "Updating book"
     updated: "The book has been updated"
@@ -77,7 +77,7 @@ en:
 
     new:
       sign_up_now: "Sign up"
-      phone: "Enter phone number"
+      phone: "Phone number"
       new_user: "New user?"
       login: "Log In "
       password: "Password"
@@ -118,8 +118,8 @@ en:
 
     new:
       sign_up: "Sign Up"
-      phone: "Phone (*)"
-      password_confirmation : "Password Confirmation (*)"
+      phone: "Phone number"
+      password_confirmation : "Password Confirmation"
       create_my_account: "Create my account"
       input_guide_phone: "format 0xx......"
       input_guide_password: "at least 6 characters"
@@ -134,9 +134,9 @@ en:
       password: "New password"
       password_confirmation: "Password confirmation"
 
-    name: "Name (*)"
-    address: "Address (*)"
-    password: "Password (*)"
+    name: "Name"
+    address: "Address"
+    password: "Password"
 
   shared:
     error_messages:

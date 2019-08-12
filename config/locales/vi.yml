@@ -78,10 +78,10 @@ vi:
 
     new:
       sign_up_now: "Đăng kí"
-      phone: "Nhập số điện thoại "
+      phone: "Số điện thoại"
       new_user: "Chưa có tài khoản?"
       login: "Đăng nhập"
-      password: "Nhập mật khẩu"
+      password: "Mật khẩu"
       sign_in_now: "Đăng nhập"
       remember_me: "Ghi nhớ người dùng"
 
@@ -118,8 +118,8 @@ vi:
 
     new:
       sign_up: "Đăng kí "
-      phone: "Nhập số điện thoại (*)"
-      password_confirmation : "Nhập lại mật khẩu (*)"
+      phone: "Nhập số điện thoại"
+      password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
       input_guide_phone: "nhập định dạng 0xx......"
       input_guide_password: "nhập ít nhất 6 ký tự"
@@ -135,9 +135,9 @@ vi:
       password: "Mật khẩu mới"
       password_confirmation: "Xác nhận mật khẩu"
 
-    name: "Nhập tên (*)"
-    address: "Nhập địa chỉ (*)"
-    password: "Nhập mật khẩu (*)"
+    name: "Nhập tên"
+    address: "Nhập địa chỉ"
+    password: "Nhập mật khẩu"
 
   shared:
     error_messages:
