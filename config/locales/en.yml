@@ -43,6 +43,8 @@ en:
       truncate: "..."
 
   books:
+    empty:
+      empty_notification: "Have no books to show."
     edit_button: "Edit book"
     index:
       seller_name: "Seller"
