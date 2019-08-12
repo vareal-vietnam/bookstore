@@ -15,7 +15,11 @@ RSpec.describe Users::BooksController, type: :controller do
       let!(:book) { create(:book, user_id: current_user.id) }
       let(:page) { 10 }
 
-      subject { delete :destroy, params: { user_id: current_user.id, id: Book.last.id, page: page} }
+      subject do
+        delete :destroy, params: {
+          user_id: current_user.id, id: Book.last.id, page: page
+        }
+      end
 
       context 'current user remove book sucessful' do
         it 'the book quantity of reduce 1' do
@@ -34,7 +38,12 @@ RSpec.describe Users::BooksController, type: :controller do
       end
 
       context 'current user remove book fail' do
-        subject { delete :destroy, params: { user_id: current_user.id, id: Book.last.id, page: page } }
+        subject do
+          delete :destroy, params: {
+            user_id: current_user.id, id: Book.last.id, page: page
+          }
+        end
+
         before do
           allow_any_instance_of(Book).to receive(:destroy).and_return(false)
         end
