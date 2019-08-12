@@ -3,16 +3,19 @@ RSpec.describe Users::BookRequestsController, type: :controller do
   include_context 'logged in'
 
   describe '#destroy' do
-    context 'book request found' do
-      let(:book_request) { create(:book_request, user_id: current_user.id) }
-      before do
-        5.times do
-          create(:book_request)
-        end
+    before do
+      5.times do
+        create(:book_request)
+      end
+    end
 
+    context 'book request found' do
+      let!(:book_request) do
+        book_request = create(:book_request, user_id: current_user.id)
         3.times do
           create(:book_request_image, book_request_id: book_request.id)
         end
+        book_request
       end
 
       subject do
@@ -31,7 +34,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('book_requests.delete.success'))
       end
 
-      it 'redirect to user book requests index' do
+      it "redirect to user's book requests index" do
         subject
         expect(subject)
           .to redirect_to(user_book_requests_url(current_user))
@@ -46,9 +49,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
     context 'book request not found' do
       before do
-        5.times do
-          create(:book_request)
-        end
         delete :destroy, params: {
           user_id: current_user.id, id: BookRequest.last.id + 10
         }

@@ -5,7 +5,7 @@ en:
         delimiter: "."
         format: "%u %n"
         precision: 0
-        
+
   layouts:
     footer:
       contact: "Contact"
@@ -166,9 +166,9 @@ en:
     create:
       success: "A new book request created"
     update:
-      success: "your book request updated"
+      success: "Your book request updated"
     delete:
-      success: "A book request deleted"
+      success: "Delete successfully!"
 
   warning:
     user_not_exist: "User not exist"
