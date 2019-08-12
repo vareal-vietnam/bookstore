@@ -55,7 +55,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
 
       it 'return error flash' do
-        # subject
         expect(flash.count).to equal(1)
         expect(flash[:danger])
           .to eql(I18n.t('warning.book_request_not_exist'))
