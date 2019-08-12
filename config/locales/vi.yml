@@ -43,6 +43,8 @@ vi:
       truncate: "..."
 
   books:
+    empty:
+      empty_notification: "Không có sách để hiển thị."
     edit_button: "Chỉnh sửa"
     index:
       seller_name: "Người bán: "
@@ -98,6 +100,9 @@ vi:
 
   users:
     books:
+      empty:
+        empty_notification: "Bạn chưa có sách."
+        link_to_new_book: "Tạo sách mới."
       list:
         remove_book: "Xóa"
         update: "Chỉnh sửa"

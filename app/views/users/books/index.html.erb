@@ -1,7 +1,11 @@
-<div class="row">
-  <%= render 'list', user_books: @user_books %>
-</div>
+<% if @user_books.present? %>
+  <div class="row">
+    <%= render 'list', user_books: @user_books %>
+  </div>
 
-<div class="row text-center">
-  <%= paginate @user_books %>
-</div>
+  <div class="row text-center">
+    <%= paginate @user_books %>
+  </div>
+<% else %>
+  <%= render 'empty' %>
+<% end %>
