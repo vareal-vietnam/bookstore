@@ -2,7 +2,7 @@ module Users
   class BookRequestsController < ApplicationController
     before_action :authenticate_user!, only: %i[new edit index update]
     before_action :handle_invalid_user!, only: %i[edit update index]
-    before_action :find_and_assign_book_request, only: %i[edit update]
+    before_action :find_and_assign_book_request, only: %i[edit update destroy]
     def index
       @book_requests = book_requests_user.book_requests
                                          .order(created_at: :desc)
@@ -25,6 +25,12 @@ module Users
       else
         render 'edit'
       end
+    end
+
+    def destroy
+      flash[:success] = t('book_requests.delete.success') if
+        @book_request.destroy
+      redirect_to user_book_requests_path(current_user)
     end
 
     private

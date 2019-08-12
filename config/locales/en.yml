@@ -156,7 +156,9 @@ en:
     create:
       success: "A new book request created"
     update:
-      success: "Your book request updated"
+      success: "your book request updated"
+    delete:
+      success: "A book request deleted"
 
   warning:
     user_not_exist: "User not exist"

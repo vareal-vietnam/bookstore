@@ -89,12 +89,15 @@ vi:
       success_login: "Đăng nhập thành công"
       wrong_password: "Nhập sai Số điện thoại/mật khẩu"
 
-  users:
-    books:
-      list:
-        remove_book: "Xóa"
-        update: "Chỉnh sửa"
-        confirm_delete: "Xóa sách?"
+    users:
+      books:
+        list:
+          remove_book: "Xóa"
+          update: "Chỉnh sửa"
+          confirm_delete: "Xóa sách?"
+      book_requests:
+        list:
+          confirm_delete: "Xóa yêu cầu?"
     show:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
@@ -156,6 +159,8 @@ vi:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
       create_new: "Tạo yêu cầu"
+    delete:
+      success: "Một yêu cầu đã được xóa"
 
   datetime:
     distance_in_words:
