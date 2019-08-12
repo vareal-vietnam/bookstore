@@ -1,7 +1,6 @@
 class RequestImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   process resize_to_fill: [600, 900]
-  storage :file
 
   def extension_whitelist
     %w[jpg jpeg gif png]

@@ -53,7 +53,7 @@ en:
     create: "Create"
     create_label: "Creating book"
     name: "Book's title"
-    price: "Price"
+    price: "Price ($)"
     quantity: "Quantity"
     description: "Book content"
     comment: "Seller's comment"
@@ -145,11 +145,11 @@ en:
 
   book_request:
     create: "Create book request"
-    name: "Book's title:"
-    budget: "Budget:"
-    quantity: "Quantity:"
-    comment: "Some comment:"
-    buyer: "Buyer:"
+    name: "Book's title"
+    budget: "Budget"
+    quantity: "Quantity"
+    comment: "Some comment"
+    buyer: "Buyer"
     update: "Update book request"
 
   book_requests:
