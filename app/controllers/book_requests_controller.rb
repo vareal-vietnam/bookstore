@@ -1,4 +1,5 @@
 class BookRequestsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit update destroy]
   def new
     @book_request = BookRequest.new
   end
@@ -32,5 +33,15 @@ class BookRequestsController < ApplicationController
     image_files&.each do |image_file|
       @book_request.book_request_images.create(file: image_file)
     end
+  end
+
+  def authenticate_user!
+    set_content_flash_and_redirect(t('warning.need_log_in')) unless
+      current_user
+  end
+
+  def set_content_flash_and_redirect(flash_content)
+    flash[:danger] = flash_content
+    redirect_to(root_url) && return
   end
 end
