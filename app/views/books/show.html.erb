@@ -6,6 +6,11 @@
     <h3 class="book-content"><%= @book.name %></h3>
     <p><%= t('books.quantity', quantity: @book.quantity) %></p>
     <p><%= t('books.price', price: @book.price) %></p>
+    <% if current_user&.id == @book.user_id %>
+      <span title='<%= t('books.edit_button') %>'>
+        <%= link_to '', edit_book_path(@book.id), class: "glyphicon glyphicon-edit" %>
+      </span>
+    <% end %>
   </div>
   <div class="col-sm-3 text-center book-seller-area">
     <h3><%= @book.seller_name %></h3>

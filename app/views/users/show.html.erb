@@ -21,7 +21,10 @@
       <%= t('.join_date') %><span> <%= time_ago_in_words(current_user.created_at) %><%= t('.ago') %></span>
     </div>
       <div class="row">
-        <a href="<%= edit_user_url %> " class="btn btn-primary"><%= t('.update') %></a>
+        <%= link_to t('.update'), edit_user_path(attributes: :info), class: "btn btn-primary" %>
+      </div>
+      <div class="row">
+        <%= link_to t('.update_password'), edit_user_path(attributes: :password), class: "btn btn-primary" %>
       </div>
   </div>
 </div>

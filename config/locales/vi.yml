@@ -12,6 +12,7 @@ vi:
       blog: "Diễn đàn"
 
     header:
+      book: "Sách"
       home: "Về trang chủ"
       logged_in_user: "User đã đăng nhập"
       profile: "Thông tin"
@@ -20,11 +21,9 @@ vi:
       login: "Đăng nhập"
       logout_confirm: "Bạn chắc chắn đăng xuất?"
       new_post: "Đăng bài"
-      post_for_sell: "Bán sách"
-      post_for_buy: "Tạo yêu cầu"
+      post_for_sell: "Tạo sách mới"
       sign_up: "Đăng kí"
-      user_books: "Sách"
-      user_book_requests: "Yêu cầu sách"
+      user_books: "Sách của tôi"
 
   not_found: "Không thể hiển thị trang yêu cầu"
 
@@ -37,6 +36,7 @@ vi:
       truncate: "..."
 
   books:
+    edit_button: "Chỉnh sửa"
     index:
       seller_name: "Người bán: "
       quantity: "Số lượng: %{quantity}"
@@ -111,8 +111,10 @@ vi:
 
     create:
       user_created: "User tạo thành công"
+
     update:
-      update_success: "Cập nhật thông tin thành công."
+      password_incorect: "Mật khẩu không chính xác!"
+      update_success: "Cập nhật thành công."
 
     new:
       sign_up: "Đăng kí "
@@ -125,11 +127,13 @@ vi:
       avatar_format: " .jpg .jpeg .gif .png"
 
     edit:
-      enter_password: "Nhập mật khẩu để xác nhận:"
       title: "Thay đổi thông tin"
-      password_confirmation: "Nhập lại mật khẩu"
       avatar: "Hình đại diện"
+      change_password: "Đổi mật khẩu"
       update_info: "Cập nhật"
+      old_password: "Mật khẩu"
+      password: "Mật khẩu mới"
+      password_confirmation: "Xác nhận mật khẩu"
 
     name: "Nhập tên (*)"
     address: "Nhập địa chỉ (*)"

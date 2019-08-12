@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
+  before_action :authenticate, only: :update
 
   def show
     @books = current_user.books
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update_attributes(user_params)
+    if current_user.update(user_params)
       flash[:success] = t('.update_success')
       redirect_to current_user
     else
@@ -51,5 +52,17 @@ class UsersController < ApplicationController
 
     flash[:danger] = t('not_found')
     redirect_to root_url
+  end
+
+  def authenticate
+    old_password = user_params[:password]
+    if params[:user][:old_password]
+      @attributes_for_update = 'password'
+      old_password = params[:user][:old_password]
+    end
+    return if current_user.authenticate(old_password)
+
+    flash.now[:danger] = t('.password_incorect')
+    render 'edit'
   end
 end
