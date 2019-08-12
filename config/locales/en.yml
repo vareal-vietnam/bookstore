@@ -5,7 +5,7 @@ en:
         delimiter: "."
         format: "%u %n"
         precision: 0
-        
+
   layouts:
     footer:
       contact: "Contact"
