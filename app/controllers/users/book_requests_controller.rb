@@ -13,7 +13,8 @@ module Users
     def edit
       return if current_user&.id == @book_request&.user_id
 
-      set_content_flash_and_redirect(t('warning.not_permission'))
+      set_content_flash(t('warning.not_permission'), :danger)
+      redirect(root_path)
     end
 
     def update
@@ -28,9 +29,12 @@ module Users
     end
 
     def destroy
-      flash[:success] = t('book_requests.delete.success') if
-        @book_request.destroy
-      redirect_to user_book_requests_path(current_user)
+      if @book_request.destroy
+        set_content_flash(t('book_requests.delete.success'), :success)
+      else
+        set_content_flash(t('warning.book_request_not_exist'), :success)
+      end
+      redirect(user_book_requests_path(current_user))
     end
 
     private
@@ -39,30 +43,38 @@ module Users
       User.find_by(id: params[:user_id])
     end
 
-    def set_content_flash_and_redirect(flash_content)
-      flash[:danger] = flash_content
-      redirect_to(root_url) && return
+    def set_content_flash(flash_content, flash_type)
+      flash[flash_type] = flash_content
+    end
+
+    def redirect(path)
+      redirect_to(path) && return
     end
 
     def handle_invalid_user!
       user = book_requests_user
       if user
-        set_content_flash_and_redirect(t('warning.not_permission')) unless
+        set_content_flash(t('warning.not_permission'), :danger) unless
           current_user.id == params[:user_id].to_i
       else
-        set_content_flash_and_redirect(t('warning.user_not_exist'))
+        set_content_flash(t('warning.user_not_exist'), :danger)
       end
+      redirect(root_path)
     end
 
     def authenticate_user!
-      set_content_flash_and_redirect(t('warning.need_log_in')) unless
-        current_user
+      if !current_user
+        set_content_flash(t('warning.need_log_in'), :danger)
+        redirect(root_path)
+      end
     end
 
     def find_and_assign_book_request
       @book_request = BookRequest.find_by(id: params[:id])
-      set_content_flash_and_redirect(t('warning.book_request_not_exist')) unless
-        @book_request
+      if !@book_request
+        set_content_flash(t('warning.book_request_not_exist'), :danger)
+        redirect(user_book_requests_path(current_user))
+      end
     end
 
     def book_request_params

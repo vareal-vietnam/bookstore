@@ -61,7 +61,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
 
       it 'redirect to root url' do
-        expect(subject).to redirect_to(root_url)
+        expect(subject).to redirect_to(user_book_requests_url(current_user))
       end
     end
   end
