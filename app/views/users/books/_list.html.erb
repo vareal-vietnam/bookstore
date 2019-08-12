@@ -9,7 +9,7 @@
           <h4 class="book-title"><span title="<%= book.name %>"><%= book.name %></span></h4>
           <p><%= t('books.seller_name', seller_name: book.seller_name) %></p>
           <p><%= t('books.quantity', quantity: book.quantity) %></p>
-          <p><%= t('books.price', price: book.price) %></p>
+          <p><%= t('books.price', price: number_to_currency(book.price)) %></p>
         </div>
         <div class="col-sm-2 text-right">
           <%= link_to '', edit_book_path(book.id), class: "glyphicon glyphicon-edit" %>

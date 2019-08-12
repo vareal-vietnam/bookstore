@@ -1,11 +1,18 @@
 vi:
+  number:
+    currency:
+      format:
+        delimiter: "."
+        format: "%n %u"
+        precision: 0
+
   layouts:
     footer:
       contact: "Liên hệ"
       customer_supporter: "Hỗ trợ khách hàng"
       book_store_info: "Thông tin về BookStore"
       company_info: "CÔNG TY Vareal Việt Nam - Địa chỉ: Phòng 824, Tầng 8, Detech 2 Tower, 107 Nguyễn Phong Sắc, TP Hà Nội"
-      company_contact: "Email: cuongdinh@vareal.vn - Đường dây nóng: 0969.969.969"
+      company_contact: "Email: contact@vareal.vn"
       support_center: "Trung tâm trợ giúp"
       regulations: "Quy định"
       intro: "Giới thiệu"
@@ -54,11 +61,11 @@ vi:
   book:
     create: "Tạo sách"
     create_label: "Đăng bán sách"
-    name: "Tên sách:"
-    price: "Giá:"
-    quantity: "Số lượng:"
-    description: "Nội dung sách:"
-    comment: "Thông tin từ người bán:"
+    name: "Tên sách"
+    price: "Giá (đ)"
+    quantity: "Số lượng"
+    description: "Nội dung sách"
+    comment: "Thông tin từ người bán"
     update: "Cập nhật sách"
     update_label: "Cập nhật thông tin sách"
     updated: "Sách đã được cập nhật"
@@ -78,10 +85,10 @@ vi:
 
     new:
       sign_up_now: "Đăng kí"
-      phone: "Nhập số điện thoại "
+      phone: "Số điện thoại"
       new_user: "Chưa có tài khoản?"
       login: "Đăng nhập"
-      password: "Nhập mật khẩu"
+      password: "Mật khẩu"
       sign_in_now: "Đăng nhập"
       remember_me: "Ghi nhớ người dùng"
 
@@ -121,8 +128,8 @@ vi:
 
     new:
       sign_up: "Đăng kí "
-      phone: "Nhập số điện thoại (*)"
-      password_confirmation : "Nhập lại mật khẩu (*)"
+      phone: "Nhập số điện thoại"
+      password_confirmation : "Nhập lại mật khẩu"
       create_my_account: " Tạo tài khoản"
       input_guide_phone: "nhập định dạng 0xx......"
       input_guide_password: "nhập ít nhất 6 ký tự"
@@ -138,9 +145,9 @@ vi:
       password: "Mật khẩu mới"
       password_confirmation: "Xác nhận mật khẩu"
 
-    name: "Nhập tên (*)"
-    address: "Nhập địa chỉ (*)"
-    password: "Nhập mật khẩu (*)"
+    name: "Nhập tên"
+    address: "Nhập địa chỉ"
+    password: "Nhập mật khẩu"
 
   shared:
     error_messages:
