@@ -13,11 +13,14 @@ RSpec.describe BookRequestsController, type: :controller do
         expect(subject).to redirect_to(root_url)
       end
     end
+
     context 'after login' do
       include_context 'logged in'
-
-      it 'get a instace of Book Request' do
+      before do
         get :new
+      end
+
+      it 'init new book instance' do
         expect(assigns(:book_request)).to be_a(BookRequest)
       end
     end

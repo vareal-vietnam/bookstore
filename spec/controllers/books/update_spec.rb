@@ -2,7 +2,11 @@ require 'rails_helper'
 RSpec.describe BooksController, type: :controller do
   include_context 'generate book_params'
 
-  let(:book) { create(:book, user_id: current_user.id) }
+  let(:book) do
+    book = create(:book, user_id: current_user.id)
+    create(:image, book_id: book.id)
+    book
+  end
 
   describe '#update' do
     include_context 'logged in'
