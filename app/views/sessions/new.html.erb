@@ -4,11 +4,11 @@
     <%= form_for(:session, url: sessions_path, html: {class: 'form-group'} ) do |f| %>
     <div class="form-group">
       <%= f.label t('.phone') %>
-      <%= f.phone_field :phone, class: 'form-control' %>
+      <%= f.phone_field :phone, class: 'form-control', onchange: "trimString(0)", required: true  %>
     </div>
     <div class="form-group">
       <%= f.label t('.password') %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', required: true %>
     </div>
     <div class="form-group">
     <%= f.label :remember_me, class: "checkbox inline" do %>
