@@ -1,5 +1,6 @@
 require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
+  include_context 'logged in'
   include_context 'user_login_params'
   describe '#create' do
     context 'invalid params input' do
@@ -18,6 +19,38 @@ RSpec.describe SessionsController, type: :controller do
 
       it 'render to new' do
         expect(subject).to render_template(:new)
+      end
+    end
+
+    context 'valid params input not checked remember me' do
+      before do
+        session[:id] = current_user.id
+      end
+      subject do
+        post :create, params: {
+          session: valid_user_params_unchecked_remember_me
+        }
+      end
+
+      it 'flash login success' do
+        subject
+        expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
+      end
+    end
+
+    context 'valid params input checked remember me' do
+      before do
+        session[:id] = current_user.id
+      end
+      subject do
+        post :create, params: {
+          session: valid_user_params_checked_remember_me
+        }
+      end
+
+      it 'flash login success' do
+        subject
+        expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
       end
     end
 
