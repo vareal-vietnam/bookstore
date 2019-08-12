@@ -2,6 +2,17 @@ require 'rails_helper'
 RSpec.describe SessionsController, type: :controller do
   include_context 'logged in'
   include_context 'user_login_params'
+
+  describe '#new' do
+    subject do
+      get :new
+    end
+
+    it 'redirects to root url' do
+      expect(subject).to redirect_to(root_url)
+    end
+  end
+
   describe '#create' do
     context 'invalid params input' do
       subject do
