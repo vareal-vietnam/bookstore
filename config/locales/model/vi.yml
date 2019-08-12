@@ -8,6 +8,7 @@ vi:
               invalid: "Bạn nhập sai số điện thoại"
               blank: "Bạn chưa nhập số điện thoại"
               taken: "Số điện thoại đã được sử dụng"
+              wrong_length: "Phone number is the wrong length (should be 10 characters)"
             name:
               blank: "Bạn chưa nhập tên"
               too_long: "Tên quá dài"
