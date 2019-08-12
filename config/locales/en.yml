@@ -43,6 +43,8 @@ en:
       truncate: "..."
 
   books:
+    form:
+      file_input_warning: "(Image file must be less than 3MB)"
     empty:
       empty_notification: "Have no books to show."
     edit_button: "Edit book"
