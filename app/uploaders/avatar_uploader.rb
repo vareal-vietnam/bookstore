@@ -2,6 +2,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   process resize_to_fit: [600, 600]
 
+  def size_range
+    1..3.megabytes
+  end
+
   def extension_whitelist
     %w[jpg jpeg gif png]
   end

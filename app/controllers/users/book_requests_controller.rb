@@ -63,18 +63,21 @@ module Users
     end
 
     def authenticate_user!
-      if !current_user
-        set_content_flash(t('warning.need_log_in'), :danger)
-        redirect(root_path)
-      end
+      set_flash_and_redirect(t('require.log_in'), :danger, root_path) unless
+        current_user
     end
 
     def find_and_assign_book_request
       @book_request = BookRequest.find_by(id: params[:id])
-      if !@book_request
-        set_content_flash(t('warning.book_request_not_exist'), :danger)
-        redirect(user_book_requests_path(current_user))
-      end
+      binding.pry
+      set_flash_and_redirect(t('warning.book_request_not_exist'), :danger, user_book_requests_url(current_user)) unless
+        @book_request
+      set_flash_and_redirect(t('warning.not_permission'), :danger, user_book_requests_url(current_user)) unless
+        @book_request.user_id == current_user.id
+    end
+
+    def set_flash_and_redirect(flash_content, flash_type, path)
+      set_content_flash(flash_content, flash_type) && redirect(path)
     end
 
     def book_request_params

@@ -1,7 +1,10 @@
 FactoryBot.define do
   factory :image do
-    url { 'localhost:3000' }
-
+    file do
+      Rack::Test::UploadedFile.new(
+        Rails.root.join('spec/support/default-book-cover.jpg'), 'image/jpeg'
+      )
+    end
     book
   end
 end

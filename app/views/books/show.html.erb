@@ -20,6 +20,9 @@
       <p><%= t('user.address', address: @book.seller_address) %></p>
     <% else %>
       <p><%= t('user.login_required') %></p>
+      <div>
+        <%= link_to t('layouts.header.login'), new_session_path, class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>

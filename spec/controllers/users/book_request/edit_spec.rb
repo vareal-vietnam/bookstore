@@ -10,7 +10,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
       it 'return flash require log in' do
         expect(flash.count).to equal(1)
-        expect(flash[:danger]).to eql(I18n.t('warning.need_log_in'))
+        expect(flash[:danger]).to eql(I18n.t('require.log_in'))
       end
 
       it 'redirect to root page' do
@@ -23,12 +23,12 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       let(:book_request) { create(:book_request, user_id: current_user.id) }
 
       context 'book request not belong to current user' do
-        let(:book_request) { create(:book_request) }
+        let(:other_book_request) { create(:book_request) }
         before do
-          get :edit, params: { user_id: current_user.id, id: book_request.id }
+          get :edit, params: { user_id: current_user.id, id: other_book_request.id }
         end
 
-        it 'return flash page not found' do
+        it 'return flash not permission' do
           expect(flash.count).to equal(1)
           expect(flash[:danger]).to eql(I18n.t('warning.not_permission'))
         end

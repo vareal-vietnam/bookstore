@@ -43,6 +43,10 @@ vi:
       truncate: "..."
 
   books:
+    form:
+      file_input_warning: "(Dung lượng của tệp ảnh phải nhỏ hơn 3MB)"
+    empty:
+      empty_notification: "Không có sách để hiển thị."
     edit_button: "Chỉnh sửa"
     index:
       seller_name: "Người bán: "
@@ -96,15 +100,19 @@ vi:
       success_login: "Đăng nhập thành công"
       wrong_password: "Nhập sai Số điện thoại/mật khẩu"
 
-    users:
-      books:
-        list:
-          remove_book: "Xóa"
-          update: "Chỉnh sửa"
-          confirm_delete: "Xóa sách?"
-      book_requests:
-        list:
-          confirm_delete: "Xóa yêu cầu?"
+  users:
+    books:
+      empty:
+        empty_notification: "Bạn chưa có sách."
+        link_to_new_book: "Tạo sách mới."
+      list:
+        remove_book: "Xóa"
+        update: "Chỉnh sửa"
+        confirm_delete: "Xóa sách?"
+    book_requests:
+      list:
+        confirm_delete: "Xóa yêu cầu?"
+
     show:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
@@ -178,5 +186,7 @@ vi:
   warning:
     user_not_exist: "Người dùng không tồn tại"
     book_request_not_exist: "Yêu cầu không tồn tại"
-    need_log_in: "Bạn cần đăng nhập"
     not_permission: "Bạn không đủ quyền"
+
+  require:
+    log_in: "Bạn cần đăng nhập"
