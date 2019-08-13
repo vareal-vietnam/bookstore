@@ -1,7 +1,12 @@
-<div class="row">
-  <%= render partial: 'list', locals: { books: @books } %>
-</div>
+<% if @books.present? %>
+  <div class="row">
+    <%= render partial: 'list', locals: { books: @books } %>
+  </div>
 
-<div class="row text-center">
-  <%= paginate @books %>
-</div>
+  <div class="row text-center">
+    <%= paginate @books %>
+  </div>
+<% else %>
+  <%= render 'empty' %>
+<% end %>
+

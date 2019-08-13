@@ -14,7 +14,8 @@ RSpec.describe BooksController, type: :controller do
     context 'has many books' do
       before do
         3.times do
-          create(:book)
+          book = create(:book)
+          create(:image, book_id: book.id)
         end
       end
 
