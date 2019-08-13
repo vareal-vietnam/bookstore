@@ -35,9 +35,9 @@ RSpec.describe User, type: :model do
 
   describe 'squish_whitespace' do
     let(:name) { '   A       B C   ' }
-    let(:name_correct) { 'A B C' }
+    let(:name_correct) { 'A       B C' }
     let(:address) { '   X   Y   Z   ' }
-    let(:address_correct) { 'X Y Z' }
+    let(:address_correct) { 'X   Y   Z' }
     let(:password) { 'Aa123456' }
     let!(:user) do
       create(:user, name: name,
