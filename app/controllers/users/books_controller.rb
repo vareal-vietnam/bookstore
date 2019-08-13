@@ -27,7 +27,7 @@ module Users
                                   .includes(:images, :user)
         @user_books = paginate_collection(@user_books, params[:page], 10)
       else
-        flash[:success] = t('not_found')
+        flash[:danger] = t('not_found')
         redirect_to root_url
       end
     end
