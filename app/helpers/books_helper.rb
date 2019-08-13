@@ -6,6 +6,5 @@ module BooksHelper
     else
       image_path('default-book-cover.jpg')
     end
-    image.thumb_url
   end
 end
