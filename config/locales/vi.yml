@@ -174,8 +174,7 @@ vi:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
       create_new: "Tạo yêu cầu"
-    delete:
-      success: "Đã xóa thành công!"
+    not_exist: "Người dùng không tồn tại"
 
   datetime:
     distance_in_words:
@@ -183,10 +182,11 @@ vi:
         one: 1 ngày
         other: "%{count}"
 
-  warning:
-    user_not_exist: "Người dùng không tồn tại"
-    book_request_not_exist: "Yêu cầu không tồn tại"
-    not_permission: "Bạn không đủ quyền"
-
   require:
     log_in: "Bạn cần đăng nhập"
+    permission: "Bạn không đủ quyền"
+
+  action:
+    delete:
+      success: "Xóa thành công!"
+      not_success: "Xóa không thành công!"

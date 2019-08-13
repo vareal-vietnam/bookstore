@@ -31,10 +31,10 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       it 'return delete success flash' do
         subject
         expect(flash.count).to equal(1)
-        expect(flash[:success]).to eql(I18n.t('book_requests.delete.success'))
+        expect(flash[:success]).to eql(I18n.t('action.delete.success'))
       end
 
-      it "redirect to user's book requests index" do
+      it "redirect to user's book requests index page" do
         subject
         expect(subject)
           .to redirect_to(user_book_requests_url(current_user))
@@ -45,6 +45,24 @@ RSpec.describe Users::BookRequestsController, type: :controller do
           .to change(BookRequestImage, :count)
           .by(book_request.book_request_images.count * -1)
       end
+
+      context 'destroy not successfully' do
+        before do
+          allow_any_instance_of(BookRequest).to receive(:destroy)
+            .and_return(false)
+        end
+
+        it 'return delete fail flash' do
+          subject
+          expect(flash.count).to equal(1)
+          expect(flash[:danger])
+            .to eql(I18n.t('action.delete.fail'))
+        end
+
+        it "redirect to user's book requests index page" do
+          expect(subject).to redirect_to(user_book_requests_url(current_user))
+        end
+      end
     end
 
     context 'book request not found' do
@@ -54,13 +72,13 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         }
       end
 
-      it 'return error flash' do
+      it 'return book request not exist flash' do
         expect(flash.count).to equal(1)
         expect(flash[:danger])
-          .to eql(I18n.t('warning.book_request_not_exist'))
+          .to eql(I18n.t('book_requests.not_exist'))
       end
 
-      it 'redirect to root url' do
+      it "redirect to user's book requests index page" do
         expect(subject).to redirect_to(user_book_requests_url(current_user))
       end
     end

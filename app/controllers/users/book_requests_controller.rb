@@ -1,20 +1,25 @@
 module Users
   class BookRequestsController < ApplicationController
     before_action :authenticate_user!, only: %i[new edit index update]
-    before_action :handle_invalid_user!, only: %i[edit update index]
+    before_action :authorize_user!, only: %i[edit update index]
     before_action :find_and_assign_book_request, only: %i[edit update destroy]
     def index
-      @book_requests = book_requests_user.book_requests
-                                         .order(created_at: :desc)
-                                         .includes(:book_request_images, :user)
-                                         .page(params[:page]).per(16)
+      @book_requests =
+        @user.book_requests.order(created_at: :desc)
+             .includes(:book_request_images, :user)
+             .page(params[:page]).per(16)
     end
 
     def edit
-      return if current_user&.id == @book_request&.user_id
+      path = user_book_requests_path(current_user)
+      if @book_request
+        return if current_user.id == @book_request.user_id
 
-      set_content_flash(t('warning.not_permission'), :danger)
-      redirect(root_path)
+        set_flash_and_redirect(t('require.permission'), :danger, path) unless
+          current_user.id == @book_request.user_id
+      else
+        set_flash_and_redirect(t('book_request.not_exist'), :danger, path)
+      end
     end
 
     def update
@@ -29,19 +34,19 @@ module Users
     end
 
     def destroy
-      if @book_request.destroy
-        set_content_flash(t('book_requests.delete.success'), :success)
+      path = user_book_requests_path(current_user)
+      if @book_request
+        if @book_request.destroy
+          set_flash_and_redirect(t('action.delete.success'), :success, path)
+        else
+          set_flash_and_redirect(t('action.delete.fail'), :danger, path)
+        end
       else
-        set_content_flash(t('warning.book_request_not_exist'), :success)
+        set_flash_and_redirect(t('book_requests.not_exist'), :danger, path)
       end
-      redirect(user_book_requests_path(current_user))
     end
 
     private
-
-    def book_requests_user
-      User.find_by(id: params[:user_id])
-    end
 
     def set_content_flash(flash_content, flash_type)
       flash[flash_type] = flash_content
@@ -51,15 +56,11 @@ module Users
       redirect_to(path) && return
     end
 
-    def handle_invalid_user!
-      user = book_requests_user
-      if user
-        set_content_flash(t('warning.not_permission'), :danger) unless
-          current_user.id == params[:user_id].to_i
-      else
-        set_content_flash(t('warning.user_not_exist'), :danger)
-      end
-      redirect(root_path)
+    def authorize_user!
+      @user = User.find_by(id: params[:user_id])
+      return if @user && @user.id == current_user.id
+
+      set_flash_and_redirect(t('require.permission'), :danger, root_path)
     end
 
     def authenticate_user!
@@ -69,11 +70,6 @@ module Users
 
     def find_and_assign_book_request
       @book_request = BookRequest.find_by(id: params[:id])
-      binding.pry
-      set_flash_and_redirect(t('warning.book_request_not_exist'), :danger, user_book_requests_url(current_user)) unless
-        @book_request
-      set_flash_and_redirect(t('warning.not_permission'), :danger, user_book_requests_url(current_user)) unless
-        @book_request.user_id == current_user.id
     end
 
     def set_flash_and_redirect(flash_content, flash_type, path)

@@ -9,7 +9,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
       it 'return flash require log in' do
         expect(flash.count).to equal(1)
-        expect(flash[:danger]).to eql(I18n.t('warning.need_log_in'))
+        expect(flash[:danger]).to eql(I18n.t('require.log_in'))
       end
 
       it 'redirect to root page' do
@@ -60,7 +60,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
           it 'return user not exist flash' do
             expect(flash.count).to eql(1)
-            expect(flash[:danger]).to eql(I18n.t('warning.user_not_exist'))
+            expect(flash[:danger]).to eql(I18n.t('require.permission'))
           end
 
           it 'redirect to root url' do
@@ -73,7 +73,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
           it 'return not enough permission' do
             expect(flash.count).to eql(1)
-            expect(flash[:danger]).to eql(I18n.t('warning.not_permission'))
+            expect(flash[:danger]).to eql(I18n.t('require.permission'))
           end
 
           it 'redirect to root url' do

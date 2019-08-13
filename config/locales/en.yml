@@ -174,13 +174,13 @@ en:
       success: "A new book request created"
     update:
       success: "Your book request updated"
-    delete:
-      success: "Delete successfully!"
-
-  warning:
-    user_not_exist: "Người dùng không tồn tại"
-    book_request_not_exist: "Yêu cầu không tồn tại"
-    not_permission: "Bạn không đủ quyền"
+    not_exist: "Book request not exist"
 
   require:
     log_in: "Please log in"
+    permission: "Not enough permission"
+
+  action:
+    delete:
+      success: "Delete successfully!"
+      fail: "Delete not successfully!"
