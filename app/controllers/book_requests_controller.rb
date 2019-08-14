@@ -20,6 +20,10 @@ class BookRequestsController < ApplicationController
       BookRequest.order(created_at: :desc).page(params[:page]).per(16)
   end
 
+  def show
+    @book_request = BookRequest.first
+  end
+
   private
 
   def book_request_params

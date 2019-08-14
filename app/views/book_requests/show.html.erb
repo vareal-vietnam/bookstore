@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 div-image">
+      <br/>
+      <div onclick="changeImageOnClick(event)">
+        <div class="row">
+          <%= render partial: 'images', locals: { images: @book_request.book_request_images } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 detail">
+      <h4>Toi thay hoa vang tren co xanh</h4>
+      <h5><%= t('book_request.quantity') %>: 1</h5>
+      <h5><%= t('book_request.budget') %>: 0</h5>
+    </div>
+    <div class="col-md-2 user-info">
+      <h4>Ten Mot Nguoi</h4>
+      <img src="https://file.hstatic.net/1000253397/file/anh-the-dep_7cd35055fca84e2c95cf40c2f97a2689.jpg" class="user-avatar">
+      <h4>phone: 01236522</h4>
+      <h4>Address: ha noi</h4>
+    </div>
+  </div>
+  <hr>
+  <h4><%= t('book_request.comment') %>:</h4>
+  <h5>
+    Tôi thấy hoa vàng trên cỏ xanh" truyện dài mới nhất của nhà văn vừa nhận giải văn chương ASEAN Nguyễn Nhật Ánh. Cuốn sách viết về tuổi thơ nghèo khó ở một làng quê, bên cạnh đề tài tình yêu quen thuộc, lần đầu tiên Nguyễn Nhật Ánh đưa vào tác phẩm của mình những nhân vật phản diện và đặt ra vấn đề đạo đức như sự vô tâm, cái ác.
+  </h5>
+</div>
