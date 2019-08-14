@@ -1,0 +1,13 @@
+  <% images.each do |image| %>
+  <div>
+    <% if images.empty? %>
+      <img src="<%= image_path('default-book-cover.jpg') %>">
+    <% else %>
+      <%= link_to image.url do %>
+      <figure class="col-md-10 image">
+        <img alt='picture' src='<%= image.thumb_url %>'  >
+      </figure>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
