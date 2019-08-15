@@ -1,19 +1,37 @@
-.image {
-  width: 200px;
-  height: 280px;
+.small-img-style {
+  width: 90px;
+  height: 90px;
   margin-top: 10px;
-  margin:left;
+  border:1px solid red;
 }
+
 .detail {
-  padding-left: 10px;
-  margin-top: 20px;
+  padding-left: 30px;
+  margin-top: 15px;
 }
+
 hr {
   border-style: inset;
   border-width: 1px;
-  padding-left: 25px;
+  padding-left: 0px;
+  margin-left: -15px;
 }
-.show-images {
-  border-style: solid;
-  border-color: red;
+
+#main_image {
+  width: 380px;
+  height:400px;
+}
+
+.small-image{
+  padding-left: 0px;
+  width: 100px;
+  height: 90px;
+}
+
+.div-image {
+  width: 380px;
+}
+
+.user-info {
+  margin-left:50px;
 }
