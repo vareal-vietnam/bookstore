@@ -1,15 +1,16 @@
 require 'rails_helper'
 RSpec.describe Users::BookRequestsController, type: :controller do
   include_context 'logged in'
-
+  let(:page) { 2 }
+  let(:path) { "#{user_book_requests_url(current_user)}?page=#{page}" }
   describe '#destroy' do
     before do
-      5.times do
+      20.times do
         create(:book_request)
       end
     end
 
-    context 'book request found' do
+    context 'book request is found' do
       let!(:book_request) do
         book_request = create(:book_request, user_id: current_user.id)
         3.times do
@@ -20,7 +21,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
       subject do
         delete :destroy, params: {
-          user_id: current_user.id, id: book_request.id
+          user_id: current_user.id, id: book_request.id, page: page
         }
       end
 
@@ -37,7 +38,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       it "redirect to user's book requests index page" do
         subject
         expect(subject)
-          .to redirect_to(user_book_requests_url(current_user))
+          .to redirect_to(path)
       end
 
       it 'all images of book request deleted' do
@@ -46,7 +47,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
           .by(book_request.book_request_images.count * -1)
       end
 
-      context 'destroy not successfully' do
+      context 'destroy fail' do
         before do
           allow_any_instance_of(BookRequest).to receive(:destroy)
             .and_return(false)
@@ -60,15 +61,15 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         end
 
         it "redirect to user's book requests index page" do
-          expect(subject).to redirect_to(user_book_requests_url(current_user))
+          expect(subject).to redirect_to(path)
         end
       end
     end
 
-    context 'book request not found' do
+    context 'book request is not found' do
       before do
         delete :destroy, params: {
-          user_id: current_user.id, id: BookRequest.last.id + 10
+          user_id: current_user.id, id: BookRequest.last.id + 10, page: page
         }
       end
 
@@ -79,7 +80,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
 
       it "redirect to user's book requests index page" do
-        expect(subject).to redirect_to(user_book_requests_url(current_user))
+        expect(subject).to redirect_to(path)
       end
     end
   end

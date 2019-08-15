@@ -7,7 +7,7 @@ module Users
       @book_requests =
         @user.book_requests.order(created_at: :desc)
              .includes(:book_request_images, :user)
-             .page(params[:page]).per(16)
+      @book_requests = paginate_collection(@book_requests, params[:page], 16)
     end
 
     def edit
@@ -15,10 +15,9 @@ module Users
       if @book_request
         return if current_user.id == @book_request.user_id
 
-        set_flash_and_redirect(t('require.permission'), :danger, path) unless
-          current_user.id == @book_request.user_id
+        set_flash_and_redirect(:danger, t('require.permission'), path)
       else
-        set_flash_and_redirect(t('book_request.not_exist'), :danger, path)
+        set_flash_and_redirect(:danger, t('book_request.not_exist'), path)
       end
     end
 
@@ -34,37 +33,29 @@ module Users
     end
 
     def destroy
-      path = user_book_requests_path(current_user)
+      path = "#{user_book_requests_url(current_user)}?page=#{params[:page]}"
       if @book_request
         if @book_request.destroy
-          set_flash_and_redirect(t('action.delete.success'), :success, path)
+          set_flash_and_redirect(:success, t('action.delete.success'), path)
         else
-          set_flash_and_redirect(t('action.delete.fail'), :danger, path)
+          set_flash_and_redirect(:danger, t('action.delete.fail'), path)
         end
       else
-        set_flash_and_redirect(t('book_requests.not_exist'), :danger, path)
+        set_flash_and_redirect(:danger, t('book_requests.not_exist'), path)
       end
     end
 
     private
 
-    def set_content_flash(flash_content, flash_type)
-      flash[flash_type] = flash_content
-    end
-
-    def redirect(path)
-      redirect_to(path) && return
-    end
-
     def authorize_user!
       @user = User.find_by(id: params[:user_id])
       return if @user && @user.id == current_user.id
 
-      set_flash_and_redirect(t('require.permission'), :danger, root_path)
+      set_flash_and_redirect(:danger, t('require.permission'), root_path)
     end
 
     def authenticate_user!
-      set_flash_and_redirect(t('require.log_in'), :danger, root_path) unless
+      set_flash_and_redirect(:danger, t('require.log_in'), root_path) unless
         current_user
     end
 
@@ -72,8 +63,9 @@ module Users
       @book_request = BookRequest.find_by(id: params[:id])
     end
 
-    def set_flash_and_redirect(flash_content, flash_type, path)
-      set_content_flash(flash_content, flash_type) && redirect(path)
+    def set_flash_and_redirect(flash_type, flash_content, path)
+      flash[flash_type] = flash_content
+      redirect_to(path) && return
     end
 
     def book_request_params

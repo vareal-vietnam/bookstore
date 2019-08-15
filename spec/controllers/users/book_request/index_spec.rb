@@ -21,7 +21,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       include_context 'logged in'
 
       context 'after log in with valid user id' do
-        before do
+        subject do
           get :index, params: {
             user_id: current_user.id, page: page_number
           }
@@ -33,6 +33,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
             20.times do
               create(:book_request, user_id: current_user.id)
             end
+            subject
           end
 
           it 'return right number of book requests' do
@@ -41,12 +42,13 @@ RSpec.describe Users::BookRequestsController, type: :controller do
                            .includes(:book_request_images, :user)
                            .page(page_number).per(16)
             expect(assigns(:book_requests)
-            .pluck(:id)).to eql(expected_book_requests.pluck(:id))
+              .pluck(:id)).to eql(expected_book_requests.pluck(:id))
           end
         end
 
         context 'user do not have any book request' do
           it 'has no book request' do
+            subject
             expect(assigns(:book_requests)).to be_empty
           end
         end
