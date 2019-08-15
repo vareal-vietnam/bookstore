@@ -3,6 +3,36 @@ RSpec.describe SessionsController, type: :controller do
   include_context 'logged in'
   include_context 'user_login_params'
 
+  let(:previous_redirect) { '/hello' }
+
+  describe '#new' do
+    let(:previous_redirect) { '/hello' }
+
+    context 'has previous_redirect' do
+      subject do
+        get :new, params: {
+          previous_redirect: previous_redirect
+        }
+      end
+
+      it 'redirects to new_book_path' do
+        subject
+        expect(assigns(:previous_redirect)).to eql(previous_redirect)
+      end
+    end
+
+    context 'not has previous_redirect' do
+      subject do
+        get :new
+      end
+
+      it 'redirects to new_book_path' do
+        subject
+        expect(assigns(:previous_redirect)).to eql(nil)
+      end
+    end
+  end
+
   describe '#new' do
     subject do
       get :new
@@ -88,14 +118,30 @@ RSpec.describe SessionsController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
       end
 
-      it 'redirect to logged in user' do
-        expect(subject).to redirect_to(user)
-      end
-
       it 'session id must be created' do
         subject
         expect(session[:user_id]).to eql(user.id)
       end
+
+      context 'not has previous_redirect' do
+        it 'redirect to logged in user' do
+          expect(subject).to redirect_to(user)
+        end
+      end
+
+      # rubocop:disable LineLength
+      context 'has previous_redirect' do
+        subject do
+          post :create, params: {
+            session: valid_user_params_unchecked_remember_me_with_previous_redirect
+          }
+        end
+
+        it 'redirect to logged in user' do
+          expect(subject).to redirect_to(previous_redirect)
+        end
+      end
+      # rubocop:enable LineLength
     end
 
     context 'valid params input and checked remember me' do
@@ -121,14 +167,30 @@ RSpec.describe SessionsController, type: :controller do
         expect(flash[:success]).to eql(I18n.t('.sessions.create.success_login'))
       end
 
-      it 'redirect to logged in user' do
-        expect(subject).to redirect_to(user)
-      end
-
       it 'session id must be created' do
         subject
         expect(session[:user_id]).to eql(user.id)
       end
+
+      context 'not has previous_redirect' do
+        it 'redirect to logged in user' do
+          expect(subject).to redirect_to(user)
+        end
+      end
+
+      # rubocop:disable LineLength
+      context 'has previous_redirect' do
+        subject do
+          post :create, params: {
+            session: valid_user_params_checked_remember_me_with_previous_redirect
+          }
+        end
+
+        it 'redirect to logged in user' do
+          expect(subject).to redirect_to(previous_redirect)
+        end
+      end
+      # rubocop:enable LineLength
     end
   end
 

@@ -21,7 +21,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to t('.login'), new_session_path %></li>
+            <li><%= link_to t('.login'), login_path_with_previous_redirect %></li>
             <li><%= link_to t('.sign_up'), new_user_path %></li>
           <% end %>
         </ul>
