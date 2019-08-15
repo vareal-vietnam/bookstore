@@ -1,15 +1,14 @@
 class SessionsController < ApplicationController
   def new
+    @previous_redirect = params[:previous_redirect]
     redirect_to root_url if current_user
   end
 
   def create
-    if valid_account?
-      save_user_to_session logging_user
-      remember_user(logging_user) if check_remember_me?
+    @previous_redirect = params[:session][:previous_redirect]
 
-      flash[:success] = t('.success_login')
-      redirect_to logging_user
+    if valid_account?
+      continue_authenticate_user
     else
       flash.now[:warning] = t('.wrong_password')
       render 'new'
@@ -32,6 +31,17 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def continue_authenticate_user
+    save_user_to_session logging_user
+    remember_user(logging_user) if check_remember_me?
+    flash[:success] = t('.success_login')
+    redirect_to redirect_path
+  end
+
+  def redirect_path
+    @previous_redirect.present? ? @previous_redirect : logging_user
+  end
 
   def logging_user
     @logging_user ||= User.find_by(phone: params[:session][:phone])

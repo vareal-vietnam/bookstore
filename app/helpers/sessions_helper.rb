@@ -36,4 +36,8 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+
+  def login_path_with_previous_redirect
+    new_session_path(previous_redirect: request.path)
+  end
 end
