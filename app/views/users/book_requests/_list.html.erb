@@ -18,6 +18,9 @@
             <%= truncate(book_request.comment, length: 25) %></span>
           </p>
           <%= link_to '', edit_user_book_request_path(current_user, book_request), class: "glyphicon glyphicon-edit"%>
+          <%= link_to '', user_book_request_path(current_user, book_request), class: "glyphicon glyphicon-remove",
+              data: { method: :delete, confirm: t('.confirm_delete') }
+          %>
         </div>
       </div>
     </div>

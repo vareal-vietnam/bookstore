@@ -16,6 +16,9 @@
       <span> <%= t('.remember_me') %></span>
     <% end %>
     </div>
+    <div class="form-group">
+      <%= f.hidden_field :previous_redirect, value: @previous_redirect %>
+    </div>
     <div class="row">
       <div class="col-sm-6 text-left">
         <%= t('.new_user') %> &nbsp; <span class="underline"><%= link_to t('.sign_up_now'), new_user_path %></span>

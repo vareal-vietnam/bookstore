@@ -109,6 +109,10 @@ vi:
         remove_book: "Xóa"
         update: "Chỉnh sửa"
         confirm_delete: "Xóa sách?"
+    book_requests:
+      list:
+        confirm_delete: "Xóa yêu cầu?"
+
     show:
       user_not_exist: "Tài khoản không tồn tại"
       update: "Cập nhật thông tin"
@@ -170,6 +174,7 @@ vi:
     create:
       create_success: "Đã tạo một yêu cầu mua sách"
       create_new: "Tạo yêu cầu"
+    not_exist: "Người dùng không tồn tại"
 
   datetime:
     distance_in_words:
@@ -177,8 +182,11 @@ vi:
         one: 1 ngày
         other: "%{count}"
 
-  warning:
-    user_not_exist: "Người dùng không tồn tại"
-    book_request_not_exist: "Yêu cầu không tồn tại"
-    need_log_in: "Bạn cần đăng nhập"
-    not_permission: "Bạn không đủ quyền"
+  require:
+    log_in: "Bạn cần đăng nhập"
+    permission: "Bạn không đủ quyền"
+
+  action:
+    delete:
+      success: "Xóa thành công!"
+      not_success: "Xóa không thành công!"

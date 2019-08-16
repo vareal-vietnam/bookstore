@@ -21,7 +21,7 @@
     <% else %>
       <p><%= t('user.login_required') %></p>
       <div>
-        <%= link_to t('layouts.header.login'), new_session_path, class: "btn btn-primary" %>
+        <%= link_to t('layouts.header.login'), login_path_with_previous_redirect, class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
