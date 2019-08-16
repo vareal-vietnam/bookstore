@@ -1,7 +1,7 @@
-function changeImageOnClick(event) {
-  event = event || window.event;
-  var targetElement = event.target || event.srcElement;
-  if(targetElement.tagName == "IMG") {
-    main_image.src = targetElement.getAttribute("src");    
-  }
-}
+$(function(){
+  $('.small-img-style').each(function(){
+    $(this).click(function(){
+      $('#main_image').attr('src', $(this).attr('src'));
+    });
+  });
+});

@@ -1,5 +1,5 @@
 <% book_requests.each do |book_request| %>
-  <%= link_to user_book_request_path current_user, book_request do %>
+  <%= link_to book_request_path book_request do %>
     <div class="col-md-3 book-request">
       <div class="row">
         <img src="<%= book_request.book_request_images.first&.thumb_url %>

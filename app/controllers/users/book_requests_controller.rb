@@ -23,10 +23,10 @@ module Users
 
     def update
       if @book_request.update_attributes(book_request_params)
-        destroy_image_files unless image_files_params
+        destroy_image_files if image_files_params
         create_image_files
         flash[:success] = t('book_requests.update.success')
-        redirect_to user_book_request_path(current_user, @book_request)
+        redirect_to book_request_path(@book_request)
       else
         render 'edit'
       end
@@ -46,27 +46,6 @@ module Users
     end
 
     private
-
-    def authorize_user!
-      @user = User.find_by(id: params[:user_id])
-      return if @user && @user.id == current_user.id
-
-      set_flash_and_redirect(:danger, t('require.permission'), root_path)
-    end
-
-    def authenticate_user!
-      set_flash_and_redirect(:danger, t('require.log_in'), root_path) unless
-        current_user
-    end
-
-    def find_and_assign_book_request
-      @book_request = BookRequest.find_by(id: params[:id])
-    end
-
-    def set_flash_and_redirect(flash_type, flash_content, path)
-      flash[flash_type] = flash_content
-      redirect_to(path) && return
-    end
 
     def book_request_params
       params.require(:book_request).permit(
