@@ -1,6 +1,7 @@
 class BookRequestsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit update destroy]
   before_action :find_and_assign_book_request, only: %i[show]
+
   def new
     @book_request = BookRequest.new
   end

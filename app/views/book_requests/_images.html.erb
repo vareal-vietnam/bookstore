@@ -3,10 +3,10 @@
 <% else %>
   <img id="main_image" src='<%= images.first.url %>'>
   <% images.each do |image| %>
-  <div>
-    <figure class="col-md-3 small-image">
-      <img class="small-img-style" alt='picture' src='<%= image.url %>'  >
-    </figure>
-  </div>
+    <div>
+      <figure class="col-md-3 small-image">
+        <img class="small-img-style" alt='picture' src='<%= image.url %>'  >
+      </figure>
+    </div>
   <% end %>
 <% end %>
