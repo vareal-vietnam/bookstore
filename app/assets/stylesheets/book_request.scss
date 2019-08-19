@@ -2,7 +2,10 @@
   width: 90px;
   height: 90px;
   margin-top: 10px;
-  border:1px solid red;
+  padding: 2px;
+  &:hover {
+    cursor: pointer;
+  };
 }
 
 .detail {
@@ -18,13 +21,13 @@ hr {
 }
 
 #main_image {
-  width: 380px;
+  width: 300px;
   height:400px;
 }
 
-.small-image{
+.small-image {
   padding-left: 0px;
-  width: 100px;
+  width: 90px;
   height: 90px;
 }
 
@@ -34,4 +37,23 @@ hr {
 
 .user-info {
   margin-left:50px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.validate-message {
+  color: red;
+}
+.input-validation-error {
+    border: solid 1px #ff0000;
+}
+.images-div {
+  width: 310px;
+  height: auto;
+}
+.border-red {
+  border: 1px solid red;
 }

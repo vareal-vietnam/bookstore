@@ -10,7 +10,7 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe BooksHelper, type: :helper do
+RSpec.describe ImagesHelper, type: :helper do
   let(:book) { create(:book) }
   let!(:image) { create(:image, book_id: book.id) }
 

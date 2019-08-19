@@ -1,3 +1,0 @@
-<% provide(:title, t('book_request.update') )  %>
-<h1><%= t('book_request.update') %></h1>
-<%= render partial: 'shared/book_request_form', locals: { submit_label: t('book_request.update'), book_request: @book_request, method: 'put', url: { controller: 'users/book_requests', action: 'update'} } %>

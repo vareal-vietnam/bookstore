@@ -1,14 +1,14 @@
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <h1><%= t('.login') %></h1>
-    <%= form_for(:session, url: sessions_path, html: {class: 'form-group'} ) do |f| %>
+    <%= form_for(:session, url: sessions_path, html: {class: 'form-group', id: "new_session"} ) do |f| %>
     <div class="form-group">
       <%= f.label t('.phone') %><span class="required">*</span>
-      <%= f.phone_field :phone, class: 'form-control', onchange: "trimString(0)", required: true  %>
+      <%= f.phone_field :phone, class: 'form-control', onchange: "trimString(0)", maxlength: 10, size: 10%>
     </div>
     <div class="form-group">
       <%= f.label t('.password') %><span class="required">*</span>
-      <%= f.password_field :password, class: 'form-control', required: true %>
+      <%= f.password_field :password, class: 'form-control'%>
     </div>
     <div class="form-group">
     <%= f.label :remember_me, class: "checkbox inline" do %>
@@ -28,5 +28,8 @@
       </div>
     </div>
     <% end %>
+  <script type="text/javascript">
+    <%= render partial: 'validate.js' %>
+  </script>
   </div>
 </div>

@@ -6,7 +6,7 @@ RSpec.describe BookRequestsController, type: :controller do
 
       it 'get a danger flash' do
         expect(flash.count).to equal(1)
-        expect(flash[:danger]).to eql(I18n.t('warning.need_log_in'))
+        expect(flash[:danger]).to eql(I18n.t('require.log_in'))
       end
 
       it 'return root page' do

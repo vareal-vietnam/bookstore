@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe Users::BookRequestsController, type: :controller do
+RSpec.describe BookRequestsController, type: :controller do
   include_context 'generate book_request_params'
 
   let(:book_request) { create(:book_request, user_id: current_user.id) }
@@ -9,7 +9,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
     context 'valid invalid params' do
       subject do
         put :update, params: {
-          user_id: current_user.id, id: book_request.id,
+          id: book_request.id,
           book_request: invalid_book_request_params
         }
       end
@@ -25,7 +25,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
     context 'with valid params with images' do
       subject do
         put :update, params: {
-          user_id: current_user.id, id: book_request.id,
+          id: book_request.id,
           book_request: valid_book_request_params
         }
       end
@@ -58,7 +58,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
     context 'with valid params and no image' do
       subject do
         put :update, params: {
-          user_id: current_user.id, id: book_request.id,
+          id: book_request.id,
           book_request: valid_book_request_params_no_image
         }
       end

@@ -2,6 +2,7 @@ module Users
   class BooksController < ApplicationController
     before_action :find_and_assign_book, only: %i[destroy]
     before_action :find_and_assign_user_books, only: %i[destroy index]
+    before_action :authorize_user!, only: %i[index]
 
     def index
     end

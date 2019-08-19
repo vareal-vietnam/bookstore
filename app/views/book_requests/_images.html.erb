@@ -2,10 +2,14 @@
   <img id="main_image" src='<%= image_path('default-book-cover.jpg') %>'>
 <% else %>
   <img id="main_image" src='<%= images.first.url %>'>
-  <% images.each do |image| %>
+  <% images.each_with_index do |image, index| %>
     <div>
       <figure class="col-md-3 small-image">
-        <img class="small-img-style" alt='picture' src='<%= image.url %>'  >
+        <% if index == 0 %>
+          <img class="small-img-style border-red" alt='picture' src='<%= image.url %>'>
+        <% else %>
+          <img class="small-img-style" alt='picture' src='<%= image.url %>'>
+        <% end %>
       </figure>
     </div>
   <% end %>

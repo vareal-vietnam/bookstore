@@ -19,7 +19,8 @@ en:
       blog: "Blog"
 
     header:
-      book: "Book"
+      books: "BOOKS"
+      book_requests: "BOOK REQUESTS"
       home: "Home"
       logged_in_user: "User Logged in"
       profile: "Profile"
@@ -31,6 +32,8 @@ en:
       post_for_sell: "New book"
       sign_up: "Sign up"
       user_books: "My books"
+      user_book_requests: "My book requests"
+      post_for_buy: "New book request"
 
   not_found: "Page not found"
 
@@ -109,8 +112,7 @@ en:
         update: "Update"
         confirm_delete: "Permanently remove book?"
     book_requests:
-      list:
-        confirm_delete: "Delete this book request?"
+      
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -175,6 +177,8 @@ en:
     update:
       success: "Your book request updated"
     not_exist: "Book request not exist"
+    list:
+        confirm_delete: "Delete this book request?"
 
   require:
     log_in: "Please log in"

@@ -39,7 +39,6 @@ RSpec.describe Users::BookRequestsController, type: :controller do
           it 'return right number of book requests' do
             expected_book_requests =
               book_requests.order(created_at: :desc)
-                           .includes(:book_request_images, :user)
                            .page(page_number).per(16)
             expect(assigns(:book_requests)
               .pluck(:id)).to eql(expected_book_requests.pluck(:id))

@@ -11,10 +11,6 @@ module RequestHelper
       current_user
   end
 
-  def find_and_assign_book_request
-    @book_request = BookRequest.find_by(id: params[:id])
-  end
-
   def set_flash_and_redirect(flash_type, flash_content, path)
     flash[flash_type] = flash_content
     redirect_to(path) && return

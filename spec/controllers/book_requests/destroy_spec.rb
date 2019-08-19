@@ -1,13 +1,17 @@
 require 'rails_helper'
-RSpec.describe Users::BookRequestsController, type: :controller do
+RSpec.describe BookRequestsController, type: :controller do
   include_context 'logged in'
+
   let(:page) { 2 }
   let(:path) { "#{user_book_requests_url(current_user)}?page=#{page}" }
+
   describe '#destroy' do
     before do
       20.times do
         create(:book_request)
       end
+      allow_any_instance_of(ActionController::TestRequest).to receive(:referrer)
+        .and_return(path)
     end
 
     context 'book request is found' do
@@ -21,7 +25,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
 
       subject do
         delete :destroy, params: {
-          user_id: current_user.id, id: book_request.id, page: page
+          id: book_request.id, page: page
         }
       end
 
@@ -38,7 +42,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       it "redirect to user's book requests index page" do
         subject
         expect(subject)
-          .to redirect_to(path)
+          .to redirect_to(request.referrer)
       end
 
       it 'all images of book request deleted' do
@@ -61,7 +65,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
         end
 
         it "redirect to user's book requests index page" do
-          expect(subject).to redirect_to(path)
+          expect(subject).to redirect_to(request.referrer)
         end
       end
     end
@@ -69,7 +73,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
     context 'book request is not found' do
       before do
         delete :destroy, params: {
-          user_id: current_user.id, id: BookRequest.last.id + 10, page: page
+          id: BookRequest.last.id + 10, page: page
         }
       end
 
@@ -80,7 +84,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       end
 
       it "redirect to user's book requests index page" do
-        expect(subject).to redirect_to(path)
+        expect(subject).to redirect_to(request.referrer)
       end
     end
   end
