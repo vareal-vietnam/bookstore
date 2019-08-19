@@ -1,5 +1,7 @@
 class BookRequestsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit update destroy]
+  before_action :find_and_assign_book_request, only: %i[show]
+
   def new
     @book_request = BookRequest.new
   end
@@ -18,6 +20,12 @@ class BookRequestsController < ApplicationController
   def index
     @book_requests =
       BookRequest.order(created_at: :desc).page(params[:page]).per(16)
+  end
+
+  def show
+    path = "#{book_requests_url}?page=#{params[:page]}"
+    set_flash_and_redirect(:danger, t('book_requests.not_exist'), path) unless
+      @book_request
   end
 
   private

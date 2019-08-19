@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 div-image">
+      <div>
+        <div class="row">
+          <%= render partial: 'images', locals: { images: @book_request.book_request_images } %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 detail">
+      <h4><%= @book_request.name %></h4>
+      <p><%= t('book_request.quantity') %>: 1</p>
+      <p><%= t('book_request.budget') %>: 0</p>
+      <% if current_user&.id == @book_request.user_id %>
+        <%= link_to '', edit_user_book_request_path(current_user, @book_request), class: "glyphicon glyphicon-edit"%>
+      <% end %>
+    </div>
+    <div class="col-md-3 user-info">
+      <h4><%= @book_request.buyer_name %></h4>
+      <img src= "<%= @book_request.buyer_avatar %>" class="user-avatar">
+      <h4><%= t('user.phone', phone: @book_request.buyer_phone) %> </h4>
+      <h4><%= t('user.address', address: @book_request.buyer_address) %> </h4>
+    </div>
+  </div>
+  <hr>
+  <h4><%= t('book_request.comment') %>:</h4>
+  <p><%= @book_request.comment %></p>
+</div>

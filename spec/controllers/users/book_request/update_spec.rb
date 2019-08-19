@@ -51,7 +51,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       it 'redirect to view detail' do
         subject
         expect(subject)
-          .to redirect_to(user_book_request_url(current_user, book_request))
+          .to redirect_to(book_request_url(book_request))
       end
     end
 
@@ -82,7 +82,7 @@ RSpec.describe Users::BookRequestsController, type: :controller do
       it 'redirect to view detail' do
         subject
         expect(subject)
-          .to redirect_to(user_book_request_url(current_user, book_request))
+          .to redirect_to(book_request_url(book_request))
       end
     end
   end

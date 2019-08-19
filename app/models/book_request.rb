@@ -1,7 +1,7 @@
 class BookRequest < ApplicationRecord
   belongs_to :user
   has_many :book_request_images, dependent: :destroy
-  delegate :name, to: :user, prefix: :buyer
+  delegate :name, :avatar, :phone, :address, to: :user, prefix: :buyer
   validates :name, presence: true
   validates :quantity, presence: true,
                        numericality:

@@ -108,6 +108,9 @@ en:
         remove_book: "Remove"
         update: "Update"
         confirm_delete: "Permanently remove book?"
+    book_requests:
+      list:
+        confirm_delete: "Delete this book request?"
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -171,9 +174,13 @@ en:
       success: "A new book request created"
     update:
       success: "Your book request updated"
+    not_exist: "Book request not exist"
 
-  warning:
-    user_not_exist: "User not exist"
-    book_request_not_exist: "Book request not exist"
-    need_log_in: "Please log in"
-    not_permission: "Not enough permission"
+  require:
+    log_in: "Please log in"
+    permission: "Not enough permission"
+
+  action:
+    delete:
+      success: "Delete successfully!"
+      fail: "Delete not successfully!"
