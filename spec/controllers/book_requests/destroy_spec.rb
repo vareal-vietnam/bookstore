@@ -6,6 +6,13 @@ RSpec.describe BookRequestsController, type: :controller do
   let(:path) { "#{user_book_requests_url(current_user)}?page=#{page}" }
 
   describe '#destroy' do
+    let!(:book_request) do
+      book_request = create(:book_request, user_id: current_user.id)
+      3.times do
+        create(:book_request_image, book_request_id: book_request.id)
+      end
+      book_request
+    end
     before do
       20.times do
         create(:book_request)
@@ -15,14 +22,6 @@ RSpec.describe BookRequestsController, type: :controller do
     end
 
     context 'book request is found' do
-      let!(:book_request) do
-        book_request = create(:book_request, user_id: current_user.id)
-        3.times do
-          create(:book_request_image, book_request_id: book_request.id)
-        end
-        book_request
-      end
-
       subject do
         delete :destroy, params: {
           id: book_request.id, page: page
@@ -71,13 +70,18 @@ RSpec.describe BookRequestsController, type: :controller do
     end
 
     context 'book request is not found' do
-      before do
+      subject do
         delete :destroy, params: {
-          id: BookRequest.last.id + 10, page: page
+          id: book_request.id, page: page
         }
       end
 
+      before do
+        allow(BookRequest).to receive(:find_by).with(anything).and_return(nil)
+      end
+
       it 'return book request not exist flash' do
+        subject
         expect(flash.count).to equal(1)
         expect(flash[:danger])
           .to eql(I18n.t('book_requests.not_exist'))

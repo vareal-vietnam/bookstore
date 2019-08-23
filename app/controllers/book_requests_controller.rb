@@ -53,7 +53,6 @@ class BookRequestsController < ApplicationController
 
   def destroy
     path = request.referrer
-    # binding.pry
     if @book_request
       if @book_request.destroy
         set_flash_and_redirect(:success, t('action.delete.success'), path)

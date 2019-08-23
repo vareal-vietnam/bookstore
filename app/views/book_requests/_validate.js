@@ -1,4 +1,3 @@
-
 $("#new_book_request").validate({
   errorPlacement: function (error, element) {
     error.addClass('validate-message')
