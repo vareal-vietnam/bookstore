@@ -47,16 +47,18 @@ a {
 
 /* header */
 
-#logo {
+.logo {
   float: left;
-  font-size: 1.5em;
-  color: #ffffff;
+  font-size: 1.2em;
+  color: #666666;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  margin-left: 10px;
   &:hover {
     text-decoration: none;
+    color: #ffffff;
   }
 }
 
@@ -94,11 +96,6 @@ a {
   margin:auto;
 }
 
-.book-request-image {
-  width: 100px;
-  height: 200px;
-}
-
 .book-request-content {
   margin-top: 10px;
   padding: 5px;
@@ -108,11 +105,11 @@ a {
     display:block;
     margin:left;
     width: 186px;
-    height: auto;
+    height: 279px;
 }
 
 .book-request-name {
-  font: italic bold 12px/30px Georgia;
+  font: italic bold 14px/30px Georgia;
 }
 
 .book-request {
@@ -123,7 +120,7 @@ a {
 }
 
 .book-request-detail{
-  font-size: 1.25rem;
+  font-size: 1.35rem;
 }
 
 .checkbox {
@@ -162,7 +159,6 @@ a {
 .my-book-requests {
   margin-left: 50px;
 }
-
-.required {
+.required{
   color: red;
 }

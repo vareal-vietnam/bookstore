@@ -3,14 +3,19 @@
     <div class="row">
       <div class="col-sm-1"></div>
       <div class="col-sm-1">
-        <%= link_to "BOOKSTORE",root_path, id: "logo" %>
+        <%= link_to t('.books'),root_path, class: "logo" %>
       </div>
-      <div class="col-sm-2"></div>
+      <div class="col-sm-2">
+        <%= link_to t('.book_requests'),book_requests_path, class: "logo" %>
+      </div>
+      
       <div class="col-sm-7">
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li><%= link_to t('.post_for_sell'), new_book_path %></li>
+            <li><%= link_to t('.post_for_buy'), new_book_request_path %></li>
             <li><%= link_to t('.user_books'), user_books_path(current_user) %></li>
+            <li><%= link_to t('.user_book_requests'), user_book_requests_path(current_user) %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <%= current_user.name %> <b class="caret"></b>

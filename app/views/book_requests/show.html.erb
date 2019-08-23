@@ -1,28 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 div-image">
-      <div>
-        <div class="row">
-          <%= render partial: 'images', locals: { images: @book_request.book_request_images } %>
-        </div>
+    <div class="col-md-4 images-div">
+      <div class="row">
+        <%= render partial: 'images', locals: { images: @book_request.book_request_images } %>
       </div>
     </div>
     <div class="col-md-4 detail">
       <h4><%= @book_request.name %></h4>
-      <p><%= t('book_request.quantity') %>: 1</p>
-      <p><%= t('book_request.budget') %>: 0</p>
+      <p><%= t('book_request.quantity') %>: <%= @book_request.quantity %></p>
+      <p><%= t('book_request.budget') %>: <%= number_to_currency(@book_request.budget) %></p>
       <% if current_user&.id == @book_request.user_id %>
-        <%= link_to '', edit_user_book_request_path(current_user, @book_request), class: "glyphicon glyphicon-edit"%>
+        <%= link_to '', edit_book_request_path(@book_request), class: "glyphicon glyphicon-edit"%>
       <% end %>
     </div>
     <div class="col-md-3 user-info">
       <h4><%= @book_request.buyer_name %></h4>
       <img src= "<%= @book_request.buyer_avatar %>" class="user-avatar">
-      <h4><%= t('user.phone', phone: @book_request.buyer_phone) %> </h4>
-      <h4><%= t('user.address', address: @book_request.buyer_address) %> </h4>
+      <% if current_user %>
+        <h4><%= t('user.phone', phone: @book_request.buyer_phone) %> </h4>
+        <h4><%= t('user.address', address: @book_request.buyer_address) %> </h4>
+      <% else %>
+        <div>
+          <p><%= t('user.login_required') %></p>
+          <%= link_to t('layouts.header.login'), login_path_with_previous_redirect, class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
   <hr>
-  <h4><%= t('book_request.comment') %>:</h4>
-  <p><%= @book_request.comment %></p>
+  <% if @book_request.comment.present? %>
+    <h4><%= t('book_request.comment') %></h4>
+    <p><%= @book_request.comment %></p>
+  <% end %>
 </div>

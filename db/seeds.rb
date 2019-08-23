@@ -40,7 +40,7 @@ end
     phone: generate_phone_number,
     remote_avatar_url: generate_image_url(600, 600)
   )
-  5.times do
+  10.times do
     book = Book.create!(
       name: Faker::Book.title,
       price: rand(10..999),
@@ -61,7 +61,7 @@ end
       comment: Faker::Lorem.paragraph(10),
       user_id: user.id
     )
-    2.times do
+    rand(1..5).times do
       book_request.book_request_images.create!(remote_file_url: generate_image_url(600, 900))
     end
   end
@@ -72,8 +72,8 @@ end
       quantity: rand(1..20),
       comment: Faker::Lorem.sentence
     )
-    2.times do
+    rand(1..5).times do
       book_request.book_request_images.create!(remote_file_url: generate_image_url(600, 900))
     end
-end
+  end
 end
