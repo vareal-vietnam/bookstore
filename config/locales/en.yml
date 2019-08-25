@@ -113,7 +113,7 @@ en:
         update: "Update"
         confirm_delete: "Permanently remove book?"
     book_requests:
-      
+
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -196,11 +196,13 @@ en:
     email: "Email"
     phone: "Phone number"
     password: "Password"
+    password_confirmation: "Password_confirmation"
     submit: "Continue"
     expired: "Password reset has expired"
     sucess: "Password reset successfully!"
-    empty: "Password can't be blank"
-    
+    password_empty: "Password can't be blank"
+    passwor_not_match: "Password not match"
+
   mailer:
     title: "Click below link to reset password"
-    warning: "The link will expire after 20 minutes" 
+    warning: "The link will expire after 20 minutes"

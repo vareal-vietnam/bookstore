@@ -44,6 +44,7 @@ class BooksController < ApplicationController
   end
 
   def show
+    binding.pry
     return if @book.present?
 
     flash[:danger] = t('not_found')

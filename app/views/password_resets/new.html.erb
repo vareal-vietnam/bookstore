@@ -11,12 +11,12 @@
       <%= f.label t('password_reset.email') %><span class="required">*</span>
       <%= f.email_field :email, class: 'form-control' %>
      </div>
-     <div class='form-group'> 
+     <div class='form-group'>
       <%= f.submit "Submit", class: "btn btn-primary" %>
      </div>
     <% end %>
     <script type="text/javascript">
       <%= render partial: 'validate.js' %>
-  </script>
+    </script>
   </div>
 </div>
