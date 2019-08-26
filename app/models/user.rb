@@ -21,9 +21,10 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def generate_user_digest(string)
-    user_digest = BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
-    user_digest.split('.').join()
+  def generate_digest(string)
+    user_digest =
+      BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
+    user_digest.split('.').join
   end
 
   def generate_user_new_token
@@ -32,7 +33,7 @@ class User < ApplicationRecord
 
   def generate_remember_token!
     self.remember_token = generate_user_new_token
-    update_attribute(:remember_digest, generate_user_digest(remember_token))
+    update_attribute(:remember_digest, generate_digest(remember_token))
   end
 
   def authenticated?(token)
@@ -51,7 +52,8 @@ class User < ApplicationRecord
   end
 
   def send_password_reset(phone, email)
-    update_attribute(:password_reset_token, generate_user_digest(password_reset_token))
+    digest_value = generate_digest(password_reset_token)
+    update_attribute(:password_reset_token, digest_value)
     update_attribute(:password_reset_sent_at, Time.zone.now)
     UserMailer.password_reset(phone, email).deliver
   end

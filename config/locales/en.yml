@@ -78,7 +78,6 @@ en:
     removed: "The book has been removed"
     removed_fail: "The book fails to be removed"
 
-
   user:
     name: "Seller: %{name}"
     phone: "Phone: %{phone}"
@@ -201,8 +200,11 @@ en:
     expired: "Password reset has expired"
     sucess: "Password reset successfully!"
     password_empty: "Password can't be blank"
-    passwor_not_match: "Password not match"
+    password_not_match: "Password not match"
+    fail: "Reset password fail!"
+    password_to_short: "Password too short"
 
   mailer:
     title: "Click below link to reset password"
-    warning: "The link will expire after 20 minutes"
+    warning: "The link will expire after 2 hours"
+    subject: "Password Reset"
