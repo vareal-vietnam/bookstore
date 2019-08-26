@@ -36,6 +36,7 @@ en:
       post_for_buy: "New book request"
 
   not_found: "Page not found"
+  forgot_password: "Forgotten password?"
 
   views:
     pagination:
@@ -112,7 +113,7 @@ en:
         update: "Update"
         confirm_delete: "Permanently remove book?"
     book_requests:
-      
+
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -156,6 +157,7 @@ en:
     name: "Name"
     address: "Address"
     password: "Password"
+    not_exist: "User not exist"
 
   shared:
     error_messages:
@@ -188,3 +190,18 @@ en:
     delete:
       success: "Delete successfully!"
       fail: "Delete not successfully!"
+
+  password_reset:
+    title: "Forgot password"
+    email: "Email"
+    phone: "Phone number"
+    password: "Password"
+    password: "Password confirmation"
+    submit: "Continue"
+    expired: "Password reset has expired"
+    sucess: "Password reset successfully!"
+    empty: "Password can't be blank"
+
+  mailer:
+    title: "Click below link to reset password"
+    warning: "The link will expire after 20 minutes"
