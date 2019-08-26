@@ -208,3 +208,8 @@ en:
     title: "Click below link to reset password"
     warning: "The link will expire after 2 hours"
     subject: "Password Reset"
+    password: "Password confirmation"
+    submit: "Continue"
+    expired: "Password reset has expired"
+    sucess: "Password reset successfully!"
+    empty: "Password can't be blank"
