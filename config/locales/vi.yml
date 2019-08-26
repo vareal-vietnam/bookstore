@@ -209,6 +209,7 @@ vi:
     password_not_match: "Mật khẩu không trùng nhau"
     fail: "Tạo mới mật khẩu thất bại"
     password_to_short: "Mật khẩu quá ngắn"
+    notify: "Kiểm tra email để tạo mới mật khẩu"
 
   mailer:
     title: "Click đường link phía dưới để tạo mới mật khẩu"
