@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
   resources :users, only: %i[new create show edit update] do
     resources :book_requests, controller: 'users/book_requests'
     resources :books, controller: 'users/books'

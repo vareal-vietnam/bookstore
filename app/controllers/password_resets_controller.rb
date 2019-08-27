@@ -2,6 +2,7 @@ class PasswordResetsController < ApplicationController
   before_action :get_user, only: %i[edit update]
   before_action :check_expiration, only: %i[edit update]
   before_action :check_user_exist, only: %i[create]
+  before_action :check_password_match, only: %i[update]
 
   def create
     @user.send_password_reset(@user.phone, params[:password_reset][:email])
@@ -9,14 +10,12 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
-    if password_match?
-      flash[:danger] = t('password_reset.password_not_match')
-      render 'edit'
-    elsif @user.update_attributes(user_params)
+    if @user.update_attributes(user_params)
       @user.update_attribute(:password_reset_token, nil)
       set_flash_and_redirect(:success, t('password_reset.sucess'), root_path)
     else
-      render 'edit'
+      flash[:danger] = t('password_reset.error')
+      render('edit')
     end
   end
 
@@ -38,10 +37,13 @@ class PasswordResetsController < ApplicationController
       @user
   end
 
-  def password_match?
-    password_confirmation = params[:user][:password_confirmation]
-    password = params[:user][:password]
-    !password_confirmation.eql?(password)
+  def check_password_match
+    password_confirmation = user_params[:password_confirmation]
+    password = user_params[:password]
+    return if password_confirmation.eql?(password)
+
+    flash[:danger] = t('password_reset.password_not_match')
+    render('edit') && return
   end
 
   def check_user_exist
