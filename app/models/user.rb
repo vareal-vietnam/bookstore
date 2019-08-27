@@ -22,9 +22,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   def generate_digest(string)
-    user_digest =
-      BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
-    user_digest.split('.').join
+    BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
   end
 
   def generate_user_new_token
