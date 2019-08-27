@@ -158,6 +158,7 @@ vi:
     name: "Nhập tên"
     address: "Nhập địa chỉ"
     password: "Nhập mật khẩu"
+    existed: "Tài khoản đã tồn tại"
 
   shared:
     error_messages:
