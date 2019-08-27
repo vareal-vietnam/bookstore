@@ -36,6 +36,7 @@ en:
       post_for_buy: "New book request"
 
   not_found: "Page not found"
+  forgot_password: "Forgotten password?"
 
   views:
     pagination:
@@ -77,7 +78,6 @@ en:
     removed: "The book has been removed"
     removed_fail: "The book fails to be removed"
 
-
   user:
     name: "Seller: %{name}"
     phone: "Phone: %{phone}"
@@ -112,7 +112,7 @@ en:
         update: "Update"
         confirm_delete: "Permanently remove book?"
     book_requests:
-      
+
     show:
       user_not_exist: "User is not existed"
       update: "Update Info"
@@ -156,6 +156,7 @@ en:
     name: "Name"
     address: "Address"
     password: "Password"
+    not_exist: "User not exist"
 
   shared:
     error_messages:
@@ -188,3 +189,28 @@ en:
     delete:
       success: "Delete successfully!"
       fail: "Delete not successfully!"
+
+  password_reset:
+    title: "Forgot password"
+    email: "Email"
+    phone: "Phone number"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    submit: "Continue"
+    expired: "Password reset has expired"
+    sucess: "Password reset successfully!"
+    password_empty: "Password can't be blank"
+    password_not_match: "Password not match"
+    fail: "Reset password fail!"
+    password_to_short: "Password too short"
+    notify: "Check your email to reset your password"
+
+  mailer:
+    title: "Click below link to reset password"
+    warning: "The link will expire after 2 hours"
+    subject: "Password Reset"
+    password: "Password confirmation"
+    submit: "Continue"
+    expired: "Password reset has expired"
+    sucess: "Password reset successfully!"
+    empty: "Password can't be blank"
