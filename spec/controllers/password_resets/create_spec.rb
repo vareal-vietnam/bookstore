@@ -7,9 +7,10 @@ RSpec.describe PasswordResetsController, type: :controller do
     let(:password_reset) do
       password_reset = { phone: user.phone, email: email }
     end
+
     subject do
-        post :create, params: { password_reset: password_reset }
-      end
+      post :create, params: { password_reset: password_reset }
+    end
 
     context 'User exist' do
       it 'return notify flash' do
@@ -25,7 +26,6 @@ RSpec.describe PasswordResetsController, type: :controller do
 
     context 'User not exist' do
       before { allow(User).to receive(:find_by).with(anything).and_return(nil) }
-
       it 'Return user not exist flash' do
         subject
         expect(flash.count).to eql(1)
