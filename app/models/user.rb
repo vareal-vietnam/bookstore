@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def generate_user_new_token
-    SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64.split('.').join
   end
 
   def generate_remember_token!
@@ -52,8 +52,8 @@ class User < ApplicationRecord
   end
 
   def send_password_reset(phone, email)
-    digest_value = generate_digest(password_reset_token)
-    update_attribute(:password_reset_token, digest_value)
+    token_value = generate_user_new_token
+    update_attribute(:password_reset_token, token_value)
     update_attribute(:password_reset_sent_at, Time.zone.now)
     UserMailer.password_reset(phone, email).deliver
   end

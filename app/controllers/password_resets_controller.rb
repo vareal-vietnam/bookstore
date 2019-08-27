@@ -9,10 +9,12 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    binding.pry
     if password_match?
       flash[:danger] = t('password_reset.password_not_match')
       render 'edit'
     elsif @user.update_attributes(user_params)
+      binding.pry
       @user.update_attribute(:password_reset_token, nil)
       set_flash_and_redirect(:success, t('password_reset.sucess'), root_path)
     else
@@ -28,12 +30,13 @@ class PasswordResetsController < ApplicationController
 
   def check_expiration
     path = new_password_reset_path
-    set_flash_and_redirect(:danger, t('password_reset.expried'), path) unless
+    set_flash_and_redirect(:danger, t('password_reset.expired'), path) unless
       @user.password_reset_expired?
   end
 
   def get_user
     @user = User.find_by(password_reset_token: params[:id])
+    return if @user
     set_flash_and_redirect(:danger, t('users.not_exist'), root_path) unless
       @user
   end
@@ -47,7 +50,6 @@ class PasswordResetsController < ApplicationController
   def check_user_exist
     @user = User.find_by(phone: params[:password_reset][:phone])
     return if @user
-
     flash[:danger] = t('users.not_exist')
     render('new') && return
   end
