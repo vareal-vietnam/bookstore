@@ -35,6 +35,7 @@ vi:
       post_for_buy: "Tạo yêu cầu"
 
   not_found: "Không thể hiển thị trang yêu cầu"
+  forgot_password: "Quên mật khẩu?"
 
   views:
     pagination:
@@ -159,6 +160,7 @@ vi:
     address: "Nhập địa chỉ"
     password: "Nhập mật khẩu"
     existed: "Tài khoản đã tồn tại"
+    not_exist: "Tài khoản không tồn tại"
 
   shared:
     error_messages:
@@ -195,3 +197,18 @@ vi:
     delete:
       success: "Xóa thành công!"
       not_success: "Xóa không thành công!"
+
+  password_reset:
+    title: "Quên mật khẩu"
+    email: "Email"
+    phone: "Số điện thoại"
+    submit: "Tiếp tục"
+    password: "Mật khẩu"
+    password: "Xác nhận nhận mật khẩu"
+    expired: "Phiên đổi mật khẩu hết hạn"
+    sucess: "Tạo mới mật khẩu thành công!"
+    empty: "Mật khẩu không được để trống"
+
+  mailer:
+    title: "Click đường link phía dưới để tạo mới mật khẩu"
+    warning: "Đường dẫn sẽ hết hạn sau 20 phút"
