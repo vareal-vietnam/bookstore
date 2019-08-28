@@ -4,11 +4,11 @@ RSpec.describe PasswordResetsController, type: :controller do
   describe '#create' do
     let(:email) { 'ba@gmail.com' }
     let!(:user) { create(:user) }
-    let(:password_reset) do
-      password_reset = { phone: user.phone, email: email }
-    end
+    let(:password_reset) { { phone: user.phone, email: email } }
 
     subject do
+      allow(ENV).to receive(:[])
+        .with('HOST_URL').and_return('bookstorevareal-test.herokuapp.com')
       post :create, params: { password_reset: password_reset }
     end
 

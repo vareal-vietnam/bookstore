@@ -1,19 +1,25 @@
 require 'rails_helper'
 
 RSpec.describe PasswordResetsController, type: :controller do
-  let(:token) {  SecureRandom.urlsafe_base64.split('.').join }
-  let(:request_sent_at) { Time.zone.now }
+  let(:token) { SecureRandom.urlsafe_base64.split('.').join }
+  let(:request_at) { Time.zone.now }
   let!(:user) { create(:user) }
   describe '#edit' do
     subject do
-      get :edit, params: {id: token}
+      get :edit, params: { id: token }
     end
 
-    before { user.update_attribute(:password_reset_token, token) }
+    before do
+      user.update_attribute(:password_reset_token, token)
+      allow(ENV).to receive(:[])
+        .with('HOST_URL').and_return('bookstorevareal-test.herokuapp.com')
+    end
 
     context 'User is found' do
       context 'The url is unexpire' do
-        before { user.update_attribute(:password_reset_sent_at, request_sent_at) }
+        before do
+          user.update_attribute(:password_reset_sent_at, request_at)
+        end
 
         it 'Render edit template' do
           expect(subject).to render_template(:edit)
@@ -21,12 +27,14 @@ RSpec.describe PasswordResetsController, type: :controller do
       end
 
       context 'User is expire' do
-        before { user.update_attribute(:password_reset_sent_at, request_sent_at - 2.5.hours) }
+        before do
+          user.update_attribute(:password_reset_sent_at, request_at - 2.5.hours)
+        end
 
         it 'Return expired flash' do
           subject
           expect(flash.count).to eql(1)
-          expect(flash[:danger]).to eql(I18n.t('password_reset.expired'))
+          expect(flash[:danger]).to eql(I18n.t('password_reset.expried'))
         end
       end
     end

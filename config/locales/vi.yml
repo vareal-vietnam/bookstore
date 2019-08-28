@@ -204,7 +204,6 @@ vi:
     phone: "Số điện thoại"
     submit: "Tiếp tục"
     password: "Mật khẩu"
-    expired: "Phiên đổi mật khẩu hết hạn"
     sucess: "Tạo mới mật khẩu thành công!"
     password_empty: "Mật khẩu không được để trống"
     password_not_match: "Mật khẩu không trùng nhau"
