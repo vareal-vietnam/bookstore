@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="col-md-4 detail">
-      <h4><%= @book_request.name %></h4>
+      <h4 class="book-request-name"><%= @book_request.name %></h4>
       <p><%= t('book_request.quantity') %>: <%= @book_request.quantity %></p>
       <p><%= t('book_request.budget') %>: <%= number_to_currency(@book_request.budget) %></p>
       <% if current_user&.id == @book_request.user_id %>

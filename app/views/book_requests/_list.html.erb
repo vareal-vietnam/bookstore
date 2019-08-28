@@ -5,7 +5,7 @@
         <img src="<%= get_thumb_url(book_request) %>
           "alt = "Book's cover" class="book-request-image">
         <div class="col-md-12 book-request-content" >
-          <p class="book-request-name"> <%= truncate(book_request.name, length: 25) %></p>
+         <h4 class="book-title"><span title="<%= book_request.name %>"><%= book_request.name %></span>h4>
           <p class="book-request-detail"><%=t('book_request.buyer') %>: <%= book_request.buyer_name %></p>
           <p class="book-request-detail"><%= t('book_request.quantity') %>: <%= book_request.quantity %>
           </p>
