@@ -29,6 +29,13 @@ $(function() {
     $('#img_prev').attr('src', defaultURL);
   });
 
+  $("#avatar-upload").change(function(){
+    if(!isImage(this.files[0])){
+      resetUploader("#avatar-upload")
+      alert("Input files must be image type!");
+    }
+  });
+
   function isImage(file){
     return file.type.includes("image")
   }

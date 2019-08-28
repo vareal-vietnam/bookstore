@@ -21,17 +21,17 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
 
-  def generate_user_digest(string)
+  def generate_digest(string)
     BCrypt::Password.create(string, cost: BCrypt::Engine::DEFAULT_COST)
   end
 
   def generate_user_new_token
-    SecureRandom.urlsafe_base64
+    SecureRandom.urlsafe_base64.split('.').join
   end
 
   def generate_remember_token!
     self.remember_token = generate_user_new_token
-    update_attribute(:remember_digest, generate_user_digest(remember_token))
+    update_attribute(:remember_digest, generate_digest(remember_token))
   end
 
   def authenticated?(token)
@@ -47,5 +47,16 @@ class User < ApplicationRecord
   def strip_whitespace
     self.name = name.strip unless name.nil?
     self.address = address.strip unless address.nil?
+  end
+
+  def send_password_reset(phone, email)
+    token_value = generate_user_new_token
+    update_attribute(:password_reset_token, token_value)
+    update_attribute(:password_reset_sent_at, Time.zone.now)
+    UserMailer.password_reset(phone, email).deliver
+  end
+
+  def password_reset_expired?
+    Time.zone.now - password_reset_sent_at < 2.hours
   end
 end
