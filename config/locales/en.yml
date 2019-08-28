@@ -156,6 +156,7 @@ en:
     name: "Name"
     address: "Address"
     password: "Password"
+    existed: "Account existed"
     not_exist: "User not exist"
 
   shared:

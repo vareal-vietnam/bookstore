@@ -159,6 +159,7 @@ vi:
     name: "Nhập tên"
     address: "Nhập địa chỉ"
     password: "Nhập mật khẩu"
+    existed: "Tài khoản đã tồn tại"
     not_exist: "Tài khoản không tồn tại"
 
   shared:
