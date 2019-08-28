@@ -29,17 +29,10 @@ $(function() {
     $('#img_prev').attr('src', defaultURL);
   });
 
-  $("#avatar-upload").change(function(){
-    if(!isImage(this)){
-      resetUploader("#avatar-upload")
-      alert("Input files must be image type!");
-    }
-  });
-
   function isImage(file){
     return file.type.includes("image")
   }
-  
+
   function resetUploader(uploadId){
     $(uploadId).wrap('<form>').closest('form').get(0).reset();
     $(uploadId).unwrap();
