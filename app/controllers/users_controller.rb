@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :validate_user, only: %i[show edit]
   before_action :authenticate, only: :update
+  before_action :check_user_exist, only: :create
 
   def show
     @books = current_user.books
@@ -64,5 +65,13 @@ class UsersController < ApplicationController
 
     flash.now[:danger] = t('.password_incorect')
     render 'edit'
+  end
+
+  def check_user_exist
+    @user = User.find_by(phone: params[:user][:phone])
+    return unless @user
+
+    flash[:danger] = t('users.existed')
+    render('new') && return
   end
 end

@@ -109,7 +109,8 @@ a {
 }
 
 .book-request-name {
-  font: italic bold 14px/30px Georgia;
+  font: italic bold Arial;
+  word-wrap: break-word;
 }
 
 .book-request {
