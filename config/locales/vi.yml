@@ -204,14 +204,13 @@ vi:
     phone: "Số điện thoại"
     submit: "Tiếp tục"
     password: "Mật khẩu"
-    expired: "Phiên đổi mật khẩu hết hạn"
     sucess: "Tạo mới mật khẩu thành công!"
     password_empty: "Mật khẩu không được để trống"
     password_not_match: "Mật khẩu không trùng nhau"
     fail: "Tạo mới mật khẩu thất bại"
     password_to_short: "Mật khẩu quá ngắn"
     notify: "Kiểm tra email để tạo mới mật khẩu"
-    expried: "Đường dẫn không hợp lệ"
+    invalid_url: "Đường dẫn không hợp lệ"
     error: "Có lỗi xảy ra, vui lòng thử lại"
 
   mailer:
