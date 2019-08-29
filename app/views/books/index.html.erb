@@ -7,5 +7,5 @@
     <%= paginate @books %>
   </div>
 <% else %>
-  <%= render 'empty' %>
+  <%= render partial: 'shared/list_empty', locals: { message: t('books.empty.empty_notification'), title: t('books.empty.link_to_new_book'), path: new_book_path } %>
 <% end %>

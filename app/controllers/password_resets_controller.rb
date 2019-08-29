@@ -18,11 +18,15 @@ class PasswordResetsController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:user).permit(:password, :password_confirmation)
+  def new
+    redirect_to root_path if current_user
   end
 
   private
+
+  def user_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
 
   def check_valid_url
     @user = User.find_by(password_reset_token: params[:id])

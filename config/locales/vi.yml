@@ -181,7 +181,8 @@ vi:
       create_new: "Tạo yêu cầu"
     not_exist: "Người dùng không tồn tại"
     list:
-        confirm_delete: "Delete this book request?"
+      confirm_delete: "Xóa yêu cầu này?"
+      empty: "Không có yêu cầu nào để hiển thị"
 
   datetime:
     distance_in_words:

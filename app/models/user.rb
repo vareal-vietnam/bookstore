@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def generate_user_new_token
-    SecureRandom.urlsafe_base64.split('.').join
+    SecureRandom.urlsafe_base64
   end
 
   def generate_remember_token!
