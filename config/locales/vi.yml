@@ -98,6 +98,7 @@ vi:
       password: "Mật khẩu"
       sign_in_now: "Đăng nhập"
       remember_me: "Ghi nhớ người dùng"
+      forgot_password: "Quên mật khẩu?"
 
     create:
       success_login: "Đăng nhập thành công"
@@ -181,7 +182,8 @@ vi:
       create_new: "Tạo yêu cầu"
     not_exist: "Người dùng không tồn tại"
     list:
-        confirm_delete: "Delete this book request?"
+      confirm_delete: "Xóa yêu cầu này?"
+      empty: "Không có yêu cầu nào để hiển thị"
 
   datetime:
     distance_in_words:
@@ -210,7 +212,7 @@ vi:
     fail: "Tạo mới mật khẩu thất bại"
     password_to_short: "Mật khẩu quá ngắn"
     notify: "Kiểm tra email để tạo mới mật khẩu"
-    expried: "Đường dẫn không hợp lệ"
+    invalid_url: "Đường dẫn không hợp lệ"
     error: "Có lỗi xảy ra, vui lòng thử lại"
 
   mailer:

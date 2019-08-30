@@ -30,7 +30,7 @@ $(function() {
   });
 
   $("#avatar-upload").change(function(){
-    if(!isImage(this)){
+    if(!isImage(this.files[0])){
       resetUploader("#avatar-upload")
       alert("Input files must be image type!");
     }
@@ -39,7 +39,7 @@ $(function() {
   function isImage(file){
     return file.type.includes("image")
   }
-  
+
   function resetUploader(uploadId){
     $(uploadId).wrap('<form>').closest('form').get(0).reset();
     $(uploadId).unwrap();

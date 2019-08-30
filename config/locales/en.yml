@@ -51,6 +51,7 @@ en:
       file_input_warning: "(Image file must be less than 3MB)"
     empty:
       empty_notification: "Have no books to show."
+      link_to_new_book: "Create new book"
     edit_button: "Edit book"
     index:
       seller_name: "Seller"
@@ -97,6 +98,7 @@ en:
       password: "Password"
       sign_in_now: "Sign In "
       remember_me: "Remember me on this computer"
+      forgot_password: "Forgot password?"
 
     create:
       success_login: "Success Logged In"
@@ -165,7 +167,7 @@ en:
     doesn't match Password: "Password confirmation doesn't match password"
 
   book_request:
-    create: "Create book request"
+    create: "Create new book request"
     name: "Book's title"
     budget: "Budget"
     quantity: "Quantity"
@@ -180,7 +182,8 @@ en:
       success: "Your book request updated"
     not_exist: "Book request not exist"
     list:
-        confirm_delete: "Delete this book request?"
+      confirm_delete: "Delete this book request?"
+      empty: "Have no book request to show"
 
   require:
     log_in: "Please log in"
@@ -204,7 +207,7 @@ en:
     fail: "Reset password fail!"
     password_to_short: "Password too short"
     notify: "Check your email to reset your password"
-    expried: "The link is invalid"
+    invalid_url: "The url is invalid"
     error: "An error occured, please check again"
 
   mailer:
