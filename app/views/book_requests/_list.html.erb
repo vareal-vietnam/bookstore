@@ -5,8 +5,8 @@
         <img src="<%= get_thumb_url(book_request) %>
           "alt = "Book's cover" class="book-request-image">
         <div class="col-md-12 book-request-content" >
-         <h4 class="book-title"><span title="<%= book_request.name %>"><%= book_request.name %></span></h4>
-          <p class="book-request-detail book-request-buyer"><%=t('book_request.buyer') %>: <%= book_request.buyer_name %></p>
+          <h4 class="title"><span title="<%= book_request.name %>"><%= book_request.name %></span></h4>
+          <p class="book-request-detail title"><%= t('book_request.buyer') %>: <span title="<%= book_request.buyer_name %>"><%= book_request.buyer_name %></span></p>
           <p class="book-request-detail"><%= t('book_request.quantity') %>: <%= book_request.quantity %></p>
           <p class="book-request-detail"><%= t('book_request.budget') %>: <%= number_to_currency(book_request.budget) %></p>
           <% if current_user && current_page?(user_book_requests_path(current_user)) %>
