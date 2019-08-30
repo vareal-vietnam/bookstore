@@ -98,6 +98,7 @@ en:
       password: "Password"
       sign_in_now: "Sign In "
       remember_me: "Remember me on this computer"
+      forgot_password: "Forgot password?"
 
     create:
       success_login: "Success Logged In"

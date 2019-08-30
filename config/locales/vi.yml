@@ -98,6 +98,7 @@ vi:
       password: "Mật khẩu"
       sign_in_now: "Đăng nhập"
       remember_me: "Ghi nhớ người dùng"
+      forgot_password: "Quên mật khẩu?"
 
     create:
       success_login: "Đăng nhập thành công"
