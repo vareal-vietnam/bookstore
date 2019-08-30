@@ -216,6 +216,5 @@ en:
     subject: "Password Reset"
     password: "Password confirmation"
     submit: "Continue"
-    expired: "Password reset has expired"
     sucess: "Password reset successfully!"
     empty: "Password can't be blank"
