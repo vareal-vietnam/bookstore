@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.3'
+ruby '2.7.3'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ransack'
@@ -22,6 +22,13 @@ gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'rmagick'
 gem 'fog-google'
 gem "jquery-validation-rails"
+
+
+gem 'capistrano'
+gem 'capistrano3-puma'
+gem 'capistrano-rails', require: false
+gem 'capistrano-bundler', require: false
+gem 'capistrano-rbenv'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
